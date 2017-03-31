@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and abstract="true" mandatory="true" name="Hotelaria">
+				<feature mandatory="true" name="Pagamento">
+					<description>
+						Pagamento
+					</description>
+				</feature>
+				<and mandatory="true" name="Dados">
+					<feature mandatory="true" name="Login"/>
+					<and name="Cliente">
+						<feature name="Hospede"/>
+						<feature name="Acompanhante"/>
+					</and>
+					<feature mandatory="true" name="Funcionário"/>
+					<feature mandatory="true" name="Estabelecimento"/>
+				</and>
+				<and mandatory="true" name="Acomodação">
+					<feature name="Espaço"/>
+					<feature name="Quarto Público"/>
+					<feature name="Quarto Privado"/>
+				</and>
+				<and mandatory="true" name="Conta">
+					<feature mandatory="true" name="Consumo"/>
+					<feature name="Serviços"/>
+					<feature mandatory="true" name="Checkin"/>
+					<feature mandatory="true" name="Checkout"/>
+				</and>
+				<and name="Reserva">
+					<feature name="Com Pagamento"/>
+					<feature name="Sem Pagamento"/>
+				</and>
+			</and>
+		</struct>
+		<constraints/>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
