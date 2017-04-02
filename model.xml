@@ -3,11 +3,18 @@
 		<properties/>
 		<struct>
 			<and abstract="true" mandatory="true" name="Hotelaria">
-				<feature mandatory="true" name="Pagamento">
+				<or mandatory="true" name="Pagamento">
 					<description>
 						Pagamento
 					</description>
-				</feature>
+					<alt mandatory="true" name="CartaoCredito">
+						<feature mandatory="true" name="Visa"/>
+						<feature mandatory="true" name="Mastercard"/>
+						<feature mandatory="true" name="Elo"/>
+					</alt>
+					<feature mandatory="true" name="CartaoDebito"/>
+					<feature mandatory="true" name="Dinheiro"/>
+				</or>
 				<and mandatory="true" name="Dados">
 					<feature mandatory="true" name="Login"/>
 					<and name="Cliente">
@@ -28,13 +35,20 @@
 					<feature mandatory="true" name="Checkin"/>
 					<feature mandatory="true" name="Checkout"/>
 				</and>
-				<and name="Reserva">
-					<feature name="Com Pagamento"/>
-					<feature name="Sem Pagamento"/>
-				</and>
+				<alt name="Reserva">
+					<feature mandatory="true" name="Com Pagamento"/>
+					<feature mandatory="true" name="Sem Pagamento"/>
+				</alt>
 			</and>
 		</struct>
-		<constraints/>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Acompanhante</var>
+					<var>Hospede</var>
+				</imp>
+			</rule>
+		</constraints>
 		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
 		<featureOrder userDefined="false"/>
