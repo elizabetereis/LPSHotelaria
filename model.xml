@@ -15,14 +15,21 @@
 					<feature mandatory="true" name="CartaoDebito"/>
 					<feature mandatory="true" name="Dinheiro"/>
 				</or>
-				<and mandatory="true" name="Dados">
+				<and name="Pessoa">
+					<alt name="Fisica">
+						<and mandatory="true" name="Cliente">
+							<feature name="Hospede"/>
+							<feature name="Acompanhante"/>
+						</and>
+						<and mandatory="true" name="Funcionario">
+							<feature name="Adm"/>
+							<feature name="Comum"/>
+						</and>
+					</alt>
 					<feature mandatory="true" name="Login"/>
-					<and name="Cliente">
-						<feature name="Hospede"/>
-						<feature name="Acompanhante"/>
+					<and name="Juridica">
+						<feature mandatory="true" name="Estabelecimento"/>
 					</and>
-					<feature mandatory="true" name="Funcionário"/>
-					<feature mandatory="true" name="Estabelecimento"/>
 				</and>
 				<and mandatory="true" name="Acomodação">
 					<feature name="Espaço"/>
@@ -36,7 +43,9 @@
 					<feature mandatory="true" name="Checkout"/>
 				</and>
 				<alt name="Reserva">
-					<feature mandatory="true" name="Com Pagamento"/>
+					<and mandatory="true" name="Com Pagamento">
+						<feature name="Deposito"/>
+					</and>
 					<feature mandatory="true" name="Sem Pagamento"/>
 				</alt>
 			</and>
