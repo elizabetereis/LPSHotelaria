@@ -14,39 +14,47 @@
 					</alt>
 					<feature mandatory="true" name="CartaoDebito"/>
 					<feature mandatory="true" name="Dinheiro"/>
+					<feature mandatory="true" name="Boleto"/>
+					<feature mandatory="true" name="Transferencia"/>
 				</or>
-				<and name="Pessoa">
-					<alt name="Fisica">
-						<and mandatory="true" name="Cliente">
-							<feature name="Hospede"/>
-							<feature name="Acompanhante"/>
-						</and>
-						<and mandatory="true" name="Funcionario">
-							<feature name="Adm"/>
-							<feature name="Comum"/>
-						</and>
-					</alt>
+				<and mandatory="true" name="Estabelecimento">
+					<feature name="Cadastrar ..."/>
+				</and>
+				<and mandatory="true" name="Cliente">
+					<feature name="Hospede"/>
+					<feature name="Acompanhante"/>
+				</and>
+				<and mandatory="true" name="Funcionario">
+					<feature mandatory="true" name="Gerenciar Funcionario"/>
 					<feature mandatory="true" name="Login"/>
-					<and name="Juridica">
-						<feature mandatory="true" name="Estabelecimento"/>
-					</and>
 				</and>
 				<and mandatory="true" name="Acomodação">
-					<feature name="Espaço"/>
-					<feature name="Quarto Público"/>
-					<feature name="Quarto Privado"/>
+					<and name="Lote">
+						<feature name="Gerenciar lote"/>
+					</and>
+					<and name="Quarto">
+						<feature name="Gerenciar quarto publico"/>
+						<feature name="Gerenciar quarto privado"/>
+						<feature name="Consultar disponibilidade"/>
+					</and>
 				</and>
 				<and mandatory="true" name="Conta">
-					<feature mandatory="true" name="Consumo"/>
-					<feature name="Serviços"/>
+					<and name="Consumo">
+						<feature mandatory="true" name="Adicionar produto"/>
+						<feature mandatory="true" name="Remover produto"/>
+						<feature mandatory="true" name="Calcular consumo"/>
+					</and>
+					<and name="Serviços">
+						<feature mandatory="true" name="Cadastrar serviço"/>
+					</and>
 					<feature mandatory="true" name="Checkin"/>
 					<feature mandatory="true" name="Checkout"/>
+					<feature mandatory="true" name="Gerenciar Conta"/>
 				</and>
 				<alt name="Reserva">
-					<and mandatory="true" name="Com Pagamento">
-						<feature name="Deposito"/>
-					</and>
+					<feature mandatory="true" name="Com Pagamento"/>
 					<feature mandatory="true" name="Sem Pagamento"/>
+					<feature mandatory="true" name="Consultar Reserva"/>
 				</alt>
 			</and>
 		</struct>
