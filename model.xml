@@ -7,15 +7,12 @@
 					<description>
 						Pagamento
 					</description>
-					<alt mandatory="true" name="CartaoCredito">
-						<feature mandatory="true" name="Visa"/>
-						<feature mandatory="true" name="Mastercard"/>
-						<feature mandatory="true" name="Elo"/>
-					</alt>
+					<feature mandatory="true" name="CartaoCredito"/>
 					<feature mandatory="true" name="CartaoDebito"/>
 					<feature mandatory="true" name="Dinheiro"/>
 					<feature mandatory="true" name="Boleto"/>
 					<feature mandatory="true" name="Transferencia"/>
+					<feature mandatory="true" name="Emitir nota"/>
 				</or>
 				<and mandatory="true" name="Estabelecimento">
 					<feature name="Cadastrar ..."/>
