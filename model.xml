@@ -12,46 +12,54 @@
 					<feature mandatory="true" name="Dinheiro"/>
 					<feature mandatory="true" name="Boleto"/>
 					<feature mandatory="true" name="Transferencia"/>
-					<feature mandatory="true" name="Emitir nota"/>
+					<and mandatory="true" name="Nota">
+						<feature mandatory="true" name="EmitirNota"/>
+					</and>
 				</or>
 				<and mandatory="true" name="Estabelecimento">
-					<feature name="Cadastrar ..."/>
+					<feature mandatory="true" name="CadastrarDescricao"/>
 				</and>
 				<and mandatory="true" name="Cliente">
-					<feature name="Hospede"/>
-					<feature name="Acompanhante"/>
+					<and name="Hospede">
+						<feature mandatory="true" name="CadastrarHospede"/>
+					</and>
+					<and name="Acompanhante">
+						<feature mandatory="true" name="CadastrarAcompanhante"/>
+					</and>
 				</and>
 				<and mandatory="true" name="Funcionario">
-					<feature mandatory="true" name="Gerenciar Funcionario"/>
-					<feature mandatory="true" name="Login"/>
+					<feature mandatory="true" name="GerenciarFuncionario"/>
+					<and mandatory="true" name="Login">
+						<feature mandatory="true" name="CadastrarUsuario"/>
+					</and>
 				</and>
 				<and mandatory="true" name="Acomodação">
 					<and name="Lote">
 						<feature name="Gerenciar lote"/>
 					</and>
 					<and name="Quarto">
-						<feature name="Gerenciar quarto publico"/>
-						<feature name="Gerenciar quarto privado"/>
-						<feature name="Consultar disponibilidade"/>
+						<feature name="GerenciarQuartoPublico"/>
+						<feature name="GerenciarQuartoPrivado"/>
+						<feature name="ConsultarDisponibilidade"/>
 					</and>
 				</and>
 				<and mandatory="true" name="Conta">
 					<and name="Consumo">
-						<feature mandatory="true" name="Adicionar produto"/>
-						<feature mandatory="true" name="Remover produto"/>
-						<feature mandatory="true" name="Calcular consumo"/>
+						<feature mandatory="true" name="AdicionarProduto"/>
+						<feature mandatory="true" name="RemoverProduto"/>
+						<feature mandatory="true" name="CalcularConsumo"/>
 					</and>
 					<and name="Serviços">
-						<feature mandatory="true" name="Cadastrar serviço"/>
+						<feature mandatory="true" name="CadastrarServiço"/>
 					</and>
 					<feature mandatory="true" name="Checkin"/>
 					<feature mandatory="true" name="Checkout"/>
-					<feature mandatory="true" name="Gerenciar Conta"/>
+					<feature mandatory="true" name="GerenciarConta"/>
 				</and>
 				<alt name="Reserva">
-					<feature mandatory="true" name="Com Pagamento"/>
-					<feature mandatory="true" name="Sem Pagamento"/>
-					<feature mandatory="true" name="Consultar Reserva"/>
+					<feature mandatory="true" name="CadastrarComPagamento"/>
+					<feature mandatory="true" name="CadastrarSemPagamento"/>
+					<feature mandatory="true" name="ConsultarReserva"/>
 				</alt>
 			</and>
 		</struct>
