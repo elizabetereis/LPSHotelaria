@@ -3,40 +3,32 @@
 		<properties/>
 		<struct>
 			<and abstract="true" mandatory="true" name="Hotelaria">
-				<and name="Pagamento">
+				<and mandatory="true" name="Pagamento">
 					<description>
 						Pagamento
 					</description>
 					<description>
 						Pagamento
 					</description>
-					<or mandatory="true" name="FormaPagamento">
-						<feature mandatory="true" name="Boleto"/>
+					<and mandatory="true" name="FormaPagamento">
+						<feature name="Boleto"/>
 						<feature mandatory="true" name="CartaoCredito"/>
 						<feature mandatory="true" name="CartaoDebito"/>
-						<feature mandatory="true" name="Dinheiro"/>
-						<feature mandatory="true" name="Transferencia"/>
-					</or>
-					<or mandatory="true" name="ComprovanteFiscal">
+						<feature name="Dinheiro"/>
+						<feature name="Transferencia"/>
+					</and>
+					<or name="ComprovanteFiscal">
 						<feature mandatory="true" name="NotaEmail"/>
 						<feature mandatory="true" name="NotaImpressa"/>
 					</or>
 				</and>
-				<and name="Estabelecimento">
-					<feature mandatory="true" name="CadastrarDescricao"/>
-				</and>
-				<and name="Cliente">
-					<and name="Hospede">
-						<feature mandatory="true" name="CadastrarHospede"/>
-					</and>
-					<and name="Acompanhante">
-						<feature mandatory="true" name="CadastrarAcompanhante"/>
-					</and>
+				<feature mandatory="true" name="Estabelecimento"/>
+				<and mandatory="true" name="Cliente">
+					<feature mandatory="true" name="Hospede"/>
+					<feature name="Acompanhante"/>
 				</and>
 				<and name="Funcionario">
-					<feature mandatory="true" name="GerenciarFuncionario"/>
-					<and mandatory="true" name="Login">
-						<feature mandatory="true" name="CadastrarUsuario"/>
+					<and name="Login">
 						<or name="Autenticacao">
 							<feature mandatory="true" name="Biometria"/>
 							<feature mandatory="true" name="Senha"/>
@@ -45,31 +37,19 @@
 				</and>
 				<and name="Acomodação">
 					<and name="Lote">
-						<feature mandatory="true" name="Gerenciar lote"/>
 						<feature name="ComBarraca"/>
 						<feature name="SemBarraca"/>
 					</and>
 					<feature mandatory="true" name="ConsultarDisponibilidade"/>
 					<and name="Quarto">
-						<feature name="GerenciarQuartoPublico"/>
-						<feature name="GerenciarQuartoPrivado"/>
+						<feature name="QuartoPublico"/>
+						<feature name="QuartoPrivado"/>
 					</and>
 				</and>
 				<and name="Conta">
-					<and name="Produto">
-						<feature mandatory="true" name="AdicionarProduto"/>
-						<feature mandatory="true" name="RemoverProduto"/>
-						<feature mandatory="true" name="CalcularConsumo"/>
-						<feature mandatory="true" name="CadastrarProduto"/>
-					</and>
-					<and name="Serviços">
-						<feature mandatory="true" name="CadastrarServiço"/>
-					</and>
-					<and mandatory="true" name="Checkin">
-						<feature mandatory="true" name="Registrar"/>
-						<feature mandatory="true" name="Remover"/>
-						<feature mandatory="true" name="Consultar"/>
-					</and>
+					<feature name="Produto"/>
+					<feature name="Serviços"/>
+					<feature mandatory="true" name="Checkin"/>
 					<or mandatory="true" name="Checkout">
 						<feature mandatory="true" name="Manual"/>
 						<feature mandatory="true" name="Automatico"/>
@@ -77,11 +57,8 @@
 					<feature mandatory="true" name="GerenciarConta"/>
 				</and>
 				<and mandatory="true" name="Reserva">
-					<alt mandatory="true" name="Cadastrar">
-						<feature mandatory="true" name="CadastrarSemPagamento"/>
-						<feature mandatory="true" name="CadastrarComPagamento"/>
-					</alt>
-					<feature name="ConsultarReserva"/>
+					<feature mandatory="true" name="ReservaSemPagamento"/>
+					<feature mandatory="true" name="ReservaComPagamento"/>
 				</and>
 			</and>
 		</struct>
