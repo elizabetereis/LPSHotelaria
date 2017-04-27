@@ -3,7 +3,7 @@
 		<properties/>
 		<struct>
 			<and abstract="true" mandatory="true" name="Hotelaria">
-				<and mandatory="true" name="Pagamento">
+				<and name="Pagamento">
 					<description>
 						Pagamento
 					</description>
@@ -22,10 +22,10 @@
 						<feature mandatory="true" name="NotaImpressa"/>
 					</or>
 				</and>
-				<and mandatory="true" name="Estabelecimento">
+				<and name="Estabelecimento">
 					<feature mandatory="true" name="CadastrarDescricao"/>
 				</and>
-				<and mandatory="true" name="Cliente">
+				<and name="Cliente">
 					<and name="Hospede">
 						<feature mandatory="true" name="CadastrarHospede"/>
 					</and>
@@ -33,7 +33,7 @@
 						<feature mandatory="true" name="CadastrarAcompanhante"/>
 					</and>
 				</and>
-				<and mandatory="true" name="Funcionario">
+				<and name="Funcionario">
 					<feature mandatory="true" name="GerenciarFuncionario"/>
 					<and mandatory="true" name="Login">
 						<feature mandatory="true" name="CadastrarUsuario"/>
@@ -43,7 +43,7 @@
 						</or>
 					</and>
 				</and>
-				<and mandatory="true" name="Acomodação">
+				<and name="Acomodação">
 					<and name="Lote">
 						<feature mandatory="true" name="Gerenciar lote"/>
 						<feature name="ComBarraca"/>
@@ -55,7 +55,7 @@
 						<feature name="GerenciarQuartoPrivado"/>
 					</and>
 				</and>
-				<and mandatory="true" name="Conta">
+				<and name="Conta">
 					<and name="Produto">
 						<feature mandatory="true" name="AdicionarProduto"/>
 						<feature mandatory="true" name="RemoverProduto"/>
@@ -76,11 +76,13 @@
 					</or>
 					<feature mandatory="true" name="GerenciarConta"/>
 				</and>
-				<alt name="Reserva">
-					<feature mandatory="true" name="CadastrarComPagamento"/>
-					<feature mandatory="true" name="CadastrarSemPagamento"/>
-					<feature mandatory="true" name="ConsultarReserva"/>
-				</alt>
+				<and mandatory="true" name="Reserva">
+					<alt mandatory="true" name="Cadastrar">
+						<feature mandatory="true" name="CadastrarSemPagamento"/>
+						<feature mandatory="true" name="CadastrarComPagamento"/>
+					</alt>
+					<feature name="ConsultarReserva"/>
+				</and>
 			</and>
 		</struct>
 		<constraints>

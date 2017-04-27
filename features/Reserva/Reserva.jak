@@ -1,0 +1,14 @@
+/**
+ * TODO description
+ */
+public class Reserva {
+	
+	public void reservar() {
+		System.out.print("Reservando acomodação\n");
+	}
+	
+	public static void main(String[] args) {
+		new Reserva().reservar();
+	}
+
+}
