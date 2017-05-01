@@ -11,15 +11,15 @@
 						Pagamento
 					</description>
 					<and mandatory="true" name="FormaPagamento">
-						<feature name="Boleto"/>
-						<feature mandatory="true" name="CartaoCredito"/>
-						<feature mandatory="true" name="CartaoDebito"/>
-						<feature name="Dinheiro"/>
-						<feature name="Transferencia"/>
+						<feature name="PagamentoBoleto"/>
+						<feature mandatory="true" name="PagamentoCredito"/>
+						<feature mandatory="true" name="PagamentoDebito"/>
+						<feature name="PagamentoDinheiro"/>
+						<feature name="PagamentoTransferencia"/>
 					</and>
 					<or name="ComprovanteFiscal">
-						<feature mandatory="true" name="NotaEmail"/>
-						<feature mandatory="true" name="NotaImpressa"/>
+						<feature mandatory="true" name="ComprovanteEmail"/>
+						<feature mandatory="true" name="ComprovanteImpresso"/>
 					</or>
 				</and>
 				<feature mandatory="true" name="Estabelecimento"/>
@@ -30,17 +30,16 @@
 				<and name="Funcionario">
 					<and name="Login">
 						<or name="Autenticacao">
-							<feature mandatory="true" name="Biometria"/>
-							<feature mandatory="true" name="Senha"/>
+							<feature mandatory="true" name="AutenticacaoBiometria"/>
+							<feature mandatory="true" name="AutenticacaoSenha"/>
 						</or>
 					</and>
 				</and>
 				<and name="Acomodação">
 					<and name="Lote">
-						<feature name="ComBarraca"/>
-						<feature name="SemBarraca"/>
+						<feature name="LoteComBarraca"/>
+						<feature name="LoteSemBarraca"/>
 					</and>
-					<feature mandatory="true" name="ConsultarDisponibilidade"/>
 					<and name="Quarto">
 						<feature name="QuartoPublico"/>
 						<feature name="QuartoPrivado"/>
@@ -48,13 +47,11 @@
 				</and>
 				<and name="Conta">
 					<feature name="Produto"/>
-					<feature name="Serviços"/>
 					<feature mandatory="true" name="Checkin"/>
 					<or mandatory="true" name="Checkout">
-						<feature mandatory="true" name="Manual"/>
-						<feature mandatory="true" name="Automatico"/>
+						<feature mandatory="true" name="CheckManual"/>
+						<feature mandatory="true" name="CheckAutomatico"/>
 					</or>
-					<feature mandatory="true" name="GerenciarConta"/>
 				</and>
 				<and mandatory="true" name="Reserva">
 					<feature mandatory="true" name="ReservaSemPagamento"/>
