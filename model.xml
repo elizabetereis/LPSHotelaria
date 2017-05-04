@@ -7,9 +7,6 @@
 					<description>
 						Pagamento
 					</description>
-					<description>
-						Pagamento
-					</description>
 					<and mandatory="true" name="FormaPagamento">
 						<feature name="PagamentoBoleto"/>
 						<feature mandatory="true" name="PagamentoCredito"/>
@@ -23,19 +20,20 @@
 					</or>
 				</and>
 				<feature mandatory="true" name="Estabelecimento"/>
-				<and mandatory="true" name="Cliente">
-					<feature mandatory="true" name="Hospede"/>
-					<feature name="Acompanhante"/>
-				</and>
-				<and name="Funcionario">
-					<and name="Login">
+				<and name="Pessoa">
+					<and mandatory="true" name="Funcionario">
+						<feature name="Login"/>
 						<or name="Autenticacao">
 							<feature mandatory="true" name="AutenticacaoBiometria"/>
 							<feature mandatory="true" name="AutenticacaoSenha"/>
 						</or>
 					</and>
+					<and mandatory="true" name="Cliente">
+						<feature mandatory="true" name="Hospede"/>
+						<feature name="Acompanhante"/>
+					</and>
 				</and>
-				<and name="Acomodação">
+				<and mandatory="true" name="Acomodação">
 					<and name="Lote">
 						<feature name="LoteComBarraca"/>
 						<feature name="LoteSemBarraca"/>
@@ -45,7 +43,7 @@
 						<feature name="QuartoPrivado"/>
 					</and>
 				</and>
-				<and name="Conta">
+				<and mandatory="true" name="Conta">
 					<feature name="Produto"/>
 					<feature mandatory="true" name="Checkin"/>
 					<or mandatory="true" name="Checkout">
