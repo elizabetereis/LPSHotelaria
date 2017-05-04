@@ -1,0 +1,66 @@
+/**
+ * TODO description
+ */
+import java.awt.List;
+import java.util.ArrayList;
+
+public class Conta {
+		
+		private String mNumero;
+		private double mTotal;
+//		private List<Produto> mProdutos = new ArrayList<Produto>();
+		private Produto mProduto;
+		private Checkin mCheckin;
+//		private Checkout mCheckout;
+		
+		public Conta(){
+//			mProdutos = new ArrayList<Produto>();
+		}
+		
+		public Conta(String numero, double total){
+			this.mNumero = numero;
+			this.mTotal = total;
+//			mProdutos = new ArrayList<Produto>();
+		}
+		
+		public String getNumero(){
+			return mNumero;
+		}
+		
+		public void setCheckin(Checkin entrada){
+			this.mCheckin = entrada;
+		}
+		
+		public Checkin getCheckin(){
+			return this.mCheckin;
+		}
+		
+//		public void setCheckout(Checkout saida){
+//			this.mCheckout = saida;
+//		}
+//		
+//		public Checkout getCheckout(){
+//			return this.mCheckout;
+//		}
+		
+		public void setNumero(String numero){
+			this.mNumero = numero;
+		}
+		
+		public double calculaTotal(){
+			return mTotal;
+		}
+		
+//		public void addProduto(Produto produto){
+//			
+//			this.mProdutos.add(produto);
+//		}
+		
+		public static void main(String[] args) {
+			
+			Conta conta = new Conta("01", 0.0);
+			System.out.println(conta.getNumero());
+	}
+
+
+}

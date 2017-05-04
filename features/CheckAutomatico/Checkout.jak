@@ -1,0 +1,15 @@
+/**
+ * TODO description
+ */
+public refines class CheckoutAutomatico {
+	
+	public CheckoutAutomatico(){
+		
+	}
+	
+	public void fazerCheckout(){
+		Super.fazerCheckout();
+		System.out.println("fazendo checkout automatico");
+	}
+
+}

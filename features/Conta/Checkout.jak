@@ -1,0 +1,27 @@
+/**
+ * TODO description
+ */
+import java.util.Date;
+
+public class Checkout {
+	
+	private Date mDataSaida;
+	
+	public Checkout(){
+		
+	}
+	
+	public Date getDataSaida(){
+		return mDataSaida;
+	}
+	
+	public void setDataSaida(Date saida){
+		this.mDataSaida = saida;
+	}
+	
+	public void fazerCheckout(){
+		mDataSaida = new Date();
+		System.out.println("fazendo checkout");
+	}
+
+}

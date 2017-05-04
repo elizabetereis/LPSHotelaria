@@ -1,0 +1,15 @@
+/**
+ * TODO description
+ */
+public refines class CheckoutManual {
+	
+	public CheckoutManual(){
+			
+	}
+	
+	public void fazerCheckout(){
+		Super.fazerCheckout();
+		System.out.println("fazendo checkout manual");
+	}
+
+}
