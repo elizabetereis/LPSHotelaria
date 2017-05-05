@@ -22,10 +22,11 @@ public class Cliente extends Pessoa{
 		
         resul = rp.cadastrarPessoa(cliente);
         
+        
         if(resul){
         	System.out.println("Cliente "+cliente.getNome()+" cadastrada com sucesso!");
         }else{
-        	System.out.println("Não foi possível cadastrar!");	
+        	System.out.println("Nï¿½o foi possï¿½vel cadastrar!");	
         }
 		
 	}

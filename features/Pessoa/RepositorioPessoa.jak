@@ -7,13 +7,19 @@ import java.util.List;
  */
 public class RepositorioPessoa implements IPessoa{
 	
-	List listaPessoas = new ArrayList();
+	//List listaPessoas = new ArrayList();
+	private Pessoa[] listaPessoas = new Pessoa[10];
 	
 	public boolean cadastrarPessoa(Pessoa pessoa){
 		
 		try{
 			
-			listaPessoas.add(pessoa);
+			for(int i=0; i<=10; i++){
+				
+				listaPessoas[i] = pessoa;
+				
+			}
+			
 			
 		} catch(Exception e){
 			
@@ -30,7 +36,14 @@ public class RepositorioPessoa implements IPessoa{
 	}
 	
 	public boolean excluirPessoa(int id){
+		
+	//	for(Pessoa pessoa : listaPessoas) {
+		//	if(pessoa.getIdentificacao() == id)
+				//listaPessoas.remove(pessoa);
+	//		  
+	//	}
+		
 		return false;
+	//}
 	}
-
 }
