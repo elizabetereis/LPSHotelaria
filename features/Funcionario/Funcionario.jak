@@ -1,0 +1,19 @@
+/**
+ * TODO description
+ */
+public class Funcionario extends Pessoa{
+	
+	private int idFuncionario;
+	
+	public Funcionario(){
+		
+	}
+	
+	public int getIdFuncionario(){
+		return idFuncionario;
+	}
+	public void setFuncionario(int idFuncionario){
+		this.idFuncionario = idFuncionario;
+	}
+
+}

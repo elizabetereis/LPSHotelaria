@@ -1,9 +1,10 @@
+
+
 /**
  * TODO description
  */
 public abstract class Pessoa {
 	
-	private int idPessoa;
 	private String nome;
 	private String identificacao;
 	private String endereco;
@@ -13,7 +14,7 @@ public abstract class Pessoa {
 		
 	}
 	
-	public Pessoa(int idPessoa, String nome, String identificacao, String endereco, String email){
+	public Pessoa(String nome, String identificacao, String endereco, String email){
 		
 		this.nome = nome;
 		this.identificacao = identificacao;
@@ -21,36 +22,29 @@ public abstract class Pessoa {
 		this.email = email;	
 	}
 	
-	public int getIdPessoa(){
-		return idPessoa;
-	}
-	public void setPessoa(int idPessoa){
-		this.idPessoa = idPessoa;
-	}
-	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		((Pessoa) this).nome = nome;
 	}
 	public String getIdentificacao() {
 		return identificacao;
 	}
 	public void setIdentificacao(String identificacao) {
-		this.identificacao = identificacao;
+		((Pessoa) this).identificacao = identificacao;
 	}
 	public String getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+		((Pessoa) this).endereco = endereco;
 	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		((Pessoa) this).email = email;
 	}
 	
 }

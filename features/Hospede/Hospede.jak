@@ -1,0 +1,43 @@
+/**
+ * TODO description
+ */
+public class Hospede extends Cliente {
+
+	private int idHospede;
+	
+	public Hospede(){
+		
+	}
+	
+	public int getIdHospede(){
+		return idHospede;
+	}
+	public void setHospede(int idHospede){
+		this.idHospede = idHospede;
+	}
+	
+public static void main(String[] args) {
+		
+		boolean resul;
+		
+		RepositorioPessoa rp = new RepositorioPessoa();
+		Hospede hospede = new Hospede();
+		
+		hospede.setNome("Daiane");
+		hospede.setIdentificacao("123");
+		hospede.setEndereco("Cabula");
+		hospede.setEmail("dai@gmail");
+		
+		
+		
+        resul = rp.cadastrarPessoa(hospede);
+        
+        
+        if(resul){
+        	System.out.println("Hospede "+hospede.getNome()+" cadastrada com sucesso!");
+        }else{
+        	System.out.println("Nao foi possivel cadastrar!");	
+        }
+		
+	}
+}
