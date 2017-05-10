@@ -91,7 +91,6 @@ public class PessoaDao implements IPessoa{
 		return true;
 	}
 	
-	
 	public boolean alterarPessoa(Pessoa pessoa){
 		return false;
 	}
