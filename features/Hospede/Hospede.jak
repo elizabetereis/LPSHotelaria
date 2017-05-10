@@ -20,7 +20,7 @@ public static void main(String[] args) {
 		
 		boolean resul;
 		
-		RepositorioPessoa rp = new RepositorioPessoa();
+        PessoaDao dao = new PessoaDao();
 		Hospede hospede = new Hospede();
 		
 		hospede.setNome("Daiane");
@@ -30,7 +30,7 @@ public static void main(String[] args) {
 		
 		
 		
-        resul = rp.cadastrarPessoa(hospede);
+        resul = dao.cadastrarPessoa(hospede);
         
         
         if(resul){

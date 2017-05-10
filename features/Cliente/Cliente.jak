@@ -11,7 +11,7 @@ public abstract class Cliente extends Pessoa{
 		
 	}
     public Cliente(int idCliente ){
-		super();
+		//super();
 		this.idCliente = idCliente;
 	}
 	
