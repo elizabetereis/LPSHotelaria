@@ -1,0 +1,8 @@
+/**
+ * TODO description
+ */
+public refines class PagamentoCartao {
+	public String getTipo(){
+		return Super().getTipo();
+	}
+}

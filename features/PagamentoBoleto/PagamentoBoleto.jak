@@ -1,0 +1,17 @@
+/**
+ * TODO description
+ */
+public class PagamentoBoleto implements FormaPagamento  {
+	
+	public String getTipo(){
+		return "Boleto";
+	}
+
+	public boolean pagar(float valorPago, float valorCobrado){ 
+		
+		if(valorPago<valorCobrado)
+			return false;
+		
+		return true;
+	}
+}

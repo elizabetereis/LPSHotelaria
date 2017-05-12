@@ -1,0 +1,95 @@
+/**
+ * TODO description
+ */
+
+public class Pagamento {
+
+	private String idPagamento, data; 
+	private float valorTotal;
+	private float valorPago;
+	private float valorCobrado;
+	private float desconto;
+	private FormaPagamento formaPagamento;
+	
+	public void setFormaPagamento(FormaPagamento formaPagamento){
+		this.formaPagamento = formaPagamento;
+	}
+	
+	public FormaPagamento getFormaPagamento(){
+		return this.formaPagamento;
+	}
+	
+	public Pagamento(String idPagamento, String data, float valorTotal, float desconto, float valorPago, FormaPagamento formaPagamento) {
+		this.idPagamento = idPagamento;
+		this.data = data;
+		this.valorTotal = valorTotal;
+		this.desconto = desconto;
+		this.valorPago = valorPago;
+		this.formaPagamento = formaPagamento;
+		
+		this.calcularDesconto();
+		
+		if(this.formaPagamento.pagar(valorPago, this.valorCobrado)){
+			System.out.println("pagamento efetuado com sucesso."); 
+		}
+		else{
+			System.out.println("Não foi possivel efetuar o pagamento."); 
+		}
+		
+	}
+	
+	public String getIdPagamento() {
+		return idPagamento;
+	}
+
+	public void setIdPagamento(String idPagamento) {
+		this.idPagamento = idPagamento;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;	
+	}
+
+	public float getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(float valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public float getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(float desconto) {
+		this.desconto = desconto;
+	}
+	
+	public float getValorCobrado(){
+		return valorCobrado;
+	}
+	
+	private void calcularDesconto (){
+		
+		this.valorCobrado = this.valorTotal - (this.valorTotal * this.desconto/100);
+	}
+	
+	public static void main (String args[]){
+		
+		Pagamento pagamento = new Pagamento("0001","01/05/2017",100,0,120, new PagamentoDinheiro());
+		
+		System.out.println("Tipo de pagamento: "+pagamento.getFormaPagamento().getTipo());
+		
+		pagamento = new Pagamento("0001","01/05/2017",100,0,20, new PagamentoCartao("Credito"));
+		
+		System.out.println("Tipo de pagamento: "+pagamento.getFormaPagamento().getTipo());
+
+		
+	}
+
+}

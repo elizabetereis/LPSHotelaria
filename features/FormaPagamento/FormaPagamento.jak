@@ -1,0 +1,7 @@
+/**
+ * TODO description
+ */
+public interface FormaPagamento {
+	public String getTipo();
+	public boolean pagar(float valorPago, float valorCobrado);
+}

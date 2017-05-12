@@ -1,0 +1,26 @@
+/**
+ * TODO description
+ */
+public class PagamentoDinheiro implements FormaPagamento {
+
+	private float troco;
+		
+	public float getTroco() {
+		return troco;
+	}
+	
+	public String getTipo(){
+		return "Dinheiro";
+	}
+
+	public boolean pagar(float valorPago, float valorCobrado){ 
+		
+		if(valorPago<valorCobrado)
+			return false;
+		
+		this.troco = valorPago - valorCobrado;
+		
+		return true;
+	}
+	
+}
