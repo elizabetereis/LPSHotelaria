@@ -1,12 +1,19 @@
 /**
  * TODO description
  */
-public class Acompanhante extends Cliente {
+public class Acompanhante extends PessoaFisica {
 	
 	private int idAcompanhante;
 	
+	
+	
 	public Acompanhante(){
 		
+	}
+	
+    public Acompanhante(int idAcompanhante){
+		super();
+		this.idAcompanhante = idAcompanhante;
 	}
 	
 	public int getIdAcompanhante(){

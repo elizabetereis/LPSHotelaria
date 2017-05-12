@@ -1,0 +1,50 @@
+
+/**
+ * TODO description
+ */
+public class PessoaJuridica extends Pessoa {
+	
+    private int idPessoaJuridica;
+    private String cnpj;
+    private String nomeFantasia;
+	private String razaoSocial;
+	
+	public PessoaJuridica(){
+		
+	}
+	
+	public PessoaJuridica(int idPessoaJuridica, String cnpj, String nomeFantasia, String razaoSocial) {
+		super();
+		this.idPessoaJuridica = idPessoaJuridica;
+		this.cnpj = cnpj;
+		this.nomeFantasia = nomeFantasia;
+		this.razaoSocial = razaoSocial;
+	}
+	
+	
+	public void setIdPessoaJuridica(int idPessoaJuridica) {
+		this.idPessoaJuridica = idPessoaJuridica;
+	}
+	public String getCnpj() {
+		return cnpj;
+	}
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
+	
+	
+	
+
+}

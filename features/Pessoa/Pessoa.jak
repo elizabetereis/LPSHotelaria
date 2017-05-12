@@ -53,4 +53,7 @@ public abstract class Pessoa {
 		this.email = email;
 	}
 	
+	public String toString() {
+		return "teste [nome=" + nome + "]";
+	}
 }
