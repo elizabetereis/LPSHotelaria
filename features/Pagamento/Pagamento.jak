@@ -99,12 +99,12 @@ public class Pagamento {
 		
 		System.out.println("---------------------------");
 		
-		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao("Credito"), 
+		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao(ETipoCartao.CREDITO), 
 				new Cliente(), "");
 		
 		System.out.println("---------------------------");
 		
-		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao("Debito"), 
+		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao(ETipoCartao.DEBITO), 
 				new Cliente(), "");
 				
 	}

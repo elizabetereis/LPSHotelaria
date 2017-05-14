@@ -1,0 +1,5 @@
+
+public class ETipoCartao {
+	public static final String CREDITO = "Credito";
+	public static final String DEBITO = "Debito";
+}

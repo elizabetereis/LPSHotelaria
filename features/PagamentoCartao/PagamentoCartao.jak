@@ -38,7 +38,7 @@ public class PagamentoCartao implements FormaPagamento  {
 	}
 	
 	public String getTipoCartao(){
-		return tipoCartao;
+		return tipoCartao.toString();
 	}
 	
 	public String getTipo(){
