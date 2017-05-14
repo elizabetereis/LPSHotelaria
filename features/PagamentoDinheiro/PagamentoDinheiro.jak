@@ -13,14 +13,13 @@ public class PagamentoDinheiro implements FormaPagamento {
 		return "Dinheiro";
 	}
 
-	public boolean pagar(float valorPago, float valorCobrado){ 
+	public void pagar(float valorPago, float valorCobrado){ 
 		
 		if(valorPago<valorCobrado)
-			return false;
+			throw new java.lang.RuntimeException("Valor Pago menor que o cobrado"); 
 		
 		this.troco = valorPago - valorCobrado;
 		
-		return true;
 	}
 	
 }

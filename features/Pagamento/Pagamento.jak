@@ -78,16 +78,18 @@ public class Pagamento {
 			formaPagamento.pagar(valorPago, this.valorCobrado);
 			
 			System.out.println("pagamento efetuado com sucesso.");
+			print();
 		}
 		catch(Exception e){
 			System.out.println("Nao foi possivel efetuar o pagamento."); 
+			System.out.println("Error: "+e.getMessage());
 		}
 		
 	}
 	
 	//Metodo para imprimir os dados do pagamento
 	public void print(){
-		
+		System.out.println("Tipo de pagamento: "+getFormaPagamento().getTipo());
 	}
 		
 	public static void main (String args[]){
@@ -95,16 +97,16 @@ public class Pagamento {
 		Pagamento pagamento = new Pagamento(new Date(), 100, 10, 90, new PagamentoDinheiro(), 
 				new Cliente(), "");
 		
-		System.out.println("Tipo de pagamento: "+pagamento.getFormaPagamento().getTipo());
+		System.out.println("---------------------------");
+		
+		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao("Credito"), 
+				new Cliente(), "");
 		
 		System.out.println("---------------------------");
 		
-		pagamento = new Pagamento(new Date(), 100, 10, 90, new PagamentoCartao("Credito"), 
+		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao("Debito"), 
 				new Cliente(), "");
-		
-		System.out.println("Tipo de pagamento: "+pagamento.getFormaPagamento().getTipo());
-
-		
+				
 	}
 
 }

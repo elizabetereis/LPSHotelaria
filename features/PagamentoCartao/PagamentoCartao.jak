@@ -1,33 +1,54 @@
 /**
  * TODO description
  */
+import java.util.Date;
+import java.util.Scanner;
+
 public class PagamentoCartao implements FormaPagamento  {
+	
+	private String operadora;
+	private String nomeTitular;
+	private String numeroCartao;
+	private int codSeguranca;
+	private Date dataValidade;
+	protected String tipoCartao;
+	
+	public String getOperadora(){
+		return operadora;
+	}
+	
+	public String getNomeTitular(){
+		return nomeTitular;
+	}
+	
+	public String getNumeroCartao(){
+		return numeroCartao;
+	}
+	
+	public int getCodSeguranca(){
+		return codSeguranca;
+	}
+	
+	public Date getDataValidade(){
+		return dataValidade;
+	}
 	
 	PagamentoCartao(String tipoCartao){
 		this.tipoCartao = tipoCartao;
 	}
 	
-	protected String tipoCartao;
-	
 	public String getTipoCartao(){
-		return this.tipoCartao;
+		return tipoCartao;
 	}
 	
 	public String getTipo(){
-		tipoCartao = getTipoCartao();
-		if(tipoCartao == "Credito")
-			return "Cartao de Credito";
-		else if(tipoCartao == "Debito")
-			return "Cartao de Debito";
-		else
-			return "";
+		return "Cartao de "+getTipoCartao();
 	}
 
-	public boolean pagar(float valorPago, float valorCobrado){ 
+	public void pagar(float valorPago, float valorCobrado){ 
 		
 		if(valorPago<valorCobrado)
-			return false;
+			throw new java.lang.RuntimeException("Valor Pago menor que o cobrado"); 
 		
-		return true;
 	}
 }

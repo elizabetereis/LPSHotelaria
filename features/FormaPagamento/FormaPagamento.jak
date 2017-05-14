@@ -3,5 +3,5 @@
  */
 public interface FormaPagamento {
 	public String getTipo();
-	public boolean pagar(float valorPago, float valorCobrado);
+	public void pagar(float valorPago, float valorCobrado);
 }

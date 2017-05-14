@@ -7,11 +7,9 @@ public class PagamentoBoleto implements FormaPagamento  {
 		return "Boleto";
 	}
 
-	public boolean pagar(float valorPago, float valorCobrado){ 
+	public void pagar(float valorPago, float valorCobrado){ 
 		
 		if(valorPago<valorCobrado)
-			return false;
-		
-		return true;
+			throw new java.lang.RuntimeException("Valor Pago menor que o cobrado"); 
 	}
 }
