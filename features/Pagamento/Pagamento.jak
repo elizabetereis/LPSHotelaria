@@ -1,77 +1,58 @@
 /**
  * TODO description
  */
+import java.util.Date;
 
 public class Pagamento {
 
-	private String idPagamento, data; 
+	private int idPagamento; 
 	private float valorTotal;
 	private float valorPago;
 	private float valorCobrado;
 	private float desconto;
+	private Date dataPagamento;
+	private String descricao;
 	private FormaPagamento formaPagamento;
-	
-	public void setFormaPagamento(FormaPagamento formaPagamento){
-		this.formaPagamento = formaPagamento;
-	}
-	
+	private Cliente cliente;
+		
 	public FormaPagamento getFormaPagamento(){
-		return this.formaPagamento;
+		return formaPagamento;
 	}
 	
-	public Pagamento(String idPagamento, String data, float valorTotal, float desconto, float valorPago, FormaPagamento formaPagamento) {
-		this.idPagamento = idPagamento;
-		this.data = data;
-		this.valorTotal = valorTotal;
-		this.desconto = desconto;
-		this.valorPago = valorPago;
-		this.formaPagamento = formaPagamento;
-		
-		this.calcularDesconto();
-		
-		if(this.formaPagamento.pagar(valorPago, this.valorCobrado)){
-			System.out.println("pagamento efetuado com sucesso."); 
-		}
-		else{
-			System.out.println("Não foi possivel efetuar o pagamento."); 
-		}
-		
+	public Cliente getCliente(){
+		return cliente;
 	}
 	
-	public String getIdPagamento() {
+	public int getIdPagamento() {
 		return idPagamento;
-	}
-
-	public void setIdPagamento(String idPagamento) {
-		this.idPagamento = idPagamento;
-	}
-
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;	
 	}
 
 	public float getValorTotal() {
 		return valorTotal;
 	}
-
-	public void setValorTotal(float valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-
-	public float getDesconto() {
-		return desconto;
-	}
-
-	public void setDesconto(float desconto) {
-		this.desconto = desconto;
+	
+	public float getValorPago() {
+		return valorPago;
 	}
 	
 	public float getValorCobrado(){
 		return valorCobrado;
+	}
+	
+	public float getDesconto() {
+		return desconto;
+	}
+	
+	public Date getDataPagamento() {
+		return dataPagamento;
+	}
+
+	public String getDescricao(){
+		return descricao;
+	}
+	
+	public void setDescricao(String descricao){
+		this.descricao = descricao;
 	}
 	
 	private void calcularDesconto (){
@@ -79,13 +60,47 @@ public class Pagamento {
 		this.valorCobrado = this.valorTotal - (this.valorTotal * this.desconto/100);
 	}
 	
+	public Pagamento(Date dataPagamento, float valorTotal, float desconto, float valorPago,
+			FormaPagamento formaPagamento, Cliente cliente, String descricao) {
+		
+		try{
+		
+			this.dataPagamento = dataPagamento;
+			this.valorTotal = valorTotal;
+			this.desconto = desconto;
+			this.valorPago = valorPago;
+			this.formaPagamento = formaPagamento;
+			this.cliente = cliente;
+			this.descricao = descricao;
+			
+			calcularDesconto();
+			
+			formaPagamento.pagar(valorPago, this.valorCobrado);
+			
+			System.out.println("pagamento efetuado com sucesso.");
+		}
+		catch(Exception e){
+			System.out.println("Nao foi possivel efetuar o pagamento."); 
+		}
+		
+	}
+	
+	//Metodo para imprimir os dados do pagamento
+	public void print(){
+		
+	}
+		
 	public static void main (String args[]){
 		
-		Pagamento pagamento = new Pagamento("0001","01/05/2017",100,0,120, new PagamentoDinheiro());
+		Pagamento pagamento = new Pagamento(new Date(), 100, 10, 90, new PagamentoDinheiro(), 
+				new Cliente(), "");
 		
 		System.out.println("Tipo de pagamento: "+pagamento.getFormaPagamento().getTipo());
 		
-		pagamento = new Pagamento("0001","01/05/2017",100,0,20, new PagamentoCartao("Credito"));
+		System.out.println("---------------------------");
+		
+		pagamento = new Pagamento(new Date(), 100, 10, 90, new PagamentoCartao("Credito"), 
+				new Cliente(), "");
 		
 		System.out.println("Tipo de pagamento: "+pagamento.getFormaPagamento().getTipo());
 
