@@ -1,0 +1,15 @@
+
+import java.text.SimpleDateFormat;
+
+/**
+ * TODO description
+ */
+public refines class ComprovanteFiscal {
+	
+	public void gerarComprovante(String tipoComprovante, Date data, float valorCobrado, float valorPago){
+		Super().gerarComprovante(tipoComprovante, data, valorCobrado, valorPago);
+		if(tipoComprovante == "Impresso"){
+			System.out.println("Mensagem: Comprovante Fiscal impresso com sucesso!\n");
+		}
+	}
+}

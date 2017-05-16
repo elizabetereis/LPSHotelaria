@@ -14,9 +14,18 @@ public class Pagamento {
 	private String descricao;
 	private FormaPagamento formaPagamento;
 	private Cliente cliente;
+	private ComprovanteFiscal comprovanteFiscal;
 		
 	public FormaPagamento getFormaPagamento(){
 		return formaPagamento;
+	}
+	
+	public ComprovanteFiscal getComprovanteFiscal(){
+		return this.comprovanteFiscal;
+	}
+	
+	public void setComprovanteFiscal (ComprovanteFiscal comprovanteFiscal){
+		this.comprovanteFiscal = comprovanteFiscal;
 	}
 	
 	public Cliente getCliente(){
@@ -61,7 +70,7 @@ public class Pagamento {
 	}
 	
 	public Pagamento(Date dataPagamento, float valorTotal, float desconto, float valorPago,
-			FormaPagamento formaPagamento, Cliente cliente, String descricao) {
+			FormaPagamento formaPagamento, Cliente cliente, String descricao, ComprovanteFiscal comprovanteFiscal) {
 		
 		try{
 		
@@ -72,12 +81,15 @@ public class Pagamento {
 			this.formaPagamento = formaPagamento;
 			this.cliente = cliente;
 			this.descricao = descricao;
+			this.comprovanteFiscal = comprovanteFiscal;
 			
 			calcularDesconto();
 			
 			formaPagamento.pagar(valorPago, this.valorCobrado);
 			
 			System.out.println("pagamento efetuado com sucesso.");
+			comprovanteFiscal.gerarComprovante(comprovanteFiscal.getTipoComprovante(), 
+					dataPagamento, valorCobrado, valorPago);
 			print();
 		}
 		catch(Exception e){
@@ -95,17 +107,17 @@ public class Pagamento {
 	public static void main (String args[]){
 		
 		Pagamento pagamento = new Pagamento(new Date(), 100, 10, 90, new PagamentoDinheiro(), 
-				new Cliente(), "");
+				new Cliente(), "", new ComprovanteFiscal("Email"));
 		
 		System.out.println("---------------------------");
 		
 		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao(ETipoCartao.CREDITO), 
-				new Cliente(), "");
+				new Cliente(), "", new ComprovanteFiscal("Impresso"));
 		
 		System.out.println("---------------------------");
 		
 		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao(ETipoCartao.DEBITO), 
-				new Cliente(), "");
+				new Cliente(), "", new ComprovanteFiscal("Email"));
 				
 	}
 

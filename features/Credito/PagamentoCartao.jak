@@ -33,6 +33,7 @@ public refines class PagamentoCartao {
 		if(Super().getTipoCartao() == "Credito"){
 			System.out.println("Informe a quantidade de parcelas:");
 			qtdParcela = s.nextInt();
+			s.close();
 			CalcularParcela(qtdParcela, valorPago);
 		}
 	}
