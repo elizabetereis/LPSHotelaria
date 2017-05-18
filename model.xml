@@ -12,8 +12,10 @@
 					</description>
 					<and mandatory="true" name="FormaPagamento">
 						<feature name="PagamentoBoleto"/>
-						<feature mandatory="true" name="PagamentoCredito"/>
-						<feature mandatory="true" name="PagamentoDebito"/>
+						<and name="PagamentoCartao">
+							<feature mandatory="true" name="Debito"/>
+							<feature mandatory="true" name="Credito"/>
+						</and>
 						<feature name="PagamentoDinheiro"/>
 						<feature name="PagamentoTransferencia"/>
 					</and>

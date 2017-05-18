@@ -1,0 +1,13 @@
+/**
+ * Felipe e Thamires
+ */
+public refines class ComprovanteFiscal {
+	
+	public void gerarComprovante(String tipoComprovante, Date data, float valorCobrado, float valorPago){
+		Super().gerarComprovante(tipoComprovante, data, valorCobrado, valorPago);
+		if(tipoComprovante == "Email"){
+			System.out.println("Mensagem: Comprovante Fiscal enviado com sucesso!\n");
+		}
+
+	}
+}

@@ -1,0 +1,15 @@
+/**
+ * Felipe e Thamires
+ */
+public class PagamentoBoleto implements FormaPagamento  {
+	
+	public String getTipo(){
+		return "Boleto";
+	}
+
+	public void pagar(float valorPago, float valorCobrado){ 
+		
+		if(valorPago<valorCobrado)
+			throw new java.lang.RuntimeException("Valor Pago menor que o cobrado"); 
+	}
+}

@@ -1,0 +1,25 @@
+/**
+ * Felipe e Thamires
+ */
+public class PagamentoDinheiro implements FormaPagamento {
+
+	private float troco;
+		
+	public float getTroco() {
+		return troco;
+	}
+	
+	public String getTipo(){
+		return "Dinheiro";
+	}
+
+	public void pagar(float valorPago, float valorCobrado){ 
+		
+		if(valorPago<valorCobrado)
+			throw new java.lang.RuntimeException("Valor Pago menor que o cobrado"); 
+		
+		this.troco = valorPago - valorCobrado;
+		
+	}
+	
+}

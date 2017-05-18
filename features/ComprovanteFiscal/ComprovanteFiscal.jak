@@ -1,0 +1,32 @@
+/**
+ * Felipe e Thamires
+ */
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+public class ComprovanteFiscal {
+	
+	public String tipoComprovante;
+
+	public String getTipoComprovante(){
+		return tipoComprovante;
+	}
+	
+	public void setTipoComprovante (String tipoComprovante){
+		this.tipoComprovante = tipoComprovante;
+	}
+	
+	public ComprovanteFiscal (String tipoComprovante){
+		this.tipoComprovante = tipoComprovante;		
+	}
+	
+	public void gerarComprovante(String tipoComprovante, Date data, float valorCobrado, float valorPago){
+		SimpleDateFormat dt_format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		System.out.println(
+				"-=COMPROVANTE FISCAL=-" + " \n" +
+				"Data do Pagamento: "+dt_format.format(data)+ " \n" +
+				"Valor Total Cobrado: "+valorCobrado + "\n" +
+				"Valor Total Pago: "+valorPago);
+	}
+	
+}

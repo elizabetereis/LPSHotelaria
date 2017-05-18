@@ -1,0 +1,41 @@
+/**
+ * Felipe e Thamires
+ */
+
+import java.util.Scanner;
+
+public refines class PagamentoCartao {
+	
+	private int qtdParcela;
+	private float valorParcela;
+	
+	public int getQtdParcela(){
+		return qtdParcela;
+	}
+	
+	public float getValorParcela(){
+		return valorParcela;
+	}
+	
+	public void CalcularParcela(int qtdParcela, float valorTotal){
+		this.qtdParcela = qtdParcela;
+		this.valorParcela = valorTotal/qtdParcela;
+	}
+	
+	public String getTipo(){
+		return Super().getTipo();
+	}
+	
+	public void pagar(float valorPago, float valorCobrado){
+		Scanner s = new Scanner(System.in);
+		
+		Super().pagar(valorPago, valorCobrado);
+		if(Super().getTipoCartao() == "Credito"){
+			System.out.println("Informe a quantidade de parcelas:");
+			qtdParcela = s.nextInt();
+			s.close();
+			CalcularParcela(qtdParcela, valorPago);
+		}
+	}
+	
+}

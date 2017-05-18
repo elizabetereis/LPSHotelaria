@@ -1,0 +1,124 @@
+/**
+ * Felipe e Thamires
+ */
+import java.util.Date;
+
+public class Pagamento {
+
+	private int idPagamento; 
+	private float valorTotal;
+	private float valorPago;
+	private float valorCobrado;
+	private float desconto;
+	private Date dataPagamento;
+	private String descricao;
+	private FormaPagamento formaPagamento;
+	private Cliente cliente;
+	private ComprovanteFiscal comprovanteFiscal;
+		
+	public FormaPagamento getFormaPagamento(){
+		return formaPagamento;
+	}
+	
+	public ComprovanteFiscal getComprovanteFiscal(){
+		return this.comprovanteFiscal;
+	}
+	
+	public void setComprovanteFiscal (ComprovanteFiscal comprovanteFiscal){
+		this.comprovanteFiscal = comprovanteFiscal;
+	}
+	
+	public Cliente getCliente(){
+		return cliente;
+	}
+	
+	public int getIdPagamento() {
+		return idPagamento;
+	}
+
+	public float getValorTotal() {
+		return valorTotal;
+	}
+	
+	public float getValorPago() {
+		return valorPago;
+	}
+	
+	public float getValorCobrado(){
+		return valorCobrado;
+	}
+	
+	public float getDesconto() {
+		return desconto;
+	}
+	
+	public Date getDataPagamento() {
+		return dataPagamento;
+	}
+
+	public String getDescricao(){
+		return descricao;
+	}
+	
+	public void setDescricao(String descricao){
+		this.descricao = descricao;
+	}
+	
+	private void calcularDesconto (){
+		
+		this.valorCobrado = this.valorTotal - (this.valorTotal * this.desconto/100);
+	}
+	
+	public Pagamento(Date dataPagamento, float valorTotal, float desconto, float valorPago,
+			FormaPagamento formaPagamento, Cliente cliente, String descricao, ComprovanteFiscal comprovanteFiscal) {
+		
+		try{
+		
+			this.dataPagamento = dataPagamento;
+			this.valorTotal = valorTotal;
+			this.desconto = desconto;
+			this.valorPago = valorPago;
+			this.formaPagamento = formaPagamento;
+			this.cliente = cliente;
+			this.descricao = descricao;
+			this.comprovanteFiscal = comprovanteFiscal;
+			
+			calcularDesconto();
+			
+			formaPagamento.pagar(valorPago, this.valorCobrado);
+			
+			System.out.println("pagamento efetuado com sucesso.");
+			comprovanteFiscal.gerarComprovante(comprovanteFiscal.getTipoComprovante(), 
+					dataPagamento, valorCobrado, valorPago);
+			print();
+		}
+		catch(Exception e){
+			System.out.println("Nao foi possivel efetuar o pagamento."); 
+			System.out.println("Error: "+e.getMessage());
+		}
+		
+	}
+	
+	//Metodo para imprimir os dados do pagamento
+	public void print(){
+		System.out.println("Tipo de pagamento: "+getFormaPagamento().getTipo());
+	}
+		
+	public static void main (String args[]){
+		
+		Pagamento pagamento = new Pagamento(new Date(), 100, 10, 90, new PagamentoDinheiro(), 
+				new Cliente(), "", new ComprovanteFiscal("Email"));
+		
+		System.out.println("---------------------------");
+		
+		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao(ETipoCartao.CREDITO), 
+				new Cliente(), "", new ComprovanteFiscal("Impresso"));
+		
+		System.out.println("---------------------------");
+		
+		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao(ETipoCartao.DEBITO), 
+				new Cliente(), "", new ComprovanteFiscal("Email"));
+				
+	}
+
+}
