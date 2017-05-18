@@ -1,15 +1,15 @@
 /**
- * TODO description
+ * Elizabete e Emmanuel
  */
-public refines class CheckoutManual {
+public refines class Checkout {
 	
-	public CheckoutManual(){
-			
+	public String getTipo(){
+		return "Manual ";
 	}
 	
 	public void fazerCheckout(){
-		Super.fazerCheckout();
-		System.out.println("fazendo checkout manual");
+		Super().setDataSaida();
+		Super().fazerCheckout();
 	}
 
 }

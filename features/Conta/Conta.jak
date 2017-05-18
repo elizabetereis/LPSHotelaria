@@ -1,5 +1,5 @@
 /**
- * TODO description
+ * Elizabete e Emmanuel
  */
 import java.awt.List;
 import java.util.ArrayList;
@@ -8,18 +8,23 @@ public class Conta {
 		
 		private String mNumero;
 		private double mTotal;
-//		private List<Produto> mProdutos = new ArrayList<Produto>();
-		private Produto mProduto;
+		private Produto[] mProdutos = new Produto[100]; //não consigo usar List :/
 		private Checkin mCheckin;
-//		private Checkout mCheckout;
+		private Checkout mCheckout;
 		
 		public Conta(){
 //			mProdutos = new ArrayList<Produto>();
+			mNumero = "0000";
+			mTotal = 0.0;
+			mCheckin = new Checkin(); //inicializa data de entrada como hoje
+			mCheckout = new Checkout();
 		}
 		
 		public Conta(String numero, double total){
 			this.mNumero = numero;
 			this.mTotal = total;
+			mCheckin = new Checkin();
+			mCheckout = new Checkout();
 //			mProdutos = new ArrayList<Produto>();
 		}
 		
@@ -35,13 +40,13 @@ public class Conta {
 			return this.mCheckin;
 		}
 		
-//		public void setCheckout(Checkout saida){
-//			this.mCheckout = saida;
-//		}
-//		
-//		public Checkout getCheckout(){
-//			return this.mCheckout;
-//		}
+		public void setCheckout(Checkout saida){
+			this.mCheckout = saida;
+		}
+		
+		public Checkout getCheckout(){
+			return this.mCheckout;
+		}
 		
 		public void setNumero(String numero){
 			this.mNumero = numero;
@@ -56,10 +61,18 @@ public class Conta {
 //			this.mProdutos.add(produto);
 //		}
 		
+		public void print(){
+			System.out.println("Conta "+getNumero()+"\ntotal: "+calculaTotal()
+								+"\nCheckin: "+getCheckin().getDataEntrada().toString());
+		}
+		
 		public static void main(String[] args) {
 			
-			Conta conta = new Conta("01", 0.0);
-			System.out.println(conta.getNumero());
+			Conta conta = new Conta();
+			conta.getCheckin().fazerCheckin();
+			conta.print();
+			conta.getCheckout().fazerCheckout();
+			System.out.println(conta.getCheckout().getDataSaida().toString());
 	}
 
 

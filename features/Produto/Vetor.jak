@@ -1,0 +1,48 @@
+/**
+ * Elizabete e Emmanuel
+ */
+public class Vetor {
+
+  private Produto[] mProdutos = new Produto[100];
+  
+  public void adiciona(Produto produto) {
+	  this.mProdutos[tamanho()] = produto;
+  }
+
+  public void adiciona(int posicao, Produto produto) {
+	  this.mProdutos[posicao] = produto;
+  }
+
+  public Produto pega(int posicao) {
+	  return this.mProdutos[posicao];
+  }
+
+  public void remove(int posicao) {
+	  this.mProdutos[posicao] = null;
+  }
+
+  public boolean contem(Produto produto) {
+	  
+	  for (int i = 0; i < this.mProdutos.length; i++) {
+	      if (this.mProdutos[i] == produto) {
+	        return true;
+	      }
+	    }
+	  
+	  return false;
+  }
+
+  public int tamanho() {
+    return this.mProdutos.length;
+  }
+  
+  public String toString() {
+	  String produtos = " ";
+	  
+	  for (int i = 0; i < tamanho(); i++) {
+		  produtos = "Prododuto "+i+" "+mProdutos[i].toString();
+	  }
+	  
+    return produtos;
+  }
+}

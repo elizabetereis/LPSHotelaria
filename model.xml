@@ -28,14 +28,13 @@
 						<feature mandatory="true" name="Hospede"/>
 						<feature name="Acompanhante"/>
 					</and>
-					<and name="Funcionario">
-						<and name="Login">
-							<or name="Autenticacao">
-								<feature mandatory="true" name="AutenticacaoBiometria"/>
-								<feature mandatory="true" name="AutenticacaoSenha"/>
-							</or>
-						</and>
+					<and name="Login">
+						<or name="Autenticacao">
+							<feature mandatory="true" name="AutenticacaoBiometria"/>
+							<feature mandatory="true" name="AutenticacaoSenha"/>
+						</or>
 					</and>
+					<feature name="Funcionario"/>
 				</and>
 				<and name="Acomodação">
 					<and name="Lote">
@@ -50,10 +49,10 @@
 				<and name="Conta">
 					<feature name="Produto"/>
 					<feature mandatory="true" name="Checkin"/>
-					<or abstract="true" mandatory="true" name="Checkout">
+					<alt mandatory="true" name="Checkout">
 						<feature mandatory="true" name="CheckManual"/>
 						<feature mandatory="true" name="CheckAutomatico"/>
-					</or>
+					</alt>
 				</and>
 				<and name="Reserva">
 					<feature mandatory="true" name="ReservaSemPagamento"/>

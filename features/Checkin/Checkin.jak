@@ -2,7 +2,7 @@
 import java.util.Date;
 
 /**
- * TODO description
+ * Elizabete e Emmanuel
  */
 public class Checkin {
 	
@@ -16,9 +16,9 @@ public class Checkin {
 		return mDataEntrada;
 	}
 	
-	public void setDataEntrada(Date entrada){
-		this.mDataEntrada = entrada;
-	}
+//	public void setDataEntrada(Date entrada){
+//		this.mDataEntrada = entrada;
+//	}
 	
 	public void fazerCheckin(){
 		mDataEntrada = new Date();

@@ -1,5 +1,5 @@
 /**
- * TODO description
+ * Elizabete e Emmanuel
  */
 
 public class Produto {
@@ -34,6 +34,10 @@ public class Produto {
 	
 	public void setPreco(double preco){
 		this.mPreco = preco;
+	}
+	
+	public String toString(){
+		return "produtos";
 	}
 
 

@@ -1,5 +1,5 @@
 /**
- * TODO description
+ * Elizabete e Emmanuel
  */
 import java.util.Date;
 
@@ -15,13 +15,12 @@ public class Checkout {
 		return mDataSaida;
 	}
 	
-	public void setDataSaida(Date saida){
-		this.mDataSaida = saida;
+	public void setDataSaida(){
+		mDataSaida = new Date();
 	}
 	
 	public void fazerCheckout(){
-		mDataSaida = new Date();
-		System.out.println("fazendo checkout");
+		System.out.print("Checkout ");
 	}
 
 }
