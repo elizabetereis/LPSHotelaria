@@ -26,17 +26,17 @@
 				</and>
 				<feature name="Estabelecimento"/>
 				<and name="Pessoa">
-					<and mandatory="true" name="Cliente">
-						<feature mandatory="true" name="Hospede"/>
-						<feature name="Acompanhante"/>
-					</and>
-					<and name="Login">
+					<and mandatory="true" name="Funcionario">
+						<feature name="Login"/>
 						<or name="Autenticacao">
 							<feature mandatory="true" name="AutenticacaoBiometria"/>
 							<feature mandatory="true" name="AutenticacaoSenha"/>
 						</or>
 					</and>
-					<feature name="Funcionario"/>
+					<and mandatory="true" name="Cliente">
+						<feature mandatory="true" name="Hospede"/>
+						<feature name="Acompanhante"/>
+					</and>
 				</and>
 				<and name="Acomodação">
 					<and name="Lote">
@@ -56,10 +56,10 @@
 						<feature mandatory="true" name="CheckAutomatico"/>
 					</alt>
 				</and>
-				<and name="Reserva">
+				<or mandatory="true" name="Reserva">
 					<feature mandatory="true" name="ReservaSemPagamento"/>
 					<feature mandatory="true" name="ReservaComPagamento"/>
-				</and>
+				</or>
 			</and>
 		</struct>
 		<constraints>

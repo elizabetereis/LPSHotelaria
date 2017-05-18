@@ -1,0 +1,16 @@
+/**
+ * Elizabete e Emmanuel
+ */
+public refines class Reserva{
+	
+	private Object pagamento;
+	
+	public void reservar(Date entrada, Date saida, Object pagamento)
+	{
+		System.out.print("Reservando acomodacao com pagamento\n");
+		Super().reservar(entrada, saida);
+		this.pagamento = pagamento;
+	}
+
+
+}

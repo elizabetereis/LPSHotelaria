@@ -1,0 +1,27 @@
+/**
+ * Elizabete e Emmanuel
+ */
+
+import java.util.Date;
+
+public class Reserva {
+	
+	protected Date mEntradaPlanejada;
+	protected Date mSaidaPlanejada;
+	
+	public void setEntrada(Date entrada)
+	{
+		mEntradaPlanejada = entrada;
+	}
+	
+	public void setSaida(Date entrada)
+	{
+		mSaidaPlanejada = entrada;
+	}
+	
+	public void reservar(Date entrada, Date saida)
+	{
+		this.mEntradaPlanejada = entrada;
+		this.mSaidaPlanejada = saida;
+	}
+}
