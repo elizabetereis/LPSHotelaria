@@ -26,16 +26,17 @@
 				</and>
 				<feature name="Estabelecimento"/>
 				<and name="Pessoa">
-					<and mandatory="true" name="Funcionario">
-						<feature name="Login"/>
-						<or name="Autenticacao">
-							<feature mandatory="true" name="AutenticacaoBiometria"/>
-							<feature mandatory="true" name="AutenticacaoSenha"/>
-						</or>
-					</and>
-					<and mandatory="true" name="Cliente">
-						<feature mandatory="true" name="Hospede"/>
+					<feature mandatory="true" name="PessoaJuridica"/>
+					<and name="PessoaFisica">
+						<feature name="Cliente"/>
 						<feature name="Acompanhante"/>
+						<and name="Funcionario">
+							<or name="Autenticacao">
+								<feature mandatory="true" name="AutenticacaoBiometria"/>
+								<feature mandatory="true" name="AutenticacaoSenha"/>
+							</or>
+							<feature mandatory="true" name="Login"/>
+						</and>
 					</and>
 				</and>
 				<and name="Acomodação">
@@ -62,7 +63,14 @@
 				</or>
 			</and>
 		</struct>
-		<constraints/>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Acompanhante</var>
+					<var>Cliente</var>
+				</imp>
+			</rule>
+		</constraints>
 		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
 		<featureOrder userDefined="false"/>
