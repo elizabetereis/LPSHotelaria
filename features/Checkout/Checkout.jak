@@ -1,0 +1,26 @@
+/**
+ * Elizabete e Emmanuel
+ */
+import java.util.Date;
+
+public class Checkout {
+	
+	private Date mDataSaida;
+	
+	public Checkout(){
+		
+	}
+	
+	public Date getDataSaida(){
+		return mDataSaida;
+	}
+	
+	public void setDataSaida(){
+		mDataSaida = new Date();
+	}
+	
+	public void fazerCheckout(){
+		System.out.print("Checkout ");
+	}
+
+}

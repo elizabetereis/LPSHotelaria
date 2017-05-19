@@ -1,0 +1,27 @@
+
+import java.util.Date;
+
+/**
+ * Elizabete e Emmanuel
+ */
+public class Checkin {
+	
+	private Date mDataEntrada;
+	
+	public Checkin(){
+		
+	}
+	
+	public Date getDataEntrada(){
+		return mDataEntrada;
+	}
+	
+//	public void setDataEntrada(Date entrada){
+//		this.mDataEntrada = entrada;
+//	}
+	
+	public void fazerCheckin(){
+		mDataEntrada = new Date();
+	}
+
+}

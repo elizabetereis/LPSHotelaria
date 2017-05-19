@@ -24,7 +24,42 @@
 						<feature mandatory="true" name="ComprovanteImpresso"/>
 					</or>
 				</and>
-				<feature mandatory="true" name="Cliente"/>
+				<feature name="Estabelecimento"/>
+				<and name="Pessoa">
+					<and mandatory="true" name="Funcionario">
+						<feature name="Login"/>
+						<or name="Autenticacao">
+							<feature mandatory="true" name="AutenticacaoBiometria"/>
+							<feature mandatory="true" name="AutenticacaoSenha"/>
+						</or>
+					</and>
+					<and mandatory="true" name="Cliente">
+						<feature mandatory="true" name="Hospede"/>
+						<feature name="Acompanhante"/>
+					</and>
+				</and>
+				<and name="Acomodação">
+					<and name="Lote">
+						<feature name="LoteComBarraca"/>
+						<feature name="LoteSemBarraca"/>
+					</and>
+					<and name="Quarto">
+						<feature name="QuartoPublico"/>
+						<feature name="QuartoPrivado"/>
+					</and>
+				</and>
+				<and name="Conta">
+					<feature name="Produto"/>
+					<feature mandatory="true" name="Checkin"/>
+					<alt mandatory="true" name="Checkout">
+						<feature mandatory="true" name="CheckManual"/>
+						<feature mandatory="true" name="CheckAutomatico"/>
+					</alt>
+				</and>
+				<or mandatory="true" name="Reserva">
+					<feature mandatory="true" name="ReservaSemPagamento"/>
+					<feature mandatory="true" name="ReservaComPagamento"/>
+				</or>
 			</and>
 		</struct>
 		<constraints/>

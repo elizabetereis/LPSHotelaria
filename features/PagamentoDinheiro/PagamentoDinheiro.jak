@@ -1,5 +1,5 @@
 /**
- * TODO description
+ * Felipe e Thamires
  */
 public class PagamentoDinheiro implements FormaPagamento {
 

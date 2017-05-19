@@ -1,5 +1,5 @@
 /**
- * TODO description
+ * Felipe e Thamires
  */
 public interface FormaPagamento {
 	public String getTipo();

@@ -1,9 +1,9 @@
+/**
+ * Felipe e Thamires
+ */
 
 import java.util.Scanner;
 
-/**
- * TODO description
- */
 public refines class PagamentoCartao {
 	
 	private int qtdParcela;
