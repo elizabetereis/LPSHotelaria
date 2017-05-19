@@ -1,0 +1,109 @@
+/**
+ * Daiane e Camila
+ */
+import java.util.ArrayList;
+import java.util.List;
+
+public class PessoaDao implements IPessoa{
+	
+	 /* private Connection connection;
+
+	  public PessoaDao() {
+	    this.connection = new ConnectionFactory().getConnection();
+	  }
+	  
+	  public void cadastrarPessoa(Pessoa pessoa) {
+	  
+		    String sql = "insert into pessoa (nome,identificacao,endereco,email) values (?,?,?,?)";
+		
+		    try {
+		    
+		        PreparedStatement stmt = con.prepareStatement(sql);
+		
+		        stmt.setString(1,pessoa.getNome());
+		        stmt.setString(2,pessoa.getIdentificacao());
+		        stmt.setString(3,pessoa.getEndereco());
+		        stmt.setString(4,pessoa.getEmail());
+
+		        stmt.execute();
+		        stmt.close();
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+      }
+      
+      public void alterarPessoa(Pessoa pessoa) {
+      
+		     String sql = "update pessoa set nome=?, identificacao=?, endereco=?," +
+		             "emailo=? where idPessoa=?";
+		     try {
+		         PreparedStatement stmt = connection.prepareStatement(sql);
+		         stmt.setString(1, pessoa.getNome());
+		         stmt.setString(2, pessoa.getIdentificacao());
+		         stmt.setString(3, pessoa.getEndereco());
+		         stmt.setString(3, pessoa.getEmail());
+		         stmt.setLong(5, pessoa.getId());
+		         
+		         stmt.execute();
+		         stmt.close();
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+      }
+      
+      public void excluirPessoa(Pessoa pessoa) {
+		     try {
+		         PreparedStatement stmt = connection.prepareStatement("delete" +
+		                 "from pessoa where idPessoa=?");
+		         stmt.setLong(1, pessoa.getIdPessoa());
+		         stmt.execute();
+		         stmt.close();
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+      }
+      
+      
+	  */
+	
+	
+	//List<Pessoa> listaPessoas = new ArrayList<Pessoa>();
+	private Pessoa[] listaPessoas = new Pessoa[10];
+	
+	public boolean cadastrarPessoa(Pessoa pessoa){
+		
+		try{
+			
+			for(int i=0; i<listaPessoas.length; i++){
+				
+				listaPessoas[i] = pessoa;
+				
+			}
+			
+			
+		} catch(Exception e){
+			
+			return false;
+			
+		}
+		
+		return true;
+	}
+	
+	
+	public boolean alterarPessoa(Pessoa pessoa){
+		return false;
+	}
+	
+	public boolean excluirPessoa(int id){
+		
+	//	for(Pessoa pessoa : listaPessoas) {
+		//	if(pessoa.getIdentificacao() == id)
+				//listaPessoas.remove(pessoa);
+	//		  
+	//	}
+		
+		return false;
+	//}
+	}
+}

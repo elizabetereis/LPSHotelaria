@@ -1,0 +1,59 @@
+/**
+ * Daiane e Camila
+ */
+public abstract class Pessoa {
+	
+	private int idPessoa;
+	private String nome;
+	private String identificacao;
+	private String endereco;
+	private String email;
+	
+	public Pessoa(){
+		
+	}
+	
+	public Pessoa(int idPessoa, String nome, String identificacao, String endereco, String email){
+		
+		this.nome = nome;
+		this.identificacao = identificacao;
+		this.endereco = endereco;
+		this.email = email;	
+	}
+	
+	public int getIdPessoa(){
+		return idPessoa;
+	}
+	public void setPessoa(int idPessoa){
+		this.idPessoa = idPessoa;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getIdentificacao() {
+		return identificacao;
+	}
+	public void setIdentificacao(String identificacao) {
+		this.identificacao = identificacao;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String toString() {
+		return "teste [nome=" + nome + "]";
+	}
+}
