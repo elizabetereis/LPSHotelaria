@@ -1,8 +1,8 @@
 /**
- * TODO description
+ * Daiane e Camila
  */
 public class Acompanhante extends PessoaFisica {
-		
+	
 	private int idAcompanhante;
 	
 	
@@ -22,7 +22,5 @@ public class Acompanhante extends PessoaFisica {
 	public void setAcompanhante(int idAcompanhante){
 		this.idAcompanhante = idAcompanhante;
 	}
-
-	
 
 }

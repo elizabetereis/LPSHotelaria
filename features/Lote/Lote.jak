@@ -1,0 +1,40 @@
+/**
+ * Diego e Victor
+ */
+public class Lote {
+	
+	protected int numeroLote;
+	protected double espaco;
+	protected boolean barraca;
+	
+		
+	public Lote(int numeroLote, double espaco, boolean barraca) {
+		this.numeroLote = numeroLote;
+		this.espaco = espaco;
+		this.barraca = barraca;
+	}
+	
+	public int getNumeroLote(){
+		return numeroLote;
+	}
+	public void setNumeroLote(int numeroLote){
+		this.numeroLote = numeroLote;
+	}
+	public double getEspaco() {
+		return espaco;
+	}
+	public void setEspaco(double espaco) {
+		this.espaco = espaco;
+	}
+	public boolean isBarraca() {
+		return barraca;
+	}
+	public void setBarraca(boolean barraca) {
+		this.barraca = barraca;
+	}
+	
+	public void cadastrar(){
+		this.numeroLote = 1;
+	}
+
+}

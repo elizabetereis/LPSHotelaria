@@ -1,0 +1,56 @@
+/**
+ * TODO description
+ */
+public class Quarto {
+	
+	protected int numeroDoQuarto;
+	protected int numeroDeAcomodacoes;
+	protected boolean arCondicionado;
+	protected int numeroCamasDouble;
+	protected int numeroCamasSingle;
+	
+	public Quarto(int numeroDoQuarto, int numeroDeAcomodacoes, boolean arCondicionado,
+			int numeroCamasDouble, int numeroCamasSingle) {
+		this.numeroDeAcomodacoes = numeroDeAcomodacoes;
+		this.arCondicionado = arCondicionado;
+//		this.numeroDoQuarto = numeroDoQuarto;
+		this.numeroCamasDouble = numeroCamasDouble;
+		this.numeroCamasSingle = numeroCamasSingle;
+	}
+	
+	public boolean isArCondicionado() {
+		return arCondicionado;
+	}
+	public void setArCondicionado(boolean arCondicionado) {
+		this.arCondicionado = arCondicionado;
+	}
+	public int getNumeroDeAcomodacoes() {
+		return numeroDeAcomodacoes;
+	}
+	public void setNumeroDeAcomodacoes(int numeroDeAcomodacoes) {
+		this.numeroDeAcomodacoes = numeroDeAcomodacoes;
+	}
+	public int getNumeroDoQuarto() {
+		return numeroDoQuarto;
+	}
+	public void setNumeroDoQuarto(int numeroDoQuarto) {
+		this.numeroDoQuarto = numeroDoQuarto;
+	}
+	public int getNumeroCamasDouble() {
+		return numeroCamasDouble;
+	}
+	public void setNumeroCamasDouble(int numeroCamasDouble) {
+		this.numeroCamasDouble = numeroCamasDouble;
+	}
+	public int getNumeroCamasSingle() {
+		return numeroCamasSingle;
+	}
+	public void setNumeroCamasSingle(int numeroCamasSingle) {
+		this.numeroCamasSingle = numeroCamasSingle;
+	}
+	
+	public void cadastrar(){
+		this.numeroDoQuarto = 0;
+	}
+
+}

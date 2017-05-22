@@ -1,0 +1,12 @@
+/**
+ * TODO description
+ */
+public refines class Quarto {
+	
+	
+	public void cadastrar(){
+		Super().cadastrar();
+		System.out.println("quarto privado");
+	}
+
+}
