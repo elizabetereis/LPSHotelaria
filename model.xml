@@ -38,19 +38,17 @@
 							<feature mandatory="true" name="Login"/>
 						</and>
 					</and>
+						<feature name="Funcionario"/>
 				</and>
-				<and name="Acomodação">
-					<and name="Lote">
-						<feature name="LoteComBarraca"/>
-						<feature name="LoteSemBarraca"/>
-					</and>
-					<and name="Quarto">
+				<alt abstract="true" name="Acomodação">
+					<feature mandatory="true" name="Lote"/>
+					<and mandatory="true" name="Quarto">
 						<feature name="QuartoPublico"/>
 						<feature name="QuartoPrivado"/>
 					</and>
-				</and>
+				</alt>
 				<and name="Conta">
-					<feature name="Produto"/>
+					<feature mandatory="true" name="Produto"/>
 					<feature mandatory="true" name="Checkin"/>
 					<alt mandatory="true" name="Checkout">
 						<feature mandatory="true" name="CheckManual"/>
@@ -68,6 +66,12 @@
 				<imp>
 					<var>Acompanhante</var>
 					<var>Cliente</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Conta</var>
+					<var>Produto</var>
 				</imp>
 			</rule>
 		</constraints>

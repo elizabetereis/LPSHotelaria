@@ -1,0 +1,38 @@
+/**
+ * Diego e Victor
+ */
+public refines class Quarto {
+	
+	protected int genero;
+	protected int camasLivres;
+	
+	public void setGenero(int genero){
+		this.genero = genero;
+	}
+	public int getGenero(){
+		return genero;
+	}
+	
+	public void setCamasLivres(int camasLivres){
+		this.camasLivres = camasLivres;
+	}
+	public int getCamasLivres(){
+		return camasLivres;
+	}
+	
+	public String reservarCama(int numReservas){
+		int vagas = camasLivres - numReservas;
+		if(vagas < 0){
+			return "Vagas insuficientes!";
+		}else {
+			camasLivres = vagas;
+			return "Reserva efetuada!";
+		}
+	}
+	
+	public void cadastrar(){
+		Super().cadastrar();
+		System.out.println("quarto publico");
+	}
+	
+}
