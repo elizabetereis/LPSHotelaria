@@ -1,0 +1,14 @@
+/**
+ * Elizabete e Emmanuel
+ */
+public refines class Checkout{
+	
+	public String getTipo(){
+		return "Automatico ";
+	}
+
+	public void fazerCheckout(){
+		Super().setDataSaida();
+		Super().fazerCheckout();
+	}
+}
