@@ -38,6 +38,7 @@
 							<feature mandatory="true" name="Login"/>
 						</and>
 					</and>
+						<feature name="Funcionario"/>
 				</and>
 				<alt abstract="true" name="Acomodação">
 					<feature mandatory="true" name="Lote"/>

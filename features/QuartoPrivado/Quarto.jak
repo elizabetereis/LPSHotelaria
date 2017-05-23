@@ -2,11 +2,27 @@
  * TODO description
  */
 public refines class Quarto {
-	
-	
-	public void cadastrar(){
-		Super().cadastrar();
-		System.out.println("quarto privado");
-	}
 
+	private int numeroCamasDouble;
+	private int numeroCamasSingle;
+	
+	public Quarto(int numeroCamasDouble, int numeroCamasSingle) {
+		
+		this.numeroCamasDouble = numeroCamasDouble;
+		this.numeroCamasSingle = numeroCamasSingle;
+	}
+	
+	public int getNumeroCamasDouble() {
+		return numeroCamasDouble;
+	}
+	public void setNumeroCamasDouble(int numeroCamasDouble) {
+		this.numeroCamasDouble = numeroCamasDouble;
+	}
+	public int getNumeroCamasSingle() {
+		return numeroCamasSingle;
+	}
+	public void setNumeroCamasSingle(int numeroCamasSingle) {
+		this.numeroCamasSingle = numeroCamasSingle;
+	}
+	
 }
