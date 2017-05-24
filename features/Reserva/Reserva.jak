@@ -8,6 +8,12 @@ public class Reserva {
 	
 	protected Date mEntradaPlanejada;
 	protected Date mSaidaPlanejada;
+	protected boolean mFeita; //indica se o cliente realizou a reserva ou não
+	
+	public Reserva(){
+		
+		this.mFeita = false;
+	}
 	
 	public void setEntrada(Date entrada)
 	{
@@ -23,5 +29,6 @@ public class Reserva {
 	{
 		this.mEntradaPlanejada = entrada;
 		this.mSaidaPlanejada = saida;
+		this.mFeita = true;
 	}
 }

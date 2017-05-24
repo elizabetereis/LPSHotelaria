@@ -1,0 +1,19 @@
+/**
+ * TODO description
+ */
+public class Estabelecimento extends PessoaJuridica{
+	
+//	private VetorConta historicoContas;
+//	
+//	public VetorConta getHistoricoContas(){
+//		
+//		return historicoContas;
+//	}
+	
+	public Estabelecimento(){
+		
+		super(0, "00000", "nome estabelecimento", "razao social");
+//		historicoContas = new VetorConta();
+	}
+
+}

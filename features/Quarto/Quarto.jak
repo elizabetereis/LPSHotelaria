@@ -33,18 +33,6 @@ public class Quarto {
 	public void setNumeroDoQuarto(int numeroDoQuarto) {
 		this.numeroDoQuarto = numeroDoQuarto;
 	}
-	public int getNumeroCamasDouble() {
-		return numeroCamasDouble;
-	}
-	public void setNumeroCamasDouble(int numeroCamasDouble) {
-		this.numeroCamasDouble = numeroCamasDouble;
-	}
-	public int getNumeroCamasSingle() {
-		return numeroCamasSingle;
-	}
-	public void setNumeroCamasSingle(int numeroCamasSingle) {
-		this.numeroCamasSingle = numeroCamasSingle;
-	}
 	
 	public void cadastrar(){
 		this.numeroDoQuarto = 0;

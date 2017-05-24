@@ -24,7 +24,7 @@
 						<feature mandatory="true" name="ComprovanteImpresso"/>
 					</or>
 				</and>
-				<feature name="Estabelecimento"/>
+				<feature mandatory="true" name="Estabelecimento"/>
 				<and name="Pessoa">
 					<feature mandatory="true" name="PessoaJuridica"/>
 					<and name="PessoaFisica">

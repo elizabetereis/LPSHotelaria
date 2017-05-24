@@ -1,23 +1,25 @@
 /**
  * Elizabete e Emmanuel
  */
-import java.awt.List;
-import java.util.ArrayList;
 
 public class Conta {
 		
 		private String mNumero;
 		private double mTotal;
-		private Produto[] mProdutos = new Produto[100]; //não consigo usar List :/
+		private VetorProduto mProdutos; //representa consumo e servicos
 		private Checkin mCheckin;
 		private Checkout mCheckout;
+		private Cliente cliente; //titular da conta
+		private Pagamento pagamento;
 		
 		public Conta(){
-//			mProdutos = new ArrayList<Produto>();
 			mNumero = "0000";
 			mTotal = 0.0;
 			mCheckin = new Checkin(); //inicializa data de entrada como hoje
 			mCheckout = new Checkout();
+			this.cliente = new Cliente();
+			this.pagamento = new Pagamento();
+			mProdutos = new VetorProduto();
 		}
 		
 		public Conta(String numero, double total){
@@ -25,7 +27,9 @@ public class Conta {
 			this.mTotal = total;
 			mCheckin = new Checkin();
 			mCheckout = new Checkout();
-//			mProdutos = new ArrayList<Produto>();
+			this.cliente = new Cliente();
+			this.pagamento = new Pagamento();
+			mProdutos = new VetorProduto();
 		}
 		
 		public String getNumero(){
@@ -52,28 +56,31 @@ public class Conta {
 			this.mNumero = numero;
 		}
 		
+		public Cliente getCliente(){
+			return cliente;
+		}
+		
+		public void addProduto(Produto produto){
+			
+			mProdutos.adiciona(produto);
+			
+		}
+		
+		public void addProduto(Produto produto, int i){
+			
+			mProdutos.adiciona(i, produto);
+			
+		}
+		
+		//TODO: lembrar que se a reserva for feita com pagamento, o valor deve ser descontado aqui
 		public double calculaTotal(){
 			return mTotal;
 		}
 		
-//		public void addProduto(Produto produto){
-//			
-//			this.mProdutos.add(produto);
-//		}
 		
 		public void print(){
 			System.out.println("Conta "+getNumero()+"\ntotal: "+calculaTotal()
 								+"\nCheckin: "+getCheckin().getDataEntrada().toString());
 		}
-		
-		public static void main(String[] args) {
-			
-			Conta conta = new Conta();
-			conta.getCheckin().fazerCheckin();
-			conta.print();
-			conta.getCheckout().fazerCheckout();
-			System.out.println(conta.getCheckout().getDataSaida().toString());
-	}
-
 
 }

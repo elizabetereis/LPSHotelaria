@@ -3,13 +3,13 @@
  */
 public refines class Reserva{
 	
-	private Object pagamento;
+	private Pagamento pagamento;
 	
-	public void reservar(Date entrada, Date saida, Object pagamento)
+	public void reservar(Date entrada, Date saida)
 	{
 		System.out.print("Reservando acomodacao com pagamento\n");
 		Super().reservar(entrada, saida);
-		this.pagamento = pagamento;
+		this.pagamento = new Pagamento();
 	}
 
 

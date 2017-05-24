@@ -1,7 +1,7 @@
 /**
  * Elizabete e Emmanuel
  */
-public class Vetor {
+public class VetorProduto {
 
   private Produto[] mProdutos = new Produto[100];
   
@@ -40,7 +40,7 @@ public class Vetor {
 	  String produtos = " ";
 	  
 	  for (int i = 0; i < tamanho(); i++) {
-		  produtos = "Prododuto "+i+" "+mProdutos[i].toString();
+		  produtos = "Produto "+i+" "+mProdutos[i].toString();
 	  }
 	  
     return produtos;

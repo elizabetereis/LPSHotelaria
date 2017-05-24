@@ -40,45 +40,45 @@ public class Cliente extends PessoaFisica{
 	
 	
 	
-public static void main(String[] args) {
-		
-		boolean resul;
-		Date data;
-		int i;
-		
-		data = new Date();
-        PessoaDao dao = new PessoaDao();
-		Cliente cliente = new Cliente();
-        Acompanhante acompanhante = new Acompanhante();
-		
-		acompanhante.setNome("Camila");
-		
-		cliente.setNome("Daiane");
-		cliente.setIdentificacao("123");
-		cliente.setEndereco("Cabula");
-		cliente.setEmail("dai@gmail");
-		cliente.setCpf("014789897723");
-		cliente.setDataNascimento(data);
-		
-		
-		//cliente.setAcompanhantes(acompanhante);
-		
-		for(i=0; i<5; i++){
-			cliente.Acompanhantes[i]=acompanhante;
-		}
-
-       
-		
-        resul = dao.cadastrarPessoa(cliente);
-        
-        
-        if(resul){
-        	System.out.println("Cliente "+cliente.getNome()+" cadastrada com sucesso!");
-        }else{
-        	System.out.println("Nao foi possivel cadastrar!");	
-        }
-		
-	}
-	
+//public static void main(String[] args) {
+//		
+//		boolean resul;
+//		Date data;
+//		int i;
+//		
+//		data = new Date();
+//        PessoaDao dao = new PessoaDao();
+//		Cliente cliente = new Cliente();
+//        Acompanhante acompanhante = new Acompanhante();
+//		
+//		acompanhante.setNome("Camila");
+//		
+//		cliente.setNome("Daiane");
+//		cliente.setIdentificacao("123");
+//		cliente.setEndereco("Cabula");
+//		cliente.setEmail("dai@gmail");
+//		cliente.setCpf("014789897723");
+//		cliente.setDataNascimento(data);
+//		
+//		
+//		//cliente.setAcompanhantes(acompanhante);
+//		
+//		for(i=0; i<5; i++){
+//			cliente.Acompanhantes[i]=acompanhante;
+//		}
+//
+//       
+//		
+//        resul = dao.cadastrarPessoa(cliente);
+//        
+//        
+//        if(resul){
+//        	System.out.println("Cliente "+cliente.getNome()+" cadastrada com sucesso!");
+//        }else{
+//        	System.out.println("Nao foi possivel cadastrar!");	
+//        }
+//		
+//	}
+//	
 
 }
