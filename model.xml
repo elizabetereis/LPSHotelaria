@@ -19,7 +19,7 @@
 						<feature name="PagamentoDinheiro"/>
 						<feature name="PagamentoTransferencia"/>
 					</and>
-					<or mandatory="true" name="ComprovanteFiscal">
+					<or name="ComprovanteFiscal">
 						<feature mandatory="true" name="ComprovanteEmail"/>
 						<feature mandatory="true" name="ComprovanteImpresso"/>
 					</or>
@@ -38,7 +38,6 @@
 							<feature mandatory="true" name="Login"/>
 						</and>
 					</and>
-						<feature name="Funcionario"/>
 				</and>
 				<alt abstract="true" name="Acomodação">
 					<feature mandatory="true" name="Lote"/>

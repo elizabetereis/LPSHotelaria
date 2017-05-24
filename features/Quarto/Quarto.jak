@@ -6,16 +6,13 @@ public class Quarto {
 	protected int numeroDoQuarto;
 	protected int numeroDeAcomodacoes;
 	protected boolean arCondicionado;
-	protected int numeroCamasDouble;
-	protected int numeroCamasSingle;
+
 	
 	public Quarto(int numeroDoQuarto, int numeroDeAcomodacoes, boolean arCondicionado,
 			int numeroCamasDouble, int numeroCamasSingle) {
 		this.numeroDeAcomodacoes = numeroDeAcomodacoes;
 		this.arCondicionado = arCondicionado;
-//		this.numeroDoQuarto = numeroDoQuarto;
-		this.numeroCamasDouble = numeroCamasDouble;
-		this.numeroCamasSingle = numeroCamasSingle;
+		this.numeroDoQuarto = numeroDoQuarto;
 	}
 	
 	public boolean isArCondicionado() {
