@@ -1,0 +1,83 @@
+/**
+ * TODO description
+ */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+//import java.sql.Date;
+/**
+ * 
+ */
+public class PessoaFisicaDao extends Pessoa{
+
+	private Connection connection;
+	  
+	  public PessoaFisicaDao()  throws SQLException {
+			this.connection = Conexao.getConnection();
+	  }
+		
+	  
+		
+	  public boolean cadastrarPessoa(PessoaFisica pessoaFisica) {
+	        boolean resul;
+	        
+		    String sql = "insert into pessoaFisica (cpf, dataNasc) values (?,?)";
+		
+		    try {
+		    
+		        PreparedStatement stmt = connection.prepareStatement(sql);
+		
+		        stmt.setString(1,pessoaFisica.getCpf());
+		        stmt.setDate(2,pessoaFisica.getDataNascimento());
+
+		        resul = stmt.execute();
+		        stmt.close();
+		        
+		        return resul;
+		        
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+    }
+    
+	    public boolean alterarPessoa(int id) {
+	    	boolean resul;
+	    	PessoaFisica pessoaFisica = null;
+    
+		     String sql = "update pessoaFisica set cpf=?, dataNasc=? where idPessoaF=?";
+		     try {
+		    	 
+		         PreparedStatement stmt = connection.prepareStatement(sql);
+		         stmt.setString(1, pessoaFisica.getCpf());
+		         stmt.setDate(2, pessoaFisica.getDataNascimento());
+		         stmt.setInt(5, id);
+		         
+		         resul =  stmt.execute();
+		         stmt.close();
+		         
+		         return resul;
+		         
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+    }
+    
+    public boolean excluirPessoa(int id) {
+  	  boolean resul;
+		     try {
+		         PreparedStatement stmt = connection.prepareStatement("delete" +
+		                 "from pessoaFisica where idPessoaF=?");
+		         
+		         stmt.setInt(1, id);
+		         
+		         resul = stmt.execute();
+		         stmt.close();
+		         
+		         return resul;
+		         
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+    }
+	
+}

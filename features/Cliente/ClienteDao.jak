@@ -1,0 +1,81 @@
+/**
+ * TODO description
+ */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class ClienteDao  {
+	
+	private Connection con;
+	
+	
+	public ClienteDao() throws SQLException {
+		this.con = Conexao.getConnection();
+	}
+	
+	  public boolean cadastrarCliente(Cliente cliente) {
+	        boolean resul;
+	        
+		    String sql = "insert into cliente (idPessoa, idPessoaF, qtdAcompanhantes, idConta, idSistemaHotelaria) values (?,?,?,?,?)";
+		
+		    try {
+		    
+		        PreparedStatement stmt = con.prepareStatement(sql);
+		
+		        stmt.setInt(1,cliente.getIdPessoa());
+		        stmt.setInt(2,cliente.getIdPessoaFisica());
+		        stmt.setInt(3,cliente.getQtdAcompanhantes());
+		        //stmt.setDate(2,pessoaFisica.getDataNascimento());
+
+		        resul = stmt.execute();
+		        stmt.close();
+		        
+		        return resul;
+		        
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+  }
+  
+	    public boolean alterarPessoa(int id) {
+	    	boolean resul;
+	    	Cliente cliente = null;
+  
+		     String sql = "update cliente set qtdAcompanhantes=? where idCliente=?";
+		     try {
+		    	 
+		         PreparedStatement stmt = con.prepareStatement(sql);
+		   
+			     stmt.setInt(1,cliente.getQtdAcompanhantes());
+		         stmt.setInt(2, id);
+		         
+		         resul =  stmt.execute();
+		         stmt.close();
+		         
+		         return resul;
+		         
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+  }
+  
+  public boolean excluirPessoa(int id) {
+	  boolean resul;
+		     try {
+		         PreparedStatement stmt = con.prepareStatement("delete" +
+		                 "from cliente where idCliente=?");
+		         
+		         stmt.setInt(1, id);
+		         
+		         resul = stmt.execute();
+		         stmt.close();
+		         
+		         return resul;
+		         
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+  }
+	
+}

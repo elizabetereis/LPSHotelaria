@@ -1,15 +1,16 @@
 
 //import java.util.ArrayList;
 //import java.util.List;
-import java.util.Date;
+import java.sql.Date;
 /**
  * TODO description
  */
 public class Cliente extends PessoaFisica{
 	
 	private int idCliente;
+	private int qtdAcompanhantes;
 	//private Acompanhante[] listaPessoas = new Acompanhante[10];
-	private Acompanhante[] Acompanhantes  = new Acompanhante[10];
+	//private Acompanhante[] Acompanhantes  = new Acompanhante[10];
 	//List<Acompanhante> acompanhantes = new ArrayList<Acompanhante>();
 	
 	
@@ -17,9 +18,10 @@ public class Cliente extends PessoaFisica{
 		
 	}
 	
-    public Cliente(int idCliente ){
+    public Cliente(int idCliente, int qtdAcompanhantes){
 		super();
 		this.idCliente = idCliente;
+		this.qtdAcompanhantes = qtdAcompanhantes;
 	}
 	
 	public int getIdCliente(){
@@ -29,31 +31,31 @@ public class Cliente extends PessoaFisica{
 		this.idCliente = idCliente;
 	}
 	
-	public Acompanhante[] getAcompanhantes() {
-		return Acompanhantes;
+	public int getQtdAcompanhantes(){
+		return qtdAcompanhantes;
 	}
-
-	public void setAcompanhantes(Acompanhante[] acompanhantes) {
-		Acompanhantes = acompanhantes;
+	public void setQtdAcompanhantes(int qtdAcompanhantes){
+		this.qtdAcompanhantes = qtdAcompanhantes;
 	}
 	
-	
-	
-	
-	
-	
+//	public Acompanhante[] getAcompanhantes() {
+//		return Acompanhantes;
+//	}
+//
+//	public void setAcompanhantes(Acompanhante[] acompanhantes) {
+//		Acompanhantes = acompanhantes;
+//	}
+//	
+		
 public static void main(String[] args) {
 		
 		boolean resul;
-		Date data;
+		Date data =null;
 		int i;
-		
-		data = new Date();
-        PessoaDao dao = new PessoaDao();
+     
 		Cliente cliente = new Cliente();
-        Acompanhante acompanhante = new Acompanhante();
+		ClienteController cc = new ClienteController();
 		
-		acompanhante.setNome("Camila");
 		
 		cliente.setNome("Daiane");
 		cliente.setIdentificacao("123");
@@ -62,23 +64,13 @@ public static void main(String[] args) {
 		cliente.setCpf("014789897723");
 		cliente.setDataNascimento(data);
 		
-		
-		//cliente.setAcompanhantes(acompanhante);
-		
-		for(i=0; i<5; i++){
-			cliente.Acompanhantes[i]=acompanhante;
-		}
-
-       
-		
-        resul = dao.cadastrarPessoa(cliente);
+	
         
-        
-        if(resul){
+    /*    if(resul){
         	System.out.println("Cliente "+cliente.getNome()+" cadastrada com sucesso!");
         }else{
         	System.out.println("Nao foi possivel cadastrar!");	
-        }
+        }*/
 		
 	}
 	

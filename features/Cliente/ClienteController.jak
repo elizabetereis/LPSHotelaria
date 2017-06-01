@@ -1,0 +1,19 @@
+/**
+ * TODO description
+ */
+public class ClienteController {
+	
+	PessoaDao daoP = new PessoaDao();
+	PessoaFisicaDao daoPF = new PessoaFisicaDao();
+	ClienteDao daoC = new ClienteDao();
+	Cliente c = new Cliente();
+	
+	public void salvarCliente(){
+		
+		
+
+	}
+	
+	
+
+}

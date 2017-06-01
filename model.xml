@@ -2,7 +2,7 @@
 	<featureModel>
 		<properties/>
 		<struct>
-			<and abstract="true" mandatory="true" name="Hotelaria">
+			<or abstract="true" mandatory="true" name="Hotelaria">
 				<and mandatory="true" name="Pagamento">
 					<description>
 						Pagamento
@@ -20,7 +20,7 @@
 					</or>
 				</and>
 				<feature mandatory="true" name="Estabelecimento"/>
-				<and name="Pessoa">
+				<and mandatory="true" name="Pessoa">
 					<feature mandatory="true" name="PessoaJuridica"/>
 					<and name="PessoaFisica">
 						<feature name="Cliente"/>
@@ -56,7 +56,8 @@
 					<feature mandatory="true" name="ReservaSemPagamento"/>
 					<feature mandatory="true" name="ReservaComPagamento"/>
 				</and>
-			</and>
+				<feature mandatory="true" name="Conexao"/>
+			</or>
 		</struct>
 		<constraints>
 			<rule>
