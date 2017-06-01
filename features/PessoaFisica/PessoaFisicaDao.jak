@@ -11,11 +11,18 @@ import java.sql.SQLException;
 public class PessoaFisicaDao extends Pessoa{
 
 	private Connection connection;
-	  
-	  public PessoaFisicaDao()  throws SQLException {
-			this.connection = Conexao.getConnection();
+	
+	  public PessoaFisicaDao() {
+		  
+		  super();
+			
 	  }
 		
+	  public void conexao() throws SQLException {
+		  
+		  this.connection = Conexao.getConnection();
+		  
+	  }
 	  
 		
 	  public boolean cadastrarPessoa(PessoaFisica pessoaFisica) {

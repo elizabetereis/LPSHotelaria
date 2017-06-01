@@ -11,19 +11,23 @@ public class PessoaDao implements IPessoa{
 	
 	private Connection connection;
 
-		public PessoaDao()  throws SQLException {
-			this.connection = Conexao.getConnection();
+		public PessoaDao()  {
+			
 		}
 		
+	  public void conexao()  throws SQLException {
+		  
+		  this.connection = Conexao.getConnection();
+		  
+	  }
 	  
-	  
-	  public boolean cadastrarPessoa(Pessoa pessoa) {
+	  public boolean cadastrarPessoa(Pessoa pessoa){
 	        boolean resul;
 	        
 		    String sql = "insert into pessoa (nome,identificacao,endereco,email, tipoPessoa) values (?,?,?,?,?)";
 		
 		    try {
-		    
+		    	
 		        PreparedStatement stmt = connection.prepareStatement(sql);
 		
 		        stmt.setString(1,pessoa.getNome());

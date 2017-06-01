@@ -8,11 +8,19 @@ import java.sql.SQLException;
 public class ClienteDao  {
 	
 	private Connection con;
+
 	
-	
-	public ClienteDao() throws SQLException {
-		this.con = Conexao.getConnection();
-	}
+	public ClienteDao() {
+		  
+		  super();
+			
+	  }
+		
+	  public void conexao() throws SQLException {
+		  
+		  this.con = Conexao.getConnection();
+		  
+	  }
 	
 	  public boolean cadastrarCliente(Cliente cliente) {
 	        boolean resul;
