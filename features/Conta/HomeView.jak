@@ -8,12 +8,12 @@
  *
  * @author elizabete
  */
-public class Home extends javax.swing.JFrame {
+public class HomeView extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
      */
-    public Home() {
+    public HomeView() {
         initComponents();
     }
 
@@ -119,7 +119,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        new CadastrarFuncionario().setVisible(true);
+        new CadastrarFuncionarioView().setVisible(true);
         dispose();
     }//GEN-LAST:event_cadastrarActionPerformed
 
@@ -128,17 +128,17 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarMouseClicked
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-        new ConsultarFuncionario().setVisible(true);
+        new ConsultarFuncionarioView().setVisible(true);
         dispose();
     }//GEN-LAST:event_consultarActionPerformed
 
     private void cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarClienteActionPerformed
-        new CadastrarCliente().setVisible(true);
+        new CadastrarClienteView().setVisible(true);
         dispose();
     }//GEN-LAST:event_cadastrarClienteActionPerformed
 
     private void consultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarClienteActionPerformed
-         new ConsultarCliente().setVisible(true);
+         new ConsultarClienteView().setVisible(true);
         dispose();
     }//GEN-LAST:event_consultarClienteActionPerformed
 
@@ -160,13 +160,13 @@ public class Home extends javax.swing.JFrame {
 		        }
         	}
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -176,7 +176,7 @@ public class Home extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new HomeView().setVisible(true);
             }
         });
     }
