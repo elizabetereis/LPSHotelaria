@@ -4,26 +4,22 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Calendar;
 //import java.sql.Date;
 /**
  * 
  */
 public class PessoaFisicaDao extends Pessoa{
 
-	private Connection connection;
+	private Connection con;
 	
 	  public PessoaFisicaDao() {
 		  
-		  super();
+		  this.con = new Conexao().getConnection();
 			
 	  }
 		
-	  public void conexao() throws SQLException {
 		  
-		  this.connection = Conexao.getConnection();
-		  
-	  }
-	  
 		
 	  public boolean cadastrarPessoa(PessoaFisica pessoaFisica) {
 	        boolean resul;
@@ -32,10 +28,15 @@ public class PessoaFisicaDao extends Pessoa{
 		
 		    try {
 		    
-		        PreparedStatement stmt = connection.prepareStatement(sql);
+		        PreparedStatement stmt = con.prepareStatement(sql);
 		
 		        stmt.setString(1,pessoaFisica.getCpf());
-		        stmt.setDate(2,pessoaFisica.getDataNascimento());
+		        java.sql.Date dataParaGravar = new java.sql.Date(
+		                Calendar.getInstance().getTimeInMillis());
+		        //stmt.setDate(2,pessoaFisica.getDataNascimento());
+		        
+		       stmt.setDate(2, dataParaGravar);
+		               
 
 		        resul = stmt.execute();
 		        stmt.close();
@@ -54,9 +55,9 @@ public class PessoaFisicaDao extends Pessoa{
 		     String sql = "update pessoaFisica set cpf=?, dataNasc=? where idPessoaF=?";
 		     try {
 		    	 
-		         PreparedStatement stmt = connection.prepareStatement(sql);
+		         PreparedStatement stmt = con.prepareStatement(sql);
 		         stmt.setString(1, pessoaFisica.getCpf());
-		         stmt.setDate(2, pessoaFisica.getDataNascimento());
+		       //  stmt.setDate(2, pessoaFisica.getDataNascimento());
 		         stmt.setInt(5, id);
 		         
 		         resul =  stmt.execute();
@@ -72,7 +73,7 @@ public class PessoaFisicaDao extends Pessoa{
     public boolean excluirPessoa(int id) {
   	  boolean resul;
 		     try {
-		         PreparedStatement stmt = connection.prepareStatement("delete" +
+		         PreparedStatement stmt = con.prepareStatement("delete" +
 		                 "from pessoaFisica where idPessoaF=?");
 		         
 		         stmt.setInt(1, id);

@@ -12,20 +12,15 @@ public class ClienteDao  {
 	
 	public ClienteDao() {
 		  
-		  super();
+		this.con = new Conexao().getConnection();
 			
 	  }
 		
-	  public void conexao() throws SQLException {
-		  
-		  this.con = Conexao.getConnection();
-		  
-	  }
 	
 	  public boolean cadastrarCliente(Cliente cliente) {
 	        boolean resul;
 	        
-		    String sql = "insert into cliente (idPessoa, idPessoaF, qtdAcompanhantes, idConta, idSistemaHotelaria) values (?,?,?,?,?)";
+		    String sql = "insert into cliente (idpessoa, idPessoaFisica, qtdAcompanhante, conta_idConta, sistemaHotelaria_idSistemaHotelaria) values (?,?,?,?,?)";
 		
 		    try {
 		    
@@ -34,7 +29,8 @@ public class ClienteDao  {
 		        stmt.setInt(1,cliente.getIdPessoa());
 		        stmt.setInt(2,cliente.getIdPessoaFisica());
 		        stmt.setInt(3,cliente.getQtdAcompanhantes());
-		        //stmt.setDate(2,pessoaFisica.getDataNascimento());
+		        stmt.setInt(4,0);
+		        stmt.setInt(5,0);
 
 		        resul = stmt.execute();
 		        stmt.close();

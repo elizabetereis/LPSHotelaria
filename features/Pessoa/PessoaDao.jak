@@ -9,36 +9,34 @@ import java.sql.SQLException;
  */
 public class PessoaDao implements IPessoa{
 	
-	private Connection connection;
+	private Connection con;
 
 		public PessoaDao()  {
-			
+			this.con = new Conexao().getConnection();
 		}
 		
-	  public void conexao()  throws SQLException {
-		  
-		  this.connection = Conexao.getConnection();
-		  
-	  }
-	  
+
 	  public boolean cadastrarPessoa(Pessoa pessoa){
 	        boolean resul;
-	        
+
+
 		    String sql = "insert into pessoa (nome,identificacao,endereco,email, tipoPessoa) values (?,?,?,?,?)";
-		
+		     
 		    try {
 		    	
-		        PreparedStatement stmt = connection.prepareStatement(sql);
+		        PreparedStatement stmt = con.prepareStatement(sql);
 		
 		        stmt.setString(1,pessoa.getNome());
 		        stmt.setString(2,pessoa.getIdentificacao());
 		        stmt.setString(3,pessoa.getEndereco());
 		        stmt.setString(4,pessoa.getEmail());
 		        stmt.setBoolean(5,pessoa.getTipoPessoa());
-
-		        resul = stmt.execute();
-		        stmt.close();
 		        
+		        resul = stmt.execute();
+		        
+		       
+		        stmt.close();
+		        con.close();
 		        return resul;
 		        
 		    } catch (SQLException e) {
@@ -54,7 +52,7 @@ public class PessoaDao implements IPessoa{
 		             "email=?, tipoPessoa=? where idPessoa=?";
 		     try {
 		    	 
-		         PreparedStatement stmt = connection.prepareStatement(sql);
+		         PreparedStatement stmt = con.prepareStatement(sql);
 		         stmt.setString(1, pessoa.getNome());
 		         stmt.setString(2, pessoa.getIdentificacao());
 		         stmt.setString(3, pessoa.getEndereco());
@@ -75,7 +73,7 @@ public class PessoaDao implements IPessoa{
       public boolean excluirPessoa(int id) {
     	  boolean resul;
 		     try {
-		         PreparedStatement stmt = connection.prepareStatement("delete" +
+		         PreparedStatement stmt = con.prepareStatement("delete" +
 		                 "from pessoa where idPessoa=?");
 		         
 		         stmt.setInt(1, id);
