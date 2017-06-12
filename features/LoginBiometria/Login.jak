@@ -1,0 +1,12 @@
+/**
+ * TODO description
+ */
+public refines class Login {
+	
+	public boolean autenticar(){
+		
+		Super().autenticar("biometria...");
+		return true;
+	}
+
+}

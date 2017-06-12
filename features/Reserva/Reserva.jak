@@ -9,10 +9,13 @@ public class Reserva {
 	protected Date mEntradaPlanejada;
 	protected Date mSaidaPlanejada;
 	protected boolean mFeita; //indica se o cliente realizou a reserva ou não
+	protected float mValor;
+	protected boolean mPago;
 	
 	public Reserva(){
 		
 		this.mFeita = false;
+		this.mPago = false;
 	}
 	
 	public void setEntrada(Date entrada)

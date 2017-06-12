@@ -6,7 +6,7 @@ import java.util.Date;
 public class Pagamento {
 
 	private int idPagamento; 
-	private float valorTotal;
+	private float valorTotal; 
 	private float valorPago;
 	private float valorCobrado;
 	private float desconto;

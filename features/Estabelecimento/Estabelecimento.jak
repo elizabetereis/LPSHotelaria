@@ -1,7 +1,11 @@
 /**
  * TODO description
  */
-public class Estabelecimento extends PessoaJuridica{
+public class Estabelecimento{
+	
+	private Pessoa dadosPessoa;
+	private int qtdQuartos;
+	private int qtdQuartosDisponivel;
 	
 //	private VetorConta historicoContas;
 //	
@@ -10,9 +14,13 @@ public class Estabelecimento extends PessoaJuridica{
 //		return historicoContas;
 //	}
 	
+	public Estabelecimento(Pessoa dados){
+		this.dadosPessoa = dados;
+//		historicoContas = new VetorConta();
+	}
+	
 	public Estabelecimento(){
-		
-		super(0, "00000", "nome estabelecimento", "razao social");
+		this.dadosPessoa = new Pessoa();
 //		historicoContas = new VetorConta();
 	}
 

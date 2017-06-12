@@ -1,0 +1,19 @@
+/**
+ * TODO description
+ */
+public refines class Cliente {
+	
+	private Acompanhante[] Acompanhantes  = new Acompanhante[10];
+	
+	public Acompanhante[] getAcompanhantes() {
+		return Acompanhantes;
+	}
+
+	public void setAcompanhantes(Acompanhante[] acompanhantes) {
+		Acompanhantes = acompanhantes;
+	}
+	
+	public void cadastrar(Acompanhante[] acompanhantes){
+	}
+
+}

@@ -17,25 +17,27 @@
 							<feature mandatory="true" name="Credito"/>
 						</and>
 						<feature name="PagamentoDinheiro"/>
-						<feature name="PagamentoTransferencia"/>
 					</and>
 					<or name="ComprovanteFiscal">
 						<feature mandatory="true" name="ComprovanteEmail"/>
 						<feature mandatory="true" name="ComprovanteImpresso"/>
 					</or>
 				</and>
-				<feature mandatory="true" name="Estabelecimento"/>
 				<and name="Pessoa">
-					<feature mandatory="true" name="PessoaJuridica"/>
-					<and name="PessoaFisica">
-						<feature name="Cliente"/>
+					<and abstract="true" mandatory="true" name="PessoaJuridica">
+						<feature mandatory="true" name="Estabelecimento"/>
+					</and>
+					<and abstract="true" name="PessoaFisica">
+						<or name="Cliente">
+							<feature mandatory="true" name="ClienteComAcompanhante"/>
+							<feature mandatory="true" name="ClienteSemAcompanhante"/>
+						</or>
 						<feature name="Acompanhante"/>
 						<and name="Funcionario">
-							<or name="Autenticacao">
-								<feature mandatory="true" name="AutenticacaoBiometria"/>
-								<feature mandatory="true" name="AutenticacaoSenha"/>
+							<or mandatory="true" name="Login">
+								<feature mandatory="true" name="LoginSenha"/>
+								<feature mandatory="true" name="LoginBiometria"/>
 							</or>
-							<feature mandatory="true" name="Login"/>
 						</and>
 					</and>
 				</and>
@@ -64,13 +66,7 @@
 			<rule>
 				<imp>
 					<var>Acompanhante</var>
-					<var>Cliente</var>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<var>Conta</var>
-					<var>Produto</var>
+					<var>ClienteComAcompanhante</var>
 				</imp>
 			</rule>
 		</constraints>

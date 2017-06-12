@@ -1,0 +1,29 @@
+/**
+ * TODO description
+ */
+public class Login {
+	
+	protected String mNomeUsuario;
+	protected String mSenha;
+	
+	public Login(String nome, String senha){
+		
+		this.mNomeUsuario = nome;
+		this.mSenha = senha;
+	}
+	
+	public String getNomeUsuario() {
+		return mNomeUsuario;
+	}
+	
+	public void setSenha(String senha) {
+		this.mSenha = senha;
+	}
+	
+	public void autenticar(String tipo){
+		
+		System.out.println("autenticando com "+tipo);
+		
+	}
+
+}

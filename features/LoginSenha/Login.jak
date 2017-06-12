@@ -1,0 +1,12 @@
+/**
+ * TODO description
+ */
+public refines class Login {
+	
+	public boolean autenticar(String nome, String senha){
+			
+		Super().autenticar("senha");
+		return mNomeUsuario.equals(nome) && mSenha.equals(senha);	
+	}
+
+}

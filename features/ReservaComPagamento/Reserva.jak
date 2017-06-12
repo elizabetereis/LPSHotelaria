@@ -3,14 +3,20 @@
  */
 public refines class Reserva{
 	
-	private Pagamento pagamento;
+	private Pagamento mPagamento;
 	
 	public void reservar(Date entrada, Date saida)
 	{
 		System.out.print("Reservando acomodacao com pagamento\n");
 		Super().reservar(entrada, saida);
-		this.pagamento = new Pagamento();
+		this.mPagamento = new Pagamento(); //TODO: ver isso
+		this.mPago = true;
 	}
-
+	
+	public Pagamento getPagamento(){
+		
+		return this.mPagamento;
+	}
+	
 
 }

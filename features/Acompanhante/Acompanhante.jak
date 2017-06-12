@@ -1,24 +1,24 @@
 /**
  * Daiane e Camila
  */
-public class Acompanhante extends PessoaFisica {
+public class Acompanhante{
 		
 	private int idAcompanhante;
-	
-	
+	private Pessoa dadosPessoa;
 	
 	public Acompanhante(){
 		
 	}
 	
-    public Acompanhante(int idAcompanhante){
-		super();
+    public Acompanhante(int idAcompanhante, Pessoa dados){
 		this.idAcompanhante = idAcompanhante;
+		this.dadosPessoa = dados;
 	}
 	
 	public int getIdAcompanhante(){
 		return idAcompanhante;
 	}
+	
 	public void setAcompanhante(int idAcompanhante){
 		this.idAcompanhante = idAcompanhante;
 	}

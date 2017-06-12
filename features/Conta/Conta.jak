@@ -82,5 +82,13 @@ public class Conta {
 			System.out.println("Conta "+getNumero()+"\ntotal: "+calculaTotal()
 								+"\nCheckin: "+getCheckin().getDataEntrada().toString());
 		}
+		
+		public void abrirConta(){ //TODO: aqui deve ser efetuado o checkout
+			
+		}
+		
+		public void encerrarConta(){ //TODO: aqui deve ser feito o pagamento e o checkout
+			
+		}
 
 }

@@ -3,11 +3,11 @@
  */
 import java.util.Date;
 
-public class Cliente extends PessoaFisica{
+public class Cliente{
 	
-	private int idCliente;
+	protected int idCliente;
+	private Pessoa dadosPessoa;
 	//private Acompanhante[] listaPessoas = new Acompanhante[10];
-	private Acompanhante[] Acompanhantes  = new Acompanhante[10];
 	//List<Acompanhante> acompanhantes = new ArrayList<Acompanhante>();
 	
 	
@@ -16,24 +16,18 @@ public class Cliente extends PessoaFisica{
 	}
 	
     public Cliente(int idCliente ){
-		super();
 		this.idCliente = idCliente;
+		this.dadosPessoa = new Pessoa();
 	}
 	
 	public int getIdCliente(){
 		return idCliente;
 	}
+
 	public void setCliente(int idCliente){
 		this.idCliente = idCliente;
 	}
 	
-	public Acompanhante[] getAcompanhantes() {
-		return Acompanhantes;
-	}
-
-	public void setAcompanhantes(Acompanhante[] acompanhantes) {
-		Acompanhantes = acompanhantes;
-	}
 	
 	
 	

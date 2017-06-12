@@ -1,43 +1,33 @@
 /**
  * Daiane e Camila
  */
-public class Funcionario extends PessoaFisica{
+public class Funcionario{
 	
 	private int idFuncionario;
-	private String login;
-	private String senha;
+	private Pessoa dadosPessoa;
+	private Login login;
 	
 	public Funcionario(){
 		
 	}
 	
-	public Funcionario(int idFuncionario, String login, String senha) {
+	public Funcionario(int idFuncionario, Login login, Pessoa dados) {
 		super();
 		this.idFuncionario = idFuncionario;
 		this.login = login;
-		this.senha = senha;
+		this.dadosPessoa = dados;
 	}
 	
 	public int getIdFuncionario() {
 		return idFuncionario;
 	}
+	
 	public void setIdFuncionario(int idFuncionario) {
 		this.idFuncionario = idFuncionario;
 	}
-	public String getLogin() {
+	
+	public Login getLogin() {
 		return login;
 	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	
-	
-
 	
 }
