@@ -1,5 +1,5 @@
 /**
- * Daiane e Camila
+ * TODO description
  */
 public class Funcionario extends PessoaFisica{
 	

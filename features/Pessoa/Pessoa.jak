@@ -1,24 +1,26 @@
 /**
- * Daiane e Camila
+ * TODO description
  */
-public abstract class Pessoa {
+public  class Pessoa {
 	
 	private int idPessoa;
 	private String nome;
 	private String identificacao;
 	private String endereco;
 	private String email;
+	private boolean tipoPessoa;
 	
 	public Pessoa(){
 		
 	}
 	
-	public Pessoa(int idPessoa, String nome, String identificacao, String endereco, String email){
+	public Pessoa(int idPessoa, String nome, String identificacao, String endereco, String email, boolean tipoPessoa){
 		
 		this.nome = nome;
 		this.identificacao = identificacao;
 		this.endereco = endereco;
 		this.email = email;	
+		this.tipoPessoa = tipoPessoa;
 	}
 	
 	public int getIdPessoa(){
@@ -51,6 +53,12 @@ public abstract class Pessoa {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public boolean getTipoPessoa() {
+		return tipoPessoa;
+	}
+	public void setTipoPessoa(boolean tipoPessoa) {
+		this.tipoPessoa = tipoPessoa;
 	}
 	
 	public String toString() {

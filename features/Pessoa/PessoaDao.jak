@@ -1,76 +1,98 @@
-/**
- * Daiane e Camila
- */
+
 import java.util.ArrayList;
 import java.util.List;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+/**
+ * TODO description
+ */
 public class PessoaDao implements IPessoa{
 	
-	 /* private Connection connection;
+	private Connection con;
 
-	  public PessoaDao() {
-	    this.connection = new ConnectionFactory().getConnection();
-	  }
-	  
-	  public void cadastrarPessoa(Pessoa pessoa) {
-	  
-		    String sql = "insert into pessoa (nome,identificacao,endereco,email) values (?,?,?,?)";
+		public PessoaDao()  {
+			this.con = new Conexao().getConnection();
+		}
 		
+
+	  public boolean cadastrarPessoa(Pessoa pessoa){
+	        boolean resul;
+
+
+		    String sql = "insert into pessoa (nome,identificacao,endereco,email, tipoPessoa) values (?,?,?,?,?)";
+		     
 		    try {
-		    
+		    	
 		        PreparedStatement stmt = con.prepareStatement(sql);
 		
 		        stmt.setString(1,pessoa.getNome());
 		        stmt.setString(2,pessoa.getIdentificacao());
 		        stmt.setString(3,pessoa.getEndereco());
 		        stmt.setString(4,pessoa.getEmail());
-
-		        stmt.execute();
+		        stmt.setBoolean(5,pessoa.getTipoPessoa());
+		        
+		        resul = stmt.execute();
+		        
+		       
 		        stmt.close();
+		        con.close();
+		        return resul;
+		        
 		    } catch (SQLException e) {
 		        throw new RuntimeException(e);
 		    }
       }
       
-      public void alterarPessoa(Pessoa pessoa) {
+	    public boolean alterarPessoa(int id) {
+	    	boolean resul;
+	    	Pessoa pessoa = null;
       
 		     String sql = "update pessoa set nome=?, identificacao=?, endereco=?," +
-		             "emailo=? where idPessoa=?";
+		             "email=?, tipoPessoa=? where idPessoa=?";
 		     try {
-		         PreparedStatement stmt = connection.prepareStatement(sql);
+		    	 
+		         PreparedStatement stmt = con.prepareStatement(sql);
 		         stmt.setString(1, pessoa.getNome());
 		         stmt.setString(2, pessoa.getIdentificacao());
 		         stmt.setString(3, pessoa.getEndereco());
-		         stmt.setString(3, pessoa.getEmail());
-		         stmt.setLong(5, pessoa.getId());
+		         stmt.setString(4, pessoa.getEmail());
+		         stmt.setBoolean(5,pessoa.getTipoPessoa());
+		         stmt.setInt(5, id);
 		         
-		         stmt.execute();
+		         resul =  stmt.execute();
 		         stmt.close();
+		         
+		         return resul;
+		         
 		     } catch (SQLException e) {
 		         throw new RuntimeException(e);
 		     }
       }
       
-      public void excluirPessoa(Pessoa pessoa) {
+      public boolean excluirPessoa(int id) {
+    	  boolean resul;
 		     try {
-		         PreparedStatement stmt = connection.prepareStatement("delete" +
+		         PreparedStatement stmt = con.prepareStatement("delete" +
 		                 "from pessoa where idPessoa=?");
-		         stmt.setLong(1, pessoa.getIdPessoa());
-		         stmt.execute();
+		         
+		         stmt.setInt(1, id);
+		         
+		         resul = stmt.execute();
 		         stmt.close();
+		         
+		         return resul;
+		         
 		     } catch (SQLException e) {
 		         throw new RuntimeException(e);
 		     }
       }
       
-      
-	  */
-	
-	
+
 	//List<Pessoa> listaPessoas = new ArrayList<Pessoa>();
 	private Pessoa[] listaPessoas = new Pessoa[10];
 	
-	public boolean cadastrarPessoa(Pessoa pessoa){
+	public boolean cadastrarPessoa1(Pessoa pessoa){
 		
 		try{
 			
@@ -90,20 +112,4 @@ public class PessoaDao implements IPessoa{
 		return true;
 	}
 	
-	
-	public boolean alterarPessoa(Pessoa pessoa){
-		return false;
-	}
-	
-	public boolean excluirPessoa(int id){
-		
-	//	for(Pessoa pessoa : listaPessoas) {
-		//	if(pessoa.getIdentificacao() == id)
-				//listaPessoas.remove(pessoa);
-	//		  
-	//	}
-		
-		return false;
-	//}
-	}
 }
