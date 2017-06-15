@@ -25,5 +25,10 @@ public class Login {
 		System.out.println("autenticando com "+tipo);
 		
 	}
+	
+	public String toString(){
+		return "usuario = "+mNomeUsuario+
+				"\nsenha = "+mSenha+"\n";
+	}
 
 }

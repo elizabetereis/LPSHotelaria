@@ -26,8 +26,29 @@ public class Funcionario{
 		this.idFuncionario = idFuncionario;
 	}
 	
+	public void setLogin(Login login){
+		
+		this.login = login;
+	}
+	
 	public Login getLogin() {
 		return login;
+	}
+	
+	public void setDadosPessoa(Pessoa pessoa){
+		
+		this.dadosPessoa = pessoa;
+	}
+	
+	public Pessoa getDadosPessoa(){
+		
+		return dadosPessoa;
+	}
+	
+	public String toString() {
+		return "idFuncionario = " + idFuncionario+
+				"\n"+dadosPessoa.toString()+
+				login.toString();
 	}
 	
 }

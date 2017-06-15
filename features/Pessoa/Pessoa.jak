@@ -1,7 +1,7 @@
 /**
  * Daiane e Camila
  */
-import java.util.Date;
+import java.sql.Date;
 
 public class Pessoa {
 	
@@ -23,6 +23,23 @@ public class Pessoa {
 		this.endereco = endereco;
 		this.email = email;	
 		this.dataNascimento = nascimento;
+	}
+	
+	public Pessoa(String nome, String identificacao, String endereco, String email, Date nascimento){
+		
+		this.nome = nome;
+		this.identificacao = identificacao;
+		this.endereco = endereco;
+		this.email = email;	
+		this.dataNascimento = nascimento;
+	}
+	
+	public Pessoa(String nome, String identificacao, String endereco, String email){
+		
+		this.nome = nome;
+		this.identificacao = identificacao;
+		this.endereco = endereco;
+		this.email = email;	
 	}
 	
 	public int getIdPessoa(){
@@ -58,6 +75,9 @@ public class Pessoa {
 	}
 	
 	public String toString() {
-		return "teste [nome=" + nome + "]";
+		return "nome = " + nome +
+				"\ncpf = " + identificacao +
+				"\nendereco = " + endereco +
+				"\nemail = " + email + "\n";
 	}
 }

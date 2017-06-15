@@ -56,10 +56,6 @@
 						<feature mandatory="true" name="CheckAutomatico"/>
 					</alt>
 				</and>
-				<or mandatory="true" name="Reserva">
-					<feature mandatory="true" name="ReservaSemPagamento"/>
-					<feature mandatory="true" name="ReservaComPagamento"/>
-				</or>
 			</and>
 		</struct>
 		<constraints>

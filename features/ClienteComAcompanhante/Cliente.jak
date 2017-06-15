@@ -3,7 +3,7 @@
  */
 public refines class Cliente {
 	
-	private Acompanhante[] acompanhantes = new Acompanhante[10];
+	protected Acompanhante[] acompanhantes = new Acompanhante[10];
 	
 	public Acompanhante[] getAcompanhantes() {
 		return acompanhantes;

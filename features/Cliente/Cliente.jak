@@ -7,7 +7,7 @@ public class Cliente{
 	
 	protected int idCliente;
 	private Pessoa dadosPessoa;
-	//private Acompanhante[] listaPessoas = new Acompanhante[10];
+	private Acompanhante[] listaPessoas = new Acompanhante[10];
 	//List<Acompanhante> acompanhantes = new ArrayList<Acompanhante>();
 	
 	
