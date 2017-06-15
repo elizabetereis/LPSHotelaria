@@ -4,6 +4,9 @@
 public class Estabelecimento{
 	
 	private Pessoa dadosPessoa;
+	private Cliente[] clientes; //titular da conta
+	private Conta[] historicoContas;
+	private Quarto[] quartos;
 	private int qtdQuartos;
 	private int qtdQuartosDisponivel;
 	
@@ -16,12 +19,23 @@ public class Estabelecimento{
 	
 	public Estabelecimento(Pessoa dados){
 		this.dadosPessoa = dados;
+		this.clientes = new Cliente[10]; 
+		this.historicoContas = new Conta[10];
+		this.quartos = new Quarto[10];
 //		historicoContas = new VetorConta();
 	}
 	
 	public Estabelecimento(){
 		this.dadosPessoa = new Pessoa();
 //		historicoContas = new VetorConta();
+	}
+	
+	public Cliente[] getCliente(){
+		return clientes;
+	}
+	
+	public Pessoa getDadosPessoa(){
+		return dadosPessoa;
 	}
 
 }

@@ -3,14 +3,14 @@
  */
 public refines class Cliente {
 	
-	private Acompanhante[] Acompanhantes  = new Acompanhante[10];
+	private Acompanhante[] acompanhantes = new Acompanhante[10];
 	
 	public Acompanhante[] getAcompanhantes() {
-		return Acompanhantes;
+		return acompanhantes;
 	}
 
 	public void setAcompanhantes(Acompanhante[] acompanhantes) {
-		Acompanhantes = acompanhantes;
+		this.acompanhantes = acompanhantes;
 	}
 	
 	public void cadastrar(Acompanhante[] acompanhantes){

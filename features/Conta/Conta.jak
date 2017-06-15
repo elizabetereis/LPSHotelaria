@@ -9,16 +9,17 @@ public class Conta {
 		private VetorProduto mProdutos; //representa consumo e servicos
 		private Checkin mCheckin;
 		private Checkout mCheckout;
-		private Cliente cliente; //titular da conta
-		private Pagamento pagamento;
+		private int idCliente; //titular da conta
+		private Pagamento mPagamento;
+		private Reserva mReserva; 
 		
 		public Conta(){
 			mNumero = "0000";
 			mTotal = 0.0;
 			mCheckin = new Checkin(); //inicializa data de entrada como hoje
 			mCheckout = new Checkout();
-			this.cliente = new Cliente();
-			this.pagamento = new Pagamento();
+			this.idCliente = 0;
+			this.mPagamento = new Pagamento();
 			mProdutos = new VetorProduto();
 		}
 		
@@ -27,8 +28,8 @@ public class Conta {
 			this.mTotal = total;
 			mCheckin = new Checkin();
 			mCheckout = new Checkout();
-			this.cliente = new Cliente();
-			this.pagamento = new Pagamento();
+			this.idCliente = 0;
+			this.mPagamento = new Pagamento();
 			mProdutos = new VetorProduto();
 		}
 		
@@ -56,8 +57,8 @@ public class Conta {
 			this.mNumero = numero;
 		}
 		
-		public Cliente getCliente(){
-			return cliente;
+		public int getIdCliente(){
+			return idCliente;
 		}
 		
 		public void addProduto(Produto produto){
