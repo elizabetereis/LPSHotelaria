@@ -1,19 +1,19 @@
-/**
- * Daiane e Camila
- */
-import java.util.Date;
 
+import java.util.Calendar;
+/**
+ * TODO description
+ */
 public class PessoaFisica extends Pessoa {
 
 	private int idPessoaFisica;
     private String cpf;
-    private Date dataNascimento;
+    private Calendar dataNascimento;
 	
 	public PessoaFisica(){
 		
 	}
 	
-	public PessoaFisica(int idPessoaFisica, String cpf, Date dataNascimento) {
+	public PessoaFisica(int idPessoaFisica, String cpf, Calendar dataNascimento) {
 		super();
 		this.idPessoaFisica = idPessoaFisica;
 		this.cpf = cpf;
@@ -32,10 +32,10 @@ public class PessoaFisica extends Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getDataNascimento() {
+	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 }

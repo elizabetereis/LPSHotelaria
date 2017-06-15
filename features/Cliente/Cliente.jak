@@ -1,13 +1,20 @@
-/**
- * Daiane e Camila
- */
-import java.util.Date;
 
+//import java.util.ArrayList;
+//import java.util.List;
+import java.sql.Date;
+/**
+ * TODO description
+ */
 public class Cliente extends PessoaFisica{
 	
 	private int idCliente;
+	private int qtdAcompanhantes;
+	private int idPessoa;
+	private int idPessoaFisica;
+	
+	
 	//private Acompanhante[] listaPessoas = new Acompanhante[10];
-	private Acompanhante[] Acompanhantes  = new Acompanhante[10];
+	//private Acompanhante[] Acompanhantes  = new Acompanhante[10];
 	//List<Acompanhante> acompanhantes = new ArrayList<Acompanhante>();
 	
 	
@@ -15,9 +22,13 @@ public class Cliente extends PessoaFisica{
 		
 	}
 	
-    public Cliente(int idCliente ){
+    public Cliente(int idCliente, int qtdAcompanhantes, int idPessoa, int idPessoaFissica){
 		super();
 		this.idCliente = idCliente;
+		this.qtdAcompanhantes = qtdAcompanhantes;
+		this.idPessoa = idPessoa;
+		this.idPessoaFisica = idPessoaFisica;
+		
 	}
 	
 	public int getIdCliente(){
@@ -27,58 +38,36 @@ public class Cliente extends PessoaFisica{
 		this.idCliente = idCliente;
 	}
 	
-	public Acompanhante[] getAcompanhantes() {
-		return Acompanhantes;
+	public int getQtdAcompanhantes(){
+		return qtdAcompanhantes;
 	}
-
-	public void setAcompanhantes(Acompanhante[] acompanhantes) {
-		Acompanhantes = acompanhantes;
+	public void setQtdAcompanhantes(int qtdAcompanhantes){
+		this.qtdAcompanhantes = qtdAcompanhantes;
+	}
+	
+	public int getIdPessoa(){
+		return idPessoa;
+	}
+	public void setIdPessoa(int idPessoa){
+		this.idPessoa = idPessoa;
+	}
+	
+	public int getIdPessoaFisica(){
+		return idPessoaFisica;
+	}
+	public void setIdPessoaFisica(int idPessoaFisica){
+		this.idPessoaFisica = idPessoaFisica;
 	}
 	
 	
-	
-	
-	
-	
-//public static void main(String[] args) {
-//		
-//		boolean resul;
-//		Date data;
-//		int i;
-//		
-//		data = new Date();
-//        PessoaDao dao = new PessoaDao();
-//		Cliente cliente = new Cliente();
-//        Acompanhante acompanhante = new Acompanhante();
-//		
-//		acompanhante.setNome("Camila");
-//		
-//		cliente.setNome("Daiane");
-//		cliente.setIdentificacao("123");
-//		cliente.setEndereco("Cabula");
-//		cliente.setEmail("dai@gmail");
-//		cliente.setCpf("014789897723");
-//		cliente.setDataNascimento(data);
-//		
-//		
-//		//cliente.setAcompanhantes(acompanhante);
-//		
-//		for(i=0; i<5; i++){
-//			cliente.Acompanhantes[i]=acompanhante;
-//		}
+//	public Acompanhante[] getAcompanhantes() {
+//		return Acompanhantes;
+//	}
 //
-//       
-//		
-//        resul = dao.cadastrarPessoa(cliente);
-//        
-//        
-//        if(resul){
-//        	System.out.println("Cliente "+cliente.getNome()+" cadastrada com sucesso!");
-//        }else{
-//        	System.out.println("Nao foi possivel cadastrar!");	
-//        }
-//		
+//	public void setAcompanhantes(Acompanhante[] acompanhantes) {
+//		Acompanhantes = acompanhantes;
 //	}
 //	
+	
 
 }

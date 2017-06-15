@@ -27,7 +27,7 @@
 				<feature mandatory="true" name="Estabelecimento"/>
 				<and name="Pessoa">
 					<feature mandatory="true" name="PessoaJuridica"/>
-					<and name="PessoaFisica">
+					<and mandatory="true" name="PessoaFisica">
 						<feature name="Cliente"/>
 						<feature name="Acompanhante"/>
 						<and name="Funcionario">
@@ -58,6 +58,7 @@
 					<feature mandatory="true" name="ReservaSemPagamento"/>
 					<feature mandatory="true" name="ReservaComPagamento"/>
 				</or>
+				<feature mandatory="true" name="Conexao"/>
 			</and>
 		</struct>
 		<constraints>
