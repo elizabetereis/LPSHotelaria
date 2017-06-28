@@ -1,0 +1,49 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.*;
+/**
+ * TODO description
+ */
+public class PagamentoDinheiroDAO{
+	
+	private Connection con;
+
+		public PagamentoDinheiroDAO()  {
+			this.con = new Conexao().getConnection();
+		}
+		
+	  
+	  public boolean cadastrar(PagamentoDinheiro pagamentoDinheiro){
+	        boolean resul;
+	        
+		    String sql = "insert into pagamentoDinheiro (idformaPagamento, troco) values (?, ?)";
+		     
+		    try {
+		    	PreparedStatement stmt;
+		    	
+		        FormaPagamentoDAO formapgt = new FormaPagamentoDAO();
+		        int id = formapgt.cadastrar(pagamentoDinheiro);
+
+		    	
+		        stmt = con.prepareStatement(sql);
+		        
+		
+		        stmt.setInt(1, id);
+		        stmt.setFloat(2, pagamentoDinheiro.getTroco());
+		        
+		        resul = stmt.execute();
+		        
+		       
+		        stmt.close();
+		        con.close();
+		        return resul;
+		        
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+    }
+      
+
+	
+}
