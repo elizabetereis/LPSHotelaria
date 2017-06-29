@@ -2,12 +2,12 @@
  * TODO description
  */
 
-public class IntertaceCheckOut extends javax.swing.JPanel {
+public class InterfaceConta extends javax.swing.JPanel {
 
     /**
-     * Creates new form telaCheckOut
+     * Creates new form tela_conta
      */
-    public IntertaceCheckOut() {
+    public InterfaceConta() {
         initComponents();
     }
 
@@ -21,98 +21,101 @@ public class IntertaceCheckOut extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        busca_cpf = new javax.swing.JTextField();
-        btBuscaCPF = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        dataSaida = new javax.swing.JTextField();
+        abrirConta = new javax.swing.JButton();
         fecharConta = new javax.swing.JButton();
+        calcularTotal = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        cpBuscaConta = new javax.swing.JTextField();
+        buscaConta = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Checkout");
+        jLabel1.setText("Conta");
 
-        jLabel2.setText("CPF:");
-
-        btBuscaCPF.setText("Buscar");
-        btBuscaCPF.addActionListener(new java.awt.event.ActionListener() {
+        abrirConta.setText("Abrir conta");
+        abrirConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscaCPFActionPerformed(evt);
+                abrirContaActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Saída:");
+        fecharConta.setText("Fechar conta");
 
-        fecharConta.setText("Fazer checkout");
-        fecharConta.addActionListener(new java.awt.event.ActionListener() {
+        calcularTotal.setText("Calcular total");
+        calcularTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fecharContaActionPerformed(evt);
+                calcularTotalActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("Conta:");
+
+        buscaConta.setText("Buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(abrirConta)
+                        .addGap(18, 18, 18)
                         .addComponent(fecharConta)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(calcularTotal))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(158, 158, 158))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(busca_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(btBuscaCPF)
-                        .addGap(144, 144, 144))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cpBuscaConta, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buscaConta)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(busca_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBuscaCPF))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(fecharConta)
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(cpBuscaConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscaConta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(abrirConta)
+                    .addComponent(fecharConta)
+                    .addComponent(calcularTotal))
+                .addGap(23, 23, 23))
         );
     }// </editor-fold>                        
 
-    private void btBuscaCPFActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void calcularTotalActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }                                             
+
+    private void abrirContaActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
     }                                          
 
-    private void fecharContaActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
+    
+     
 
+    
+    
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton btBuscaCPF;
-    private javax.swing.JTextField busca_cpf;
-    private javax.swing.JTextField dataSaida;
+    private javax.swing.JButton abrirConta;
+    private javax.swing.JButton buscaConta;
+    private javax.swing.JButton calcularTotal;
+    private javax.swing.JTextField cpBuscaConta;
     private javax.swing.JButton fecharConta;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration                   
 }
