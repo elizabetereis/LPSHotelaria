@@ -1,0 +1,82 @@
+/**
+ * TODO description
+ */
+public class QuartoDAO {
+	private Connection con;
+
+	public PagamentoDinheiroDAO()  {
+		this.con = new Conexao().getConnection();
+	}
+	public boolean cadastrar(Quarto quarto){
+       // boolean resul;
+        
+	    String sql = "insert into quarto (numero, arcondicionado, idestabelecimento) values (?, ?, ?)";
+	     
+	    try {
+	    	PreparedStatement stmt;
+	    	
+	        stmt = con.prepareStatement(sql);
+	        
+	
+	        stmt.setInt(1, quarto.getNumero());
+	        stmt.setBoolean(2, quarto.isArCondicionado());
+	        stmt.setInt(3, 1); // Id do estabelecimento
+	        resul = stmt.execute();
+	        
+	        ResultSet resultSet = stmt.executeQuery("SELECT LAST_INSERT_ID()");
+	        resultSet.beforeFirst();
+            resultSet.next();
+            int id = resultSet.getInt("LAST_INSERT_ID()");
+	       
+	        stmt.close();
+	        con.close();
+	        return id;
+	        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	public boolean excluir(Produto produto){
+		boolean result;
+		
+		String sql = "delete from quarto where idquarto = ?";
+		
+		try{
+			stmt = con.prepareStatement(sql);
+	        
+	        stmt.setString(1, produto.getId());
+	        resul = stmt.execute();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	public boolean alterar(Produto produto){
+		boolean result;
+		
+		String sql = "update produto set descricao = ?, preco = ?, disponibilidade = ?;";
+		
+		try{
+			
+			stmt = con.prepareStatement(sql);
+	        
+	        stmt.setString(1, produto.getDescricao());
+	        stmt.setFloat(2, produto.getPreco());
+	        stmt.setBoolean(3, produto.isDisponibilidade());
+	        resul = stmt.executeUpdate();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+}

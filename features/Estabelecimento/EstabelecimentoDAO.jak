@@ -1,0 +1,83 @@
+/**
+ * TODO description
+ */
+public class EstabelecimentoDAO {
+	private Connection con;
+
+	public EstabelecimentoDAO()  {
+		this.con = new Conexao().getConnection();
+	}
+	public boolean cadastrar(Estabelecimento est){
+		boolean resul;
+        
+	    String sql = "insert into estabelecimento (qntQuartos, descricao, qntQuartosDisponiveis) values (?, ?, ?)";
+	     
+	    try {
+	    	PreparedStatement stmt;
+	    	
+	    	PessoaDAO pessoaDAO = new PessoaDAO();
+	    	int idPessoa = pessoaDAO.cadastrar(est);
+	    	
+	        stmt = con.prepareStatement(sql);
+	        
+	        stmt.setInt(1, est.getQntQuartos());
+	        stmt.setString(2, est.getDescricao());
+	        stmt.setInt(3, est.getQntQuartosDisponiveis);
+	        resul = stmt.execute();
+	       
+	        stmt.close();
+	        con.close();
+	        return result;
+	        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	
+	public boolean alterar(Produto produto){
+		boolean result;
+		
+		String sql = "update estabelecimento set qntQuartos = ?, descricao = ?, qntQuartosDisponiveis = ? where id = ?;";
+		
+		try{
+			
+			stmt = con.prepareStatement(sql);
+	        
+			stmt.setInt(1, est.getQntQuartos());
+	        stmt.setString(2, est.getDescricao());
+	        stmt.setInt(3, est.getQntQuartosDisponiveis);
+	        stmt.setInt(4, est.getID);
+	        resul = stmt.executeUpdate();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	public boolean atualizarQuartosDisponiveis(int quartosDisponiveis, int id){
+		boolean result;
+		
+		String sql = "update produto set qntQuartosDisponiveis = ? where id = ?;";
+		
+		try{
+			
+			stmt = con.prepareStatement(sql);
+			
+	        stmt.setInt(1, quartosDisponiveis);
+	        stmt.setInt(2, id);
+	        resul = stmt.executeUpdate();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+}
