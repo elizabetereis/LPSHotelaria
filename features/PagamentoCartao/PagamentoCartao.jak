@@ -51,4 +51,9 @@ public class PagamentoCartao implements FormaPagamento  {
 			throw new java.lang.RuntimeException("Valor Pago menor que o cobrado"); 
 		
 	}
+	
+	public void cadastrarFormaPagamento(String titular, int num, int codseg, String operadora, String validade)
+	{
+		
+	}
 }

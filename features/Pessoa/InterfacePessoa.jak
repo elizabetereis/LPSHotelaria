@@ -4,10 +4,13 @@
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.sql.Date;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 
@@ -85,10 +88,10 @@ public class InterfacePessoa extends javax.swing.JFrame {
         jLabel2.setText("Nome:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Identificação:");
+        jLabel3.setText("Identificaï¿½ï¿½o:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Endereço:");
+        jLabel4.setText("Endereï¿½o:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Email:");
@@ -118,7 +121,7 @@ public class InterfacePessoa extends javax.swing.JFrame {
         });
 
         Pessoa.add(pf);
-        pf.setText("Física");
+        pf.setText("Fï¿½sica");
         pf.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 pfItemStateChanged(evt);
@@ -139,7 +142,7 @@ public class InterfacePessoa extends javax.swing.JFrame {
         jLabel6.setText("Pessoa:");
 
         Pessoa.add(pj);
-        pj.setText("Jurídica");
+        pj.setText("Jurï¿½dica");
         pj.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 pjItemStateChanged(evt);
@@ -168,7 +171,7 @@ public class InterfacePessoa extends javax.swing.JFrame {
         });
 
         Tipo.add(tipo_funcionario);
-        tipo_funcionario.setText("Funcionário");
+        tipo_funcionario.setText("Funcionï¿½rio");
         tipo_funcionario.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 tipo_funcionarioItemStateChanged(evt);
@@ -181,7 +184,7 @@ public class InterfacePessoa extends javax.swing.JFrame {
         });
 
         acompanhante_t.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        acompanhante_t.setText("Nº Acompanhante (s):");
+        acompanhante_t.setText("Nï¿½ Acompanhante (s):");
 
         acompanhante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -455,7 +458,36 @@ public class InterfacePessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                      
 
-    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {                                       
+    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {                              
+    	System.out.println("Salvando");
+    	String snome = nome.getText();
+    	String sident = identificacao.getText();
+    	String sender = endereco.getText();
+    	String semail = email.getText();
+    	
+    	
+    	
+    	if(pf.isSelected())
+    	{
+    		if(tipo_cliente.isSelected())
+    		{
+    			int nacomp = Integer.parseInt(acompanhante.getText());
+    			//Date dnasc = Date.parse(dt_nasc.getText());
+    			String sdata = dt_nasc.getText();
+    			
+    			Cliente c;
+    		}
+    		else if(tipo_funcionario.isSelected())
+    		{
+    			String slogin = login.getText();
+    			String ssenha = senha.getText();
+    		}
+    	}
+    	
+    	if(pj.isSelected())
+    	{
+    		
+    	}
         // TODO add your handling code here:
     }                                      
 
@@ -486,7 +518,7 @@ public class InterfacePessoa extends javax.swing.JFrame {
          */
         try {
          //   for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-           //Diego -Alterado este Trecho, pois a Feature -IDE não consegue trabalhar com o comando FORECH
+           //Diego -Alterado este Trecho, pois a Feature -IDE nï¿½o consegue trabalhar com o comando FORECH
             	for (int i=0;i<=10;i++) { 	
             		javax.swing.UIManager.LookAndFeelInfo[] info = javax.swing.UIManager.getInstalledLookAndFeels();
                 if ("Nimbus".equals(info[i].getName())) {

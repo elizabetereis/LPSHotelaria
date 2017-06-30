@@ -29,7 +29,10 @@ public class Cliente{
 	}
 	
 	
-	
+	public void cadastrarPessoa(String nome, String identificacao, String endereço,
+			String email, String dataNascimento, int acompanhantes) {
+		super.cadastrarPessoa(nome, identificacao, endereço, email);
+	}
 	
 	
 	

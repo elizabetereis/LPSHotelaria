@@ -96,6 +96,12 @@ public class Pagamento {
 		
 	}
 	
+	public void cadastrarPagamento(String identificacao, String descricao, String data, double pago, 
+			double total, double desconto, double totaldesconto, FormaPagamento fPagamento)
+	{
+		
+	}
+	
 	//Metodo para imprimir os dados do pagamento
 	public void print(){
 		System.out.println("Tipo de pagamento: "+getFormaPagamento().getTipo());

@@ -51,4 +51,9 @@ public class Funcionario{
 				login.toString();
 	}
 	
+	public void cadastrarPessoa(String nome, String identificacao, String endereço,
+			String email, String usuario, String senha) {
+		super.cadastrarPessoa(nome, identificacao, endereço, email);
+	}
+	
 }

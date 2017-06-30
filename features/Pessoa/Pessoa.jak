@@ -74,6 +74,11 @@ public class Pessoa {
 		this.email = email;
 	}
 	
+	public void cadastrarPessoa(String nome, String identificacao, String endereço, String email)
+	{
+		
+	}
+	
 	public String toString() {
 		return "nome = " + nome +
 				"\ncpf = " + identificacao +

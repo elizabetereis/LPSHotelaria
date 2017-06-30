@@ -73,11 +73,11 @@ public class InterfacePagamento extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         label1.setText("Pagamento");
 
-        label2.setText("Identificação:");
+        label2.setText("IdentificaÃ§Ã£o:");
 
         vlr_total_t.setText("Valor Total da Conta:");
 
-        label4.setText("Descrição:");
+        label4.setText("DescriÃ§Ã£o:");
 
         label5.setText("Data:");
 
@@ -124,7 +124,7 @@ public class InterfacePagamento extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(cartao);
-        cartao.setText("Cartão");
+        cartao.setText("CartÃ£o");
         cartao.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cartaoItemStateChanged(evt);
@@ -167,7 +167,7 @@ public class InterfacePagamento extends javax.swing.JFrame {
         Total_descontos_t.setText("Valor Total Com Desconto:");
 
         buttonGroup2.add(debito);
-        debito.setText("Débito");
+        debito.setText("DÃ©bito");
         debito.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 debitoItemStateChanged(evt);
@@ -180,7 +180,7 @@ public class InterfacePagamento extends javax.swing.JFrame {
         });
 
         buttonGroup2.add(credito);
-        credito.setText("Crédito");
+        credito.setText("CrÃ©dito");
         credito.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 creditoItemStateChanged(evt);
@@ -197,13 +197,13 @@ public class InterfacePagamento extends javax.swing.JFrame {
 
         titular_t.setText("Nome do Titular:");
 
-        numCartao_t.setText("Número do Cartão:");
+        numCartao_t.setText("NÃºmero do CartÃ£o:");
 
         operadora_t.setText("Operadora:");
 
         validade_t.setText("Data de Validade:");
 
-        CodSeg_t.setText("Código de Segurança:");
+        CodSeg_t.setText("CÃ³digo de SeguranÃ§a:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -515,6 +515,49 @@ public class InterfacePagamento extends javax.swing.JFrame {
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
+    	System.out.println("Pagando");
+    	
+    	String sident = textField6.getText();
+    	String sdesc = textField2.getText();
+    	String sdata = textField3.getText();
+    	
+    	double dvalorPago = Double.parseDouble(vlr_pago.getText());
+    	double dvalorTotal = Double.parseDouble(vlr_total.getText());
+    	double ddesconto = Double.parseDouble(desconto.getText());
+    	
+    	double dvalorCmDesconto = Double.parseDouble(Total_descontos.getText());
+    	
+    	
+    	
+    	if(boleto.isSelected())
+    	{
+    		
+    	}
+    	else if(cartao.isSelected())
+    	{
+    		String stitular = titular.getText();
+    		int inumero = Integer.parseInt(numCartao.getText());
+    		int icodigo = Integer.parseInt(CodSeg.getText());
+    		String soperadora = operadora.getText();
+    		String svalidade = validade.getText();
+    		
+    		
+    		if(debito.isSelected())
+    		{
+    			
+    		}
+    		else if(credito.isSelected())
+    		{
+    			int iparcelas = Integer.parseInt(qtd_parcelas.getText());
+    			double dparcelas = Double.parseDouble(vlr_pacelas.getText());
+    		}
+    	}
+    	else if(dinheiro.isSelected())
+    	{
+    		double dtroco = Double.parseDouble(troco.getText());
+    	}
+    	
+    	
     }                                              
 
     /**

@@ -4,4 +4,10 @@
 public interface FormaPagamento {
 	public String getTipo();
 	public void pagar(float valorPago, float valorCobrado);
+	
+	public void cadastrarFormaPagamento()
+	{
+		
+	}
+	
 }
