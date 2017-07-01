@@ -1,34 +1,32 @@
 /**
  * TODO description
  */
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 import java.sql.ResultSet;
 
-public class ClienteDao  {
+public class AcompanhanteDao {
 	
-	private Connection con;
+private Connection con;
 
 	
-	public ClienteDao() {
+	public AcompanhanteDao() {
 		  
 		this.con = new Conexao().getConnection();
 			
 	  }
 		
 	
-	  public boolean cadastrarCliente(Cliente cliente) {
+	  public boolean cadastrarAcompanhante(Acompanhante acompanhante) {
 	        boolean resul;
 	        
-		    String sql = "insert into cliente (idpessoa, idestabelecimento) values (?,?)";
+		    String sql = "insert into acompanhante (idcliente, idpessoa) values (?,?)";
 		
 		    try {
 		    
 		        PreparedStatement stmt = con.prepareStatement(sql);
-		
-		        stmt.setInt(1,cliente.getIdpessoa());
-		        stmt.setInt(2,cliente.getIdestabelecimento());
+		        
+		        stmt.setInt(1,acompanhante.getIdcliente());
+		        stmt.setInt(2,acompanhante.getIdpessoa());
 		      
 		        resul = stmt.execute();
 		        stmt.close();
@@ -40,17 +38,17 @@ public class ClienteDao  {
 		    }
   }
   
-  public boolean alterarCliente(int id) {
+  public boolean alterarAcompanhante(int id) {
 	    	boolean resul;
-	    	Cliente cliente = null;
+	    	Acompanhante acompanhante = null;
   
-		     String sql = "update cliente set idpessoa=?, set idestabelecimento=? where idcliente=?";
+		     String sql = "update acompanhante set idcliente=?, set idpessoa=? where idacompanhante=?";
 		     try {
 		    	 
 		         PreparedStatement stmt = con.prepareStatement(sql);
 		   
-			     stmt.setInt(1,cliente.getIdpessoa());
-			     stmt.setInt(2,cliente.getIdestabelecimento());
+			     stmt.setInt(1,acompanhante.getIdcliente());
+			     stmt.setInt(2,acompanhante.getIdpessoa());
 		         stmt.setInt(3, id);
 		         
 		         resul =  stmt.execute();
@@ -63,11 +61,11 @@ public class ClienteDao  {
 		     }
   }
   
-  public boolean excluirPessoa(int id) {
+  public boolean excluirAcompanhante(int id) {
 	  boolean resul;
 		     try {
 		         PreparedStatement stmt = con.prepareStatement("delete" +
-		                 "from cliente where idcliente=?");
+		                 "from acompanhante where idacompanhante=?");
 		         
 		         stmt.setInt(1, id);
 		         
@@ -81,28 +79,28 @@ public class ClienteDao  {
 		     }
   }
 	  
-	  public List<Cliente> getLista() {
+	  public List<Acompanhante> getLista() {
  	     try {
- 	         List<Cliente> clientes = new ArrayList<Cliente>>();
- 	         PreparedStatement stmt = con.prepareStatement("select * from cliente");
+ 	         List<Acompanhante> acompanhantes = new ArrayList<Acompanhante>>();
+ 	         PreparedStatement stmt = con.prepareStatement("select * from acompanhante");
  	         ResultSet rs = stmt.executeQuery();
  	 
  	         while (rs.next()) {
  	             // criando o objeto Contato
- 	             Cliente cliente = new Cliente();
- 	             cliente.setIdcliente(rs.getInt("idcliente"));
- 	             cliente.setIdpessoa(rs.getInt("idpessoa"));
- 	             cliente.setIdestabelecimento(rs.getInt("idestabelecimento"));
+ 	        	 Acompanhante acompanhante = new Acompanhante();
+ 	        	 acompanhante.setIdacompanhante(rs.getInt("idacompanhante"));
+ 	        	 acompanhante.setIdcliente(rs.getInt("idcliente"));
+ 	        	 acompanhante.setIdpessoa(rs.getInt("idpessoa"));
  	            
- 	             clientes.add(cliente);
+ 	            acompanhantes.add(acompanhante);
  	         }
  	         rs.close();
  	         stmt.close();
- 	         return clientes;
+ 	         return acompanhates;
  	     } catch (SQLException e) {
  	         throw new RuntimeException(e);
  	     }
  	 }
 	
-	
+
 }

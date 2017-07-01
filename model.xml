@@ -2,79 +2,11 @@
 	<featureModel>
 		<properties/>
 		<struct>
-			<and abstract="true" mandatory="true" name="Hotelaria">
-				<and name="Pagamento">
-					<description>
-						Pagamento
-					</description>
-					<description>
-						Pagamento
-					</description>
-					<and mandatory="true" name="FormaPagamento">
-						<feature name="PagamentoBoleto"/>
-						<and name="PagamentoCartao">
-							<feature mandatory="true" name="Debito"/>
-							<feature mandatory="true" name="Credito"/>
-						</and>
-						<feature name="PagamentoDinheiro"/>
-						<feature name="PagamentoTransferencia"/>
-					</and>
-					<or name="ComprovanteFiscal">
-						<feature mandatory="true" name="ComprovanteEmail"/>
-						<feature mandatory="true" name="ComprovanteImpresso"/>
-					</or>
-				</and>
-				<feature mandatory="true" name="Estabelecimento"/>
-				<and name="Pessoa">
-					<feature mandatory="true" name="PessoaJuridica"/>
-					<and mandatory="true" name="PessoaFisica">
-						<feature name="Cliente"/>
-						<feature name="Acompanhante"/>
-						<and name="Funcionario">
-							<or name="Autenticacao">
-								<feature mandatory="true" name="AutenticacaoBiometria"/>
-								<feature mandatory="true" name="AutenticacaoSenha"/>
-							</or>
-							<feature mandatory="true" name="Login"/>
-						</and>
-					</and>
-				</and>
-				<alt abstract="true" name="Acomodação">
-					<feature mandatory="true" name="Lote"/>
-					<and mandatory="true" name="Quarto">
-						<feature name="QuartoPublico"/>
-						<feature name="QuartoPrivado"/>
-					</and>
-				</alt>
-				<and name="Conta">
-					<feature mandatory="true" name="Produto"/>
-					<feature mandatory="true" name="Checkin"/>
-					<alt mandatory="true" name="Checkout">
-						<feature mandatory="true" name="CheckManual"/>
-						<feature mandatory="true" name="CheckAutomatico"/>
-					</alt>
-				</and>
-				<or mandatory="true" name="Reserva">
-					<feature mandatory="true" name="ReservaSemPagamento"/>
-					<feature mandatory="true" name="ReservaComPagamento"/>
-				</or>
-				<feature mandatory="true" name="Conexao"/>
+			<and abstract="true" mandatory="true" name="LPSHotelaria">
+				<feature name="Base"/>
 			</and>
 		</struct>
-		<constraints>
-			<rule>
-				<imp>
-					<var>Acompanhante</var>
-					<var>Cliente</var>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<var>Conta</var>
-					<var>Produto</var>
-				</imp>
-			</rule>
-		</constraints>
+		<constraints/>
 		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
 		<featureOrder userDefined="false"/>

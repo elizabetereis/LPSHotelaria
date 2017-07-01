@@ -1,73 +1,46 @@
 
-//import java.util.ArrayList;
-//import java.util.List;
-import java.sql.Date;
 /**
  * TODO description
  */
-public class Cliente extends PessoaFisica{
+public class Cliente extends Pessoa{
 	
-	private int idCliente;
-	private int qtdAcompanhantes;
-	private int idPessoa;
-	private int idPessoaFisica;
-	
-	
-	//private Acompanhante[] listaPessoas = new Acompanhante[10];
-	//private Acompanhante[] Acompanhantes  = new Acompanhante[10];
-	//List<Acompanhante> acompanhantes = new ArrayList<Acompanhante>();
+	private int idcliente;
+	private int idpessoa;
+	private int idestabelecimento;
 	
 	
 	public Cliente(){
 		
 	}
 	
-    public Cliente(int idCliente, int qtdAcompanhantes, int idPessoa, int idPessoaFissica){
+    public Cliente(int idcliente, int idpessoa, int idestabelecimento){
 		super();
-		this.idCliente = idCliente;
-		this.qtdAcompanhantes = qtdAcompanhantes;
-		this.idPessoa = idPessoa;
-		this.idPessoaFisica = idPessoaFisica;
+		this.idcliente = idcliente;
+		this.idpessoa = idpessoa;
+		this.idestabelecimento = idestabelecimento;
 		
 	}
 	
-	public int getIdCliente(){
-		return idCliente;
+	public int getIdcliente(){
+		return idcliente;
 	}
-	public void setCliente(int idCliente){
-		this.idCliente = idCliente;
-	}
-	
-	public int getQtdAcompanhantes(){
-		return qtdAcompanhantes;
-	}
-	public void setQtdAcompanhantes(int qtdAcompanhantes){
-		this.qtdAcompanhantes = qtdAcompanhantes;
+	public void setIdcliente(int idcliente){
+		this.idcliente = idcliente;
 	}
 	
-	public int getIdPessoa(){
-		return idPessoa;
+	public int getIdpessoa(){
+		return idpessoa;
 	}
-	public void setIdPessoa(int idPessoa){
-		this.idPessoa = idPessoa;
-	}
-	
-	public int getIdPessoaFisica(){
-		return idPessoaFisica;
-	}
-	public void setIdPessoaFisica(int idPessoaFisica){
-		this.idPessoaFisica = idPessoaFisica;
+	public void setIdpessoa(int idpessoa){
+		this.idpessoa = idpessoa;
 	}
 	
-	
-//	public Acompanhante[] getAcompanhantes() {
-//		return Acompanhantes;
-//	}
-//
-//	public void setAcompanhantes(Acompanhante[] acompanhantes) {
-//		Acompanhantes = acompanhantes;
-//	}
-//	
-	
+	public int getIdestabelecimento(){
+		return idestabelecimento;
+	}
+	public void setIdestabelecimento(int idestabelecimento){
+		this.idestabelecimento = idestabelecimento;
+	}
+		
 
 }
