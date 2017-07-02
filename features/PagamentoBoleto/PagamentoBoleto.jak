@@ -12,4 +12,8 @@ public class PagamentoBoleto implements FormaPagamento  {
 		if(valorPago<valorCobrado)
 			throw new java.lang.RuntimeException("Valor Pago menor que o cobrado"); 
 	}
+	
+	public void cadastrarFormaPagamento(){
+		
+	}
 }

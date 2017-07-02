@@ -28,11 +28,11 @@ public class Cliente{
 		this.idCliente = idCliente;
 	}
 	
-	
-	public void cadastrarPessoa(String nome, String identificacao, String endereço,
-			String email, String dataNascimento, int acompanhantes) {
-		super.cadastrarPessoa(nome, identificacao, endereço, email);
-	}
+	//TODO: composer não reconhece esse método
+//	public void cadastrarPessoa(String nome, String identificacao, String endereço,
+//			String email, String dataNascimento, int acompanhantes) {
+//		dadosPessoa.cadastrarPessoa(nome, identificacao, endereço, email);
+//	}
 	
 	
 	

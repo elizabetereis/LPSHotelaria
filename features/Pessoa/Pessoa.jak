@@ -74,10 +74,11 @@ public class Pessoa {
 		this.email = email;
 	}
 	
-	public void cadastrarPessoa(String nome, String identificacao, String endereço, String email)
-	{
-		
-	}
+	//TODO: composer não reconhece esse método
+//	public void cadastrarPessoa(String nome, String identificacao, String endereço, String email)
+//	{
+//		return;
+//	}
 	
 	public String toString() {
 		return "nome = " + nome +

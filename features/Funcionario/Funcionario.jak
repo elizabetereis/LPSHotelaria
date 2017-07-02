@@ -1,3 +1,6 @@
+
+import sun.security.jgss.LoginConfigImpl;
+
 /**
  * Daiane e Camila
  */
@@ -12,7 +15,6 @@ public class Funcionario{
 	}
 	
 	public Funcionario(int idFuncionario, Login login, Pessoa dados) {
-		super();
 		this.idFuncionario = idFuncionario;
 		this.login = login;
 		this.dadosPessoa = dados;
@@ -51,9 +53,12 @@ public class Funcionario{
 				login.toString();
 	}
 	
-	public void cadastrarPessoa(String nome, String identificacao, String endereço,
-			String email, String usuario, String senha) {
-		super.cadastrarPessoa(nome, identificacao, endereço, email);
-	}
+	//TODO: composer não reconhece esse método
+//	public void cadastrarPessoa(String nome, String identificacao, String endereço, 
+//			String email, String usuario, String senha) { 
+//		
+//		dadosPessoa.cadastrarPessoa(nome, identificacao, endereço, email);
+//		this.login = new Login(usuario, senha);
+//	}
 	
 }

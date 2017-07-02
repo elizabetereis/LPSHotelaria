@@ -22,7 +22,7 @@ public class PagamentoDinheiro implements FormaPagamento {
 		
 	}
 	
-	public void cadastrarFormaPagamento(double troco)
+	public void cadastrarFormaPagamento()
 	{
 		
 	}
