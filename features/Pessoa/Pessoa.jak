@@ -1,33 +1,33 @@
-/**
- * TODO description
- */
+
+import java.util.Date;
+
 public  class Pessoa {
 	
-	private int idPessoa;
+	private int idpessoa;
 	private String nome;
 	private String identificacao;
 	private String endereco;
 	private String email;
-	private boolean tipoPessoa;
+	private Date dataNascimento;
 	
 	public Pessoa(){
 		
 	}
 	
-	public Pessoa(int idPessoa, String nome, String identificacao, String endereco, String email, boolean tipoPessoa){
+	public Pessoa(int idpessoa, String nome, String identificacao, String endereco, String email, Date dataNascimento){
 		
 		this.nome = nome;
 		this.identificacao = identificacao;
 		this.endereco = endereco;
 		this.email = email;	
-		this.tipoPessoa = tipoPessoa;
+		this.dataNascimento = dataNascimento;
 	}
 	
-	public int getIdPessoa(){
-		return idPessoa;
+	public int getIdpessoa(){
+		return idpessoa;
 	}
-	public void setPessoa(int idPessoa){
-		this.idPessoa = idPessoa;
+	public void setIdpessoa(int idpessoa){
+		this.idpessoa = idpessoa;
 	}
 	
 	public String getNome() {
@@ -54,11 +54,11 @@ public  class Pessoa {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public boolean getTipoPessoa() {
-		return tipoPessoa;
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
-	public void setTipoPessoa(boolean tipoPessoa) {
-		this.tipoPessoa = tipoPessoa;
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 	
 	public String toString() {

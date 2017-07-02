@@ -4,10 +4,12 @@ import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+
 /**
  * TODO description
  */
-public class PessoaDao implements IPessoa{
+public class PessoaDao {
 	
 	private Connection con;
 
@@ -20,7 +22,7 @@ public class PessoaDao implements IPessoa{
 	        boolean resul;
 
 
-		    String sql = "insert into pessoa (nome,identificacao,endereco,email, tipoPessoa) values (?,?,?,?,?)";
+		    String sql = "insert into pessoa (nome,identificacao,endereco,email, dataNascimento) values (?,?,?,?,?)";
 		     
 		    try {
 		    	
@@ -30,7 +32,7 @@ public class PessoaDao implements IPessoa{
 		        stmt.setString(2,pessoa.getIdentificacao());
 		        stmt.setString(3,pessoa.getEndereco());
 		        stmt.setString(4,pessoa.getEmail());
-		        stmt.setBoolean(5,pessoa.getTipoPessoa());
+		        stmt.setDate(5, new java.sql.Date(pessoa.getDataNascimento().getTime()));
 		        
 		        resul = stmt.execute();
 		        
@@ -48,8 +50,8 @@ public class PessoaDao implements IPessoa{
 	    	boolean resul;
 	    	Pessoa pessoa = null;
       
-		     String sql = "update pessoa set nome=?, identificacao=?, endereco=?," +
-		             "email=?, tipoPessoa=? where idPessoa=?";
+		     String sql = "update pessoa set nome=?, set identificacao=?, set endereco=?," +
+		             "set email=?, set dataNascimento=? where idpessoa=?";
 		     try {
 		    	 
 		         PreparedStatement stmt = con.prepareStatement(sql);
@@ -57,8 +59,8 @@ public class PessoaDao implements IPessoa{
 		         stmt.setString(2, pessoa.getIdentificacao());
 		         stmt.setString(3, pessoa.getEndereco());
 		         stmt.setString(4, pessoa.getEmail());
-		         stmt.setBoolean(5,pessoa.getTipoPessoa());
-		         stmt.setInt(5, id);
+		         stmt.setDate(5, new java.sql.Date(pessoa.getDataNascimento().getTime()));
+		         stmt.setInt(6, id);
 		         
 		         resul =  stmt.execute();
 		         stmt.close();
@@ -74,7 +76,7 @@ public class PessoaDao implements IPessoa{
     	  boolean resul;
 		     try {
 		         PreparedStatement stmt = con.prepareStatement("delete" +
-		                 "from pessoa where idPessoa=?");
+		                 "from pessoa where idpessoa=?");
 		         
 		         stmt.setInt(1, id);
 		         
@@ -89,27 +91,49 @@ public class PessoaDao implements IPessoa{
       }
       
 
-	//List<Pessoa> listaPessoas = new ArrayList<Pessoa>();
-	private Pessoa[] listaPessoas = new Pessoa[10];
-	
-	public boolean cadastrarPessoa1(Pessoa pessoa){
-		
-		try{
-			
-			for(int i=0; i<listaPessoas.length; i++){
-				
-				listaPessoas[i] = pessoa;
-				
-			}
-			
-			
-		} catch(Exception e){
-			
-			return false;
-			
-		}
-		
-		return true;
-	}
+      public List<Pessoa> getLista() {
+    	     try {
+    	         List<Pessoa> pessoas = new ArrayList<Pessoa>();
+    	         PreparedStatement stmt = con.prepareStatement("select * from pessoa");
+    	         ResultSet rs = stmt.executeQuery();
+    	 
+    	         while (rs.next()) {
+    	             // criando o objeto Contato
+    	             Pessoa pessoa = new Pessoa();
+    	             pessoa.setIdpessoa(rs.getInt("idpessoa"));
+    	             pessoa.setNome(rs.getString("nome"));
+    	             pessoa.setIdentificacao(rs.getInt("identificacao"));
+    	             pessoa.setEndereco(rs.getString("endereco"));
+    	             pessoa.setEmail(rs.getString("email"));
+    	             data.setTime(rs.getDate("dataNascimento"));
+    	             pessoa.setDataNascimento(data);
+    	 
+    	             // adicionando o objeto � lista
+    	             pessoas.add(pessoa);
+    	         }
+    	         rs.close();
+    	         stmt.close();
+    	         return pessoas;
+    	     } catch (SQLException e) {
+    	         throw new RuntimeException(e);
+    	     }
+    	 }
+      
+      
+     /* public static void main(String[] args) {
+		     
+    	 PessoaDao daoP = new PessoaDao(); 
+
+    		List<Pessoa> lista = daoP.getLista();
+    		
+    		for (Pessoa pessoa : lista) {
+    		  System.out.println("Nome: " + pessoa.getNome());
+    		  System.out.println("Email: " + pessoa.getEmail());
+    		  System.out.println("Data de Nascimento: " +pessoa.getDataNascimento().getTime() + "\n");
+    		}
+    			
+    			
+    		}
+    		*/
 	
 }

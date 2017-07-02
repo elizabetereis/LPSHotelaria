@@ -1,0 +1,70 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+
+public class LoginDao {
+	
+	private Connection con;
+
+	public LoginDao()  {
+		this.con = new Conexao().getConnection();
+	}
+	
+	
+	
+	 public boolean cadastrarLogin(Login login) {
+	        boolean resul;
+	        
+		    String sql = "insert into login (nomeUsuario, senha) values (?,?)";
+		
+		    try {
+		    
+		        PreparedStatement stmt = con.prepareStatement(sql);
+		
+		        stmt.setString(1,login.getNomeUsuario());
+		        stmt.setString(2,login.getSenha());
+		      
+		        resul = stmt.execute();
+		        stmt.close();
+		        
+		        return resul;
+		        
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+}
+	
+	
+	
+	
+	public Login efetuarLogin(String usuario, String senha) {
+		Login login = null;
+	     try {
+	         
+	         PreparedStatement stmt = con.prepareStatement("select * from login where nomeUsuario=? and senha=?");
+	         
+	         stmt.setString(1, usuario);
+	         stmt.setString(2, senha);
+	         
+	         ResultSet rs = stmt.executeQuery();
+	 
+	         while (rs.next()) {
+	             login = new Login();
+	        	
+	        	 login.setNomeUsuario(rs.getString("nomeUsuario"));
+	        	  
+	         }
+	         rs.close();
+	         stmt.close();
+	         return login;
+	     } catch (SQLException e) {
+	         throw new RuntimeException(e);
+	     }
+	 }
+	
+	
+
+
+}

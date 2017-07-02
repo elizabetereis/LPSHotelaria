@@ -1,28 +1,42 @@
 /**
  * Daiane e Camila
  */
-public class Acompanhante extends PessoaFisica {
+public class Acompanhante extends Pessoa {
 		
-	private int idAcompanhante;
-	
-	
+	private int idacompanhante;
+	private int idcliente;
+	private int idpessoa;
 	
 	public Acompanhante(){
 		
 	}
 	
-    public Acompanhante(int idAcompanhante){
-		super();
-		this.idAcompanhante = idAcompanhante;
-	}
+	 public Acompanhante(int idacompanhate, int idcliente, int idpessoa){
+			super();
+			this.idacompanhante = idacompanhante;
+			this.idcliente = idcliente;
+			this.idpessoa = idpessoa;
 	
-	public int getIdAcompanhante(){
-		return idAcompanhante;
+		}
+	
+	public int getIdacompanhante() {
+		return idacompanhante;
 	}
-	public void setAcompanhante(int idAcompanhante){
-		this.idAcompanhante = idAcompanhante;
+	public void setIdacompanhante(int idacompanhante) {
+		this.idacompanhante = idacompanhante;
 	}
-
+	public int getIdcliente() {
+		return idcliente;
+	}
+	public void setIdcliente(int idcliente) {
+		this.idcliente = idcliente;
+	}
+	public int getIdpessoa() {
+		return idpessoa;
+	}
+	public void setIdpessoa(int idpessoa) {
+		this.idpessoa = idpessoa;
+	}
 	
 
 }

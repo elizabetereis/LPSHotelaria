@@ -1,0 +1,19 @@
+/**
+ * TODO description
+ */
+public class LoginController {
+	
+	
+		public static void main(String[] args) {
+		
+				LoginDao loginDao = new LoginDao();
+				
+				loginDao.efetuarLogin("fulano", "senha123");
+				
+				
+				if(loginDao==null){
+				    System.out.println("Não existe ou dados incorretos");
+				}
+	}
+
+}
