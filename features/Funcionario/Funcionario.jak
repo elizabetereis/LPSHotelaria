@@ -1,41 +1,38 @@
 /**
- * Daiane e Camila
+ * TODO description
  */
-public class Funcionario extends PessoaFisica{
+public class Funcionario extends Pessoa{
 	
-	private int idFuncionario;
-	private String login;
-	private String senha;
+	private int  idfuncionario;
+	private int  idpessoa;
+	private int  idlogin;
+	private int  idestabelecimento;
 	
-	public Funcionario(){
-		
+	public int getIdfuncionario() {
+		return idfuncionario;
+	}
+	public void setIdfuncionario(int idfuncionario) {
+		this.idfuncionario = idfuncionario;
+	}
+	public int getIdpessoa() {
+		return idpessoa;
+	}
+	public void setIdpessoa(int idpessoa) {
+		this.idpessoa = idpessoa;
+	}
+	public int getIdlogin() {
+		return idlogin;
+	}
+	public void setIdlogin(int idlogin) {
+		this.idlogin = idlogin;
+	}
+	public int getIdestabelecimento() {
+		return idestabelecimento;
+	}
+	public void setIdestabelecimento(int idestabelecimento) {
+		this.idestabelecimento = idestabelecimento;
 	}
 	
-	public Funcionario(int idFuncionario, String login, String senha) {
-		super();
-		this.idFuncionario = idFuncionario;
-		this.login = login;
-		this.senha = senha;
-	}
-	
-	public int getIdFuncionario() {
-		return idFuncionario;
-	}
-	public void setIdFuncionario(int idFuncionario) {
-		this.idFuncionario = idFuncionario;
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 	
 	
 

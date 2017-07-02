@@ -1,0 +1,85 @@
+/**
+ * TODO description
+ */
+public class QuartoPublicoDAO {
+	private Connection con;
+
+	public QuartoPublicoDAO()  {
+		this.con = new Conexao().getConnection();
+	}
+	public boolean cadastrar(QuartoPublico qPublico){
+        boolean resul;
+        
+	    String sql = "insert into quartoPublico (idquarto, genero, camasLivres) values (?, ?, ?)";
+	     
+	    try {
+	    	PreparedStatement stmt;
+
+			QuartoDAO quartoDAO = new QuartoDAO();
+			int idQuarto = quartoDAO.cadastrar(qPrivado);
+	    	
+	        stmt = con.prepareStatement(sql);
+	        
+	
+	        stmt.setInt(1, idQuarto);
+	        stmt.setInt(2, qPublico.getGenero());
+	        stmt.setInt(3, qPublico.getCamasLivres());
+	        resul = stmt.execute();
+	        
+	       
+	        stmt.close();
+	        con.close();
+	        return resul;
+	        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	
+	
+	public boolean alterar(QuartoPublico qPublico){
+		boolean result;
+		
+		String sql = "update quartoPublico set genero = ?, camasLivres = ? where idquartoPublico = ?;";
+		
+		try{
+			
+			stmt = con.prepareStatement(sql);
+	        
+			stmt.setInt(1, qPublico.getGenero());
+	        stmt.setInt(2, qPublico.getCamasLivres());
+	        stmt.setInt(3, qPublico.getId());
+	        resul = stmt.executeUpdate();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	public boolean attQuartosLivres(int id, int quartosLivres){
+		boolean result;
+		
+		String sql = "update quartoPublico set camasLivres = ? where idquartoPublico = ?;";
+		
+		try{
+			
+			stmt = con.prepareStatement(sql);
+	        
+	        stmt.setInt(1, quartosLivres);
+	        stmt.setInt(2, id);
+	        resul = stmt.executeUpdate();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+}

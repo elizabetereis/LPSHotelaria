@@ -1,0 +1,129 @@
+/**
+ * TODO description
+ */
+public class LoteDAO {
+	private Connection con;
+
+	public PagamentoDinheiroDAO()  {
+		this.con = new Conexao().getConnection();
+	}
+	public boolean cadastrar(Lote lote){
+       // boolean resul;
+        
+	    String sql = "insert into lote (barraca, tamanho) values (?, ?)";
+	     
+	    try {
+	    	PreparedStatement stmt;
+	    	
+	        stmt = con.prepareStatement(sql);
+	        
+	
+	        stmt.setBoolean(1, lote.isBarraca());
+	        stmt.setFloat(2, lote.getTamanho); // Id do estabelecimento
+	        resul = stmt.execute();
+	       
+	        stmt.close();
+	        con.close();
+	        return id;
+	        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	public boolean excluir(Lote lote){
+		boolean result;
+		
+		String sql = "delete from lote where id = ?";
+		
+		try{
+			stmt = con.prepareStatement(sql);
+	        
+	        stmt.setString(1, lote.getId());
+	        resul = stmt.execute();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	public boolean alterar(Produto produto){
+		boolean result;
+		
+		String sql = "update lote set barraca = ?, tamannho = ? where idLote = ?;";
+		
+		try{
+			
+			stmt = con.prepareStatement(sql);
+	        
+	        stmt.setBoolean(1, lote.isBarraca());
+	        stmt.setFloat(2, lote.getTamanho());
+	        stmt.setFloat(3, lote.getId());
+	        resul = stmt.executeUpdate();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	public List<Lote> listarLotes(){
+		String sql = "select * from lote";
+		List<Lote> lotes = new ArrayList<>();
+		
+		try{
+			PreparedStatement stmt;
+			stmt = con.prepareStatement(sql);
+	        ResultSet rs = stmt.executeQuery();
+	        
+	        while(rs.next()){
+	        	Lote l = new Lote();
+	        	l.setId(rs.getInt("idLote"));
+	        	p.setBarraca(rs.getBoolean("barraca"));
+	        	p.setTamanho(rs.getFloat("tamanho"));
+	        	lotes.add(l);
+	        }
+	        
+	        stmt.close();
+	        con.close();
+	        return lotes;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	public Lote buscar(int id){
+		String sql = "select * from lote where idLote = ?";
+		List<Lote> lotes = new ArrayList<>();
+		
+		try{
+			PreparedStatement stmt;
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, id);
+	        ResultSet rs = stmt.executeQuery();
+	        
+	        if(rs.next()){
+	        	Lote l = new Lote();
+	        	l.setId(rs.getInt("idLote"));
+	        	p.setBarraca(rs.getBoolean("barraca"));
+	        	p.setTamanho(rs.getFloat("tamanho"));
+	        	lotes.add(l);
+	        }
+	        
+	        stmt.close();
+	        con.close();
+	        return l;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+}

@@ -1,109 +1,139 @@
-/**
- * Daiane e Camila
- */
+
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
 
-public class PessoaDao implements IPessoa{
+/**
+ * TODO description
+ */
+public class PessoaDao {
 	
-	 /* private Connection connection;
+	private Connection con;
 
-	  public PessoaDao() {
-	    this.connection = new ConnectionFactory().getConnection();
-	  }
-	  
-	  public void cadastrarPessoa(Pessoa pessoa) {
-	  
-		    String sql = "insert into pessoa (nome,identificacao,endereco,email) values (?,?,?,?)";
+		public PessoaDao()  {
+			this.con = new Conexao().getConnection();
+		}
 		
+
+	  public boolean cadastrarPessoa(Pessoa pessoa){
+	        boolean resul;
+
+
+		    String sql = "insert into pessoa (nome,identificacao,endereco,email, dataNascimento) values (?,?,?,?,?)";
+		     
 		    try {
-		    
+		    	
 		        PreparedStatement stmt = con.prepareStatement(sql);
 		
 		        stmt.setString(1,pessoa.getNome());
 		        stmt.setString(2,pessoa.getIdentificacao());
 		        stmt.setString(3,pessoa.getEndereco());
 		        stmt.setString(4,pessoa.getEmail());
-
-		        stmt.execute();
+		        stmt.setDate(5, new java.sql.Date(pessoa.getDataNascimento().getTime()));
+		        
+		        resul = stmt.execute();
+		        
+		       
 		        stmt.close();
+		        con.close();
+		        return resul;
+		        
 		    } catch (SQLException e) {
 		        throw new RuntimeException(e);
 		    }
       }
       
-      public void alterarPessoa(Pessoa pessoa) {
+	    public boolean alterarPessoa(int id) {
+	    	boolean resul;
+	    	Pessoa pessoa = null;
       
-		     String sql = "update pessoa set nome=?, identificacao=?, endereco=?," +
-		             "emailo=? where idPessoa=?";
+		     String sql = "update pessoa set nome=?, set identificacao=?, set endereco=?," +
+		             "set email=?, set dataNascimento=? where idpessoa=?";
 		     try {
-		         PreparedStatement stmt = connection.prepareStatement(sql);
+		    	 
+		         PreparedStatement stmt = con.prepareStatement(sql);
 		         stmt.setString(1, pessoa.getNome());
 		         stmt.setString(2, pessoa.getIdentificacao());
 		         stmt.setString(3, pessoa.getEndereco());
-		         stmt.setString(3, pessoa.getEmail());
-		         stmt.setLong(5, pessoa.getId());
+		         stmt.setString(4, pessoa.getEmail());
+		         stmt.setDate(5, new java.sql.Date(pessoa.getDataNascimento().getTime()));
+		         stmt.setInt(6, id);
 		         
-		         stmt.execute();
+		         resul =  stmt.execute();
 		         stmt.close();
+		         
+		         return resul;
+		         
 		     } catch (SQLException e) {
 		         throw new RuntimeException(e);
 		     }
       }
       
-      public void excluirPessoa(Pessoa pessoa) {
+      public boolean excluirPessoa(int id) {
+    	  boolean resul;
 		     try {
-		         PreparedStatement stmt = connection.prepareStatement("delete" +
-		                 "from pessoa where idPessoa=?");
-		         stmt.setLong(1, pessoa.getIdPessoa());
-		         stmt.execute();
+		         PreparedStatement stmt = con.prepareStatement("delete" +
+		                 "from pessoa where idpessoa=?");
+		         
+		         stmt.setInt(1, id);
+		         
+		         resul = stmt.execute();
 		         stmt.close();
+		         
+		         return resul;
+		         
 		     } catch (SQLException e) {
 		         throw new RuntimeException(e);
 		     }
       }
       
+
+      public List<Pessoa> getLista() {
+    	     try {
+    	         List<Pessoa> pessoas = new ArrayList<Pessoa>();
+    	         PreparedStatement stmt = con.prepareStatement("select * from pessoa");
+    	         ResultSet rs = stmt.executeQuery();
+    	 
+    	         while (rs.next()) {
+    	             // criando o objeto Contato
+    	             Pessoa pessoa = new Pessoa();
+    	             pessoa.setIdpessoa(rs.getInt("idpessoa"));
+    	             pessoa.setNome(rs.getString("nome"));
+    	             pessoa.setIdentificacao(rs.getInt("identificacao"));
+    	             pessoa.setEndereco(rs.getString("endereco"));
+    	             pessoa.setEmail(rs.getString("email"));
+    	             data.setTime(rs.getDate("dataNascimento"));
+    	             pessoa.setDataNascimento(data);
+    	 
+    	             // adicionando o objeto � lista
+    	             pessoas.add(pessoa);
+    	         }
+    	         rs.close();
+    	         stmt.close();
+    	         return pessoas;
+    	     } catch (SQLException e) {
+    	         throw new RuntimeException(e);
+    	     }
+    	 }
       
-	  */
+      
+     /* public static void main(String[] args) {
+		     
+    	 PessoaDao daoP = new PessoaDao(); 
+
+    		List<Pessoa> lista = daoP.getLista();
+    		
+    		for (Pessoa pessoa : lista) {
+    		  System.out.println("Nome: " + pessoa.getNome());
+    		  System.out.println("Email: " + pessoa.getEmail());
+    		  System.out.println("Data de Nascimento: " +pessoa.getDataNascimento().getTime() + "\n");
+    		}
+    			
+    			
+    		}
+    		*/
 	
-	
-	//List<Pessoa> listaPessoas = new ArrayList<Pessoa>();
-	private Pessoa[] listaPessoas = new Pessoa[10];
-	
-	public boolean cadastrarPessoa(Pessoa pessoa){
-		
-		try{
-			
-			for(int i=0; i<listaPessoas.length; i++){
-				
-				listaPessoas[i] = pessoa;
-				
-			}
-			
-			
-		} catch(Exception e){
-			
-			return false;
-			
-		}
-		
-		return true;
-	}
-	
-	
-	public boolean alterarPessoa(Pessoa pessoa){
-		return false;
-	}
-	
-	public boolean excluirPessoa(int id){
-		
-	//	for(Pessoa pessoa : listaPessoas) {
-		//	if(pessoa.getIdentificacao() == id)
-				//listaPessoas.remove(pessoa);
-	//		  
-	//	}
-		
-		return false;
-	//}
-	}
 }

@@ -1,0 +1,63 @@
+/**
+ * TODO description
+ */
+public class QuartoPrivadoDAO {
+	private Connection con;
+
+	public QuartoPublicoDAO()  {
+		this.con = new Conexao().getConnection();
+	}
+	public boolean cadastrar(QuartoPrivado qPrivado){
+        boolean resul;
+        
+	    String sql = "insert into quartoPrivado (idquarto, numeroCamasSingle, numeroCamasDouble) values (?, ?, ?)";
+	     
+	    try {
+	    	PreparedStatement stmt;
+
+			QuartoDAO quartoDAO = new QuartoDAO();
+			int idQuarto = quartoDAO.cadastrar(qPrivado);
+	    	
+	        stmt = con.prepareStatement(sql);
+	        
+	
+	        stmt.setInt(1, idQuarto);
+	        stmt.setInt(2, qPrivado.getNumeroCamasSingle());
+	        stmt.setInt(3, qPrivado.getNumeroCamasDouble());
+	        resul = stmt.execute();
+	        
+	       
+	        stmt.close();
+	        con.close();
+	        return resul;
+	        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+	
+	
+	
+	public boolean alterar(QuartoPrivado qPrivado){
+		boolean result;
+		
+		String sql = "update quartoPrivado set numeroCamasSingle = ?, numeroCamasDouble = ? where idquartoPrivado = ?;";
+		
+		try{
+			
+			stmt = con.prepareStatement(sql);
+	        
+			stmt.setInt(1, qPrivado.getNumeroCamasSingle());
+	        stmt.setInt(2, qPrivado.getNumeroCamasDouble());
+	        stmt.setInt(3, qPrivado.getId());
+	        resul = stmt.executeUpdate();
+	        
+	        stmt.close();
+	        con.close();
+	        return resul;
+        
+	    } catch (SQLException e) {
+	        throw new RuntimeException(e);
+	    }
+	}
+}

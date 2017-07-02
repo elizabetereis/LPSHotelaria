@@ -1,84 +1,46 @@
-/**
- * Daiane e Camila
- */
-import java.util.Date;
 
-public class Cliente extends PessoaFisica{
+/**
+ * TODO description
+ */
+public class Cliente extends Pessoa{
 	
-	private int idCliente;
-	//private Acompanhante[] listaPessoas = new Acompanhante[10];
-	private Acompanhante[] Acompanhantes  = new Acompanhante[10];
-	//List<Acompanhante> acompanhantes = new ArrayList<Acompanhante>();
+	private int idcliente;
+	private int idpessoa;
+	private int idestabelecimento;
 	
 	
 	public Cliente(){
 		
 	}
 	
-    public Cliente(int idCliente ){
+    public Cliente(int idcliente, int idpessoa, int idestabelecimento){
 		super();
-		this.idCliente = idCliente;
+		this.idcliente = idcliente;
+		this.idpessoa = idpessoa;
+		this.idestabelecimento = idestabelecimento;
+		
 	}
 	
-	public int getIdCliente(){
-		return idCliente;
+	public int getIdcliente(){
+		return idcliente;
 	}
-	public void setCliente(int idCliente){
-		this.idCliente = idCliente;
-	}
-	
-	public Acompanhante[] getAcompanhantes() {
-		return Acompanhantes;
-	}
-
-	public void setAcompanhantes(Acompanhante[] acompanhantes) {
-		Acompanhantes = acompanhantes;
+	public void setIdcliente(int idcliente){
+		this.idcliente = idcliente;
 	}
 	
+	public int getIdpessoa(){
+		return idpessoa;
+	}
+	public void setIdpessoa(int idpessoa){
+		this.idpessoa = idpessoa;
+	}
 	
-	
-	
-	
-	
-//public static void main(String[] args) {
-//		
-//		boolean resul;
-//		Date data;
-//		int i;
-//		
-//		data = new Date();
-//        PessoaDao dao = new PessoaDao();
-//		Cliente cliente = new Cliente();
-//        Acompanhante acompanhante = new Acompanhante();
-//		
-//		acompanhante.setNome("Camila");
-//		
-//		cliente.setNome("Daiane");
-//		cliente.setIdentificacao("123");
-//		cliente.setEndereco("Cabula");
-//		cliente.setEmail("dai@gmail");
-//		cliente.setCpf("014789897723");
-//		cliente.setDataNascimento(data);
-//		
-//		
-//		//cliente.setAcompanhantes(acompanhante);
-//		
-//		for(i=0; i<5; i++){
-//			cliente.Acompanhantes[i]=acompanhante;
-//		}
-//
-//       
-//		
-//        resul = dao.cadastrarPessoa(cliente);
-//        
-//        
-//        if(resul){
-//        	System.out.println("Cliente "+cliente.getNome()+" cadastrada com sucesso!");
-//        }else{
-//        	System.out.println("Nao foi possivel cadastrar!");	
-//        }
-//		
-//	}
-//	
+	public int getIdestabelecimento(){
+		return idestabelecimento;
+	}
+	public void setIdestabelecimento(int idestabelecimento){
+		this.idestabelecimento = idestabelecimento;
+	}
+		
 
 }

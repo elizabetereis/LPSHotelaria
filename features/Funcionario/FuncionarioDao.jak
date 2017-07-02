@@ -1,0 +1,105 @@
+
+import java.sql.ResultSet;
+
+public class FuncionarioDao {
+	
+private Connection con;
+
+	
+	public FuncionarioDao() {
+		  
+		this.con = new Conexao().getConnection();
+			
+	  }
+		
+	
+	  public boolean cadastrarFuncionario(Funcionario funcionario) {
+	        boolean resul;
+	        
+		    String sql = "insert into funcionario (idpessoa,idlogin, idestabelecimento) values (?,?,?)";
+		
+		    try {
+		    
+		        PreparedStatement stmt = con.prepareStatement(sql);
+		
+		        stmt.setInt(1,funcionario.getIdpessoa());
+		        stmt.setInt(1,funcionario.getIdlogin());
+		        stmt.setInt(2,funcionario.getIdestabelecimento());
+		      
+		        resul = stmt.execute();
+		        stmt.close();
+		        
+		        return resul;
+		        
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+  }
+  
+   public boolean alterarFuncionario(int id) {
+	    	boolean resul;
+	    	Cliente cliente = null;
+  
+		     String sql = "update funcionario set idpessoa=?, set idlogin=?, set idestabelecimento=?  where idfuncionario=?";
+		     try {
+		    	 
+		         PreparedStatement stmt = con.prepareStatement(sql);
+		   
+			     stmt.setInt(1,funcionario.getIdpessoa());
+			     stmt.setInt(2,funcionario.getIdlogin());
+			     stmt.setInt(3,funcionario.getIdestabelecimento());
+		         stmt.setInt(4, id);
+		         
+		         resul =  stmt.execute();
+		         stmt.close();
+		         
+		         return resul;
+		         
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+  }
+  
+  public boolean excluirFuncionario(int id) {
+	  boolean resul;
+		     try {
+		         PreparedStatement stmt = con.prepareStatement("delete" +
+		                 "from funcionario where idfuncionario=?");
+		         
+		         stmt.setInt(1, id);
+		         
+		         resul = stmt.execute();
+		         stmt.close();
+		         
+		         return resul;
+		         
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+  }
+	  
+	  public List<Funcionario> getLista() {
+ 	     try {
+ 	         List<Funcionario> funcionarios = new ArrayList<Funcionario>>();
+ 	         PreparedStatement stmt = con.prepareStatement("select * from funcionario");
+ 	         ResultSet rs = stmt.executeQuery();
+ 	 
+ 	         while (rs.next()) {
+ 	             // criando o objeto Contato
+ 	        	 Funcionario funcionario = new Funcionario();
+ 	        	 funcionario.setIdfuncionario(rs.getInt("idfuncionario"));
+ 	        	 funcionario.setIdpessoa(rs.getInt("idpessoa"));
+ 	        	 funcionario.setIdlogin(rs.getInt("idlogin"));
+ 	        	 funcionario.setIdestabelecimento(rs.getInt("idestabelecimento"));
+ 	            
+ 	             funcionarios.add(funcionario);
+ 	         }
+ 	         rs.close();
+ 	         stmt.close();
+ 	         return funcionarios;
+ 	     } catch (SQLException e) {
+ 	         throw new RuntimeException(e);
+ 	     }
+ 	 }
+
+}

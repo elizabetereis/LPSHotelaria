@@ -1,0 +1,41 @@
+/**
+ * TODO description
+ */
+public class Login {
+	
+	private int idlogin;
+	private String nomeUsuario;
+	private String senha;
+	
+    public Login(){
+		
+	}
+	
+	public Login(int idlogin, String nomeUsuario, String senha) {
+		super();
+		this.idlogin = idlogin;
+		this.nomeUsuario = nomeUsuario;
+		this.senha = senha;
+	}
+	public int getIdlogin() {
+		return idlogin;
+	}
+	public void setIdlogin(int idlogin) {
+		this.idlogin = idlogin;
+	}
+	public String getNomeUsuario() {
+		return nomeUsuario;
+	}
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
+	
+
+}

@@ -1,0 +1,106 @@
+/**
+ * TODO description
+ */
+
+import java.sql.ResultSet;
+
+public class AcompanhanteDao {
+	
+private Connection con;
+
+	
+	public AcompanhanteDao() {
+		  
+		this.con = new Conexao().getConnection();
+			
+	  }
+		
+	
+	  public boolean cadastrarAcompanhante(Acompanhante acompanhante) {
+	        boolean resul;
+	        
+		    String sql = "insert into acompanhante (idcliente, idpessoa) values (?,?)";
+		
+		    try {
+		    
+		        PreparedStatement stmt = con.prepareStatement(sql);
+		        
+		        stmt.setInt(1,acompanhante.getIdcliente());
+		        stmt.setInt(2,acompanhante.getIdpessoa());
+		      
+		        resul = stmt.execute();
+		        stmt.close();
+		        
+		        return resul;
+		        
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+  }
+  
+  public boolean alterarAcompanhante(int id) {
+	    	boolean resul;
+	    	Acompanhante acompanhante = null;
+  
+		     String sql = "update acompanhante set idcliente=?, set idpessoa=? where idacompanhante=?";
+		     try {
+		    	 
+		         PreparedStatement stmt = con.prepareStatement(sql);
+		   
+			     stmt.setInt(1,acompanhante.getIdcliente());
+			     stmt.setInt(2,acompanhante.getIdpessoa());
+		         stmt.setInt(3, id);
+		         
+		         resul =  stmt.execute();
+		         stmt.close();
+		         
+		         return resul;
+		         
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+  }
+  
+  public boolean excluirAcompanhante(int id) {
+	  boolean resul;
+		     try {
+		         PreparedStatement stmt = con.prepareStatement("delete" +
+		                 "from acompanhante where idacompanhante=?");
+		         
+		         stmt.setInt(1, id);
+		         
+		         resul = stmt.execute();
+		         stmt.close();
+		         
+		         return resul;
+		         
+		     } catch (SQLException e) {
+		         throw new RuntimeException(e);
+		     }
+  }
+	  
+	  public List<Acompanhante> getLista() {
+ 	     try {
+ 	         List<Acompanhante> acompanhantes = new ArrayList<Acompanhante>>();
+ 	         PreparedStatement stmt = con.prepareStatement("select * from acompanhante");
+ 	         ResultSet rs = stmt.executeQuery();
+ 	 
+ 	         while (rs.next()) {
+ 	             // criando o objeto Contato
+ 	        	 Acompanhante acompanhante = new Acompanhante();
+ 	        	 acompanhante.setIdacompanhante(rs.getInt("idacompanhante"));
+ 	        	 acompanhante.setIdcliente(rs.getInt("idcliente"));
+ 	        	 acompanhante.setIdpessoa(rs.getInt("idpessoa"));
+ 	            
+ 	            acompanhantes.add(acompanhante);
+ 	         }
+ 	         rs.close();
+ 	         stmt.close();
+ 	         return acompanhates;
+ 	     } catch (SQLException e) {
+ 	         throw new RuntimeException(e);
+ 	     }
+ 	 }
+	
+
+}
