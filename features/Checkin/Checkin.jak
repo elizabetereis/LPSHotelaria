@@ -1,5 +1,5 @@
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Elizabete e Emmanuel
@@ -21,7 +21,21 @@ public class Checkin {
 //	}
 	
 	public void fazerCheckin(){
-		mDataEntrada = new Date();
+		mDataEntrada = new Date(System.currentTimeMillis());
 	}
 
+	//TODO: Teste, tirar antes da versao final	
+	public static void main (String args[]){
+		
+		Checkin checkin = new Checkin();
+		checkin.fazerCheckin();
+		
+		CheckinDAO checkDAO = new CheckinDAO();
+		
+		checkDAO.cadastrar(checkin);
+		
+
+				
+	}
 }
+

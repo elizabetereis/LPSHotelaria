@@ -20,6 +20,10 @@ public class VetorProduto {
   public void remove(int posicao) {
 	  this.mProdutos[posicao] = null;
   }
+  
+  public Produto[] todos(){
+	  return mProdutos;
+  }
 
   public boolean contem(Produto produto) {
 	  

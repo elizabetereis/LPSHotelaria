@@ -1,7 +1,7 @@
 /**
  * Elizabete e Emmanuel
  */
-import java.util.Date;
+import java.sql.Date;
 
 public class Checkout {
 	
@@ -16,11 +16,23 @@ public class Checkout {
 	}
 	
 	public void setDataSaida(){
-		mDataSaida = new Date();
+		mDataSaida = new Date(System.currentTimeMillis());
 	}
 	
 	public void fazerCheckout(){
 		System.out.print("Checkout ");
+	}
+	
+	public static void main (String args[]){
+		
+		Checkout checkout = new Checkout();
+		checkout.fazerCheckout();
+		
+		CheckoutDAO checkDAO = new CheckoutDAO();
+		
+		checkDAO.cadastrar(checkout);
+		
+				
 	}
 
 }

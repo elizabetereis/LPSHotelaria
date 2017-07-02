@@ -1,0 +1,45 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.*;
+/**
+ * TODO description
+ */
+public class ComprovanteFiscalDAO{
+	
+	private Connection con;
+
+		public ComprovanteFiscalDAO()  {
+			this.con = new Conexao().getConnection();
+		}
+		
+	
+
+	  public int cadastrar(ComprovanteFiscal comprovanteFiscal){
+		  
+	        
+		    String sql = "insert into comprovanteFiscal (tipoComprovante) values (?)";
+		     
+		    try {
+		    	PreparedStatement stmt = con.prepareStatement(sql);
+				
+			    stmt.setString(1, comprovanteFiscal.getTipoComprovante());
+			    stmt.execute();
+			      
+			    ResultSet resultSet = stmt.executeQuery("SELECT LAST_INSERT_ID()");
+		        resultSet.beforeFirst();
+	            resultSet.next();
+	            int id = resultSet.getInt("LAST_INSERT_ID()");      
+		       
+		        stmt.close();
+		        con.close();
+		        return id;
+		        
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+    }
+      
+
+	
+}

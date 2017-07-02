@@ -1,7 +1,7 @@
 /**
  * Felipe e Thamires
  */
-import java.util.Date;
+import java.sql.Date;
 
 public class Pagamento {
 
@@ -85,8 +85,10 @@ public class Pagamento {
 			formaPagamento.pagar(valorPago, this.valorCobrado);
 			
 			System.out.println("pagamento efetuado com sucesso.");
+			if(comprovanteFiscal != null){ 
 			comprovanteFiscal.gerarComprovante(comprovanteFiscal.getTipoComprovante(), 
 					dataPagamento, valorCobrado, valorPago);
+			}
 			print();
 		}
 		catch(Exception e){
@@ -100,22 +102,20 @@ public class Pagamento {
 	public void print(){
 		System.out.println("Tipo de pagamento: "+getFormaPagamento().getTipo());
 	}
+	
+	
+	//TODO: Teste, tirar antes da versao final	
+	public static void main (String args[]){
 		
-//	public static void main (String args[]){
-//		
-//		Pagamento pagamento = new Pagamento(new Date(), 100, 10, 90, new PagamentoDinheiro(), 
-//				"", new ComprovanteFiscal("Email"));
-//		
-//		System.out.println("---------------------------");
-//		
-//		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao(ETipoCartao.CREDITO), 
-//				"", new ComprovanteFiscal("Impresso"));
-//		
-//		System.out.println("---------------------------");
-//		
-//		pagamento = new Pagamento(new Date(), 110, 0, 110, new PagamentoCartao(ETipoCartao.DEBITO), 
-//				"", new ComprovanteFiscal("Email"));
-//				
-//	}
+		Pagamento pagamento = new Pagamento(new Date(System.currentTimeMillis()), 100, 10, 90, new PagamentoDinheiro(), 
+				"teste", new ComprovanteFiscal("Email"));
+		
+		PagamentoDAO pgtDAO = new PagamentoDAO();
+		
+		pgtDAO.cadastrar(pagamento);
+		
+	
+				
+	}
 
 }

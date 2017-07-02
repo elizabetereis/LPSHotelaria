@@ -21,5 +21,24 @@ public class PagamentoDinheiro implements FormaPagamento {
 		this.troco = valorPago - valorCobrado;
 		
 	}
-	
+	public static void main(String[] args) {
+		
+		PagamentoDinheiro  pgtDinheiro = new PagamentoDinheiro();
+		PagamentoDinheiroDAO pgtDAO = new PagamentoDinheiroDAO();
+		
+		
+		
+		pgtDinheiro.pagar(100, 90);
+
+		
+		pgtDAO.cadastrar(pgtDinheiro);
+		
+		
+	}
 }
+
+
+
+
+
+

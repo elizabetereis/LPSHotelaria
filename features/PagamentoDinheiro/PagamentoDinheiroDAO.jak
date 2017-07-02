@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * TODO description
  */
-public class PagamentoDinheiroDAO{
+public class PagamentoDinheiroDAO implements FormaPagamentoDAO{
 	
 	private Connection con;
 
@@ -13,31 +13,39 @@ public class PagamentoDinheiroDAO{
 			this.con = new Conexao().getConnection();
 		}
 		
-	  
-	  public boolean cadastrar(PagamentoDinheiro pagamentoDinheiro){
-	        boolean resul;
+	
+
+	  public int cadastrar(FormaPagamento formaPagamento){
+		  
+		  
+		  	PagamentoDinheiro pagamentoDinheiro = (PagamentoDinheiro) formaPagamento;
+	        
+	        String sql_formaPgt = "insert into formaPagamento (tipoPagamento) values (?)";
 	        
 		    String sql = "insert into pagamentoDinheiro (idformaPagamento, troco) values (?, ?)";
 		     
 		    try {
-		    	PreparedStatement stmt;
-		    	
-		        FormaPagamentoDAO formapgt = new FormaPagamentoDAO();
-		        int id = formapgt.cadastrar(pagamentoDinheiro);
-
+		    	PreparedStatement stmt = con.prepareStatement(sql_formaPgt);
+				
+			    stmt.setString(1, pagamentoDinheiro.getTipo());
+			    stmt.execute();
+			      
+			    ResultSet resultSet = stmt.executeQuery("SELECT LAST_INSERT_ID()");
+		        resultSet.beforeFirst();
+	            resultSet.next();
+	            int id = resultSet.getInt("LAST_INSERT_ID()");      
+		   
 		    	
 		        stmt = con.prepareStatement(sql);
-		        
 		
 		        stmt.setInt(1, id);
 		        stmt.setFloat(2, pagamentoDinheiro.getTroco());
 		        
-		        resul = stmt.execute();
-		        
-		       
+		        stmt.execute();
+		        		       
 		        stmt.close();
 		        con.close();
-		        return resul;
+		        return id;
 		        
 		    } catch (SQLException e) {
 		        throw new RuntimeException(e);

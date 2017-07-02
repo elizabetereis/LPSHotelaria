@@ -60,6 +60,18 @@ public class Conta {
 			return cliente;
 		}
 		
+		public double getTotal(){
+			return mTotal;
+		}
+		
+		public Pagamento getPagamento(){
+			return pagamento;
+		}
+		
+		public Produto[] getProdutos(){
+			return mProdutos.todos();
+		}
+		
 		public void addProduto(Produto produto){
 			
 			mProdutos.adiciona(produto);

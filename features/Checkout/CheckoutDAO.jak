@@ -1,0 +1,44 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.*;
+/**
+ * TODO description
+ */
+public class CheckoutDAO{
+	
+	private Connection con;
+
+		public CheckoutDAO()  {
+			this.con = new Conexao().getConnection();
+		}
+		
+
+	  public int cadastrar(Checkout checkout){
+ 
+		    String sql = "insert into checkout (dataSaida, tipo) values (?, ?)";
+		     
+		    try {
+		    	PreparedStatement stmt = con.prepareStatement(sql);
+				
+			    stmt.setDate(1, checkout.getDataSaida());
+			    stmt.setString(2, checkout.getTipo());
+			    stmt.execute();
+			      
+			    ResultSet resultSet = stmt.executeQuery("SELECT LAST_INSERT_ID()");
+		        resultSet.beforeFirst();
+	            resultSet.next();
+	            int id = resultSet.getInt("LAST_INSERT_ID()");      
+		   		        		       
+		        stmt.close();
+		        con.close();
+		        return id;
+		        
+		    } catch (SQLException e) {
+		        throw new RuntimeException(e);
+		    }
+    }
+      
+
+	
+}

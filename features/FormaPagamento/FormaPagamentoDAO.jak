@@ -1,47 +1,10 @@
 
-import java.util.ArrayList;
-import java.util.List;
-import java.sql.*;
+
 /**
  * TODO description
  */
-public class FormaPagamentoDAO{
-	
-	private Connection con;
+public interface FormaPagamentoDAO{
 
-		public FormaPagamentoDAO()  {
-			this.con = new Conexao().getConnection();
-		}
-		
-
-	  public int cadastrar(FormaPagamento formaPagamento){
-//	        boolean resul;
-
-
-		    String sql = "insert into formaPagamento (tipoPagamento) values (?)";
-		     
-		    try {
-		    	
-		        PreparedStatement stmt = con.prepareStatement(sql);
-		
-		        stmt.setString(1, formaPagamento.getTipo());
-		        
-		        stmt.execute();
-		       
-		        ResultSet resultSet = stmt.executeQuery("SELECT LAST_INSERT_ID()");
-		        resultSet.beforeFirst();
-	            resultSet.next();
-	            int id = resultSet.getInt("LAST_INSERT_ID()");
-		       
-		        stmt.close();
-		        con.close();
-		        return id;
-		        
-		    } catch (SQLException e) {
-		        throw new RuntimeException(e);
-		    }
-      }
-      
-
-	
+	 public int cadastrar(FormaPagamento formaPagamento);
+      	
 }
