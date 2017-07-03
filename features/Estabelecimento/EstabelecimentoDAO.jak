@@ -12,19 +12,20 @@ public class EstabelecimentoDAO {
 	public boolean cadastrar(Estabelecimento est){
 		boolean resul;
         
-	    String sql = "insert into estabelecimento (qtdQuartos, descricao, qtdQuartosDisponiveis) values (?, ?, ?)";
+	    String sql = "insert into estabelecimento (qtdQuartos, descricao, qtdQuartosDisponiveis, idpessoa) values (?, ?, ?, ?)";
 	     
 	    try {
 	    	PreparedStatement stmt;
 	    	
 	    	PessoaDao pessoaDAO = new PessoaDao();
-	    	int idEst = pessoaDAO.cadastrar(est.getDadosPessoa());
+	    	int idPessoa = pessoaDAO.cadastrar(est.getDadosPessoa());
 	    	
 	        stmt = con.prepareStatement(sql);
 	        
 	        stmt.setInt(1, est.getQtdQuartos());
 	        stmt.setString(2, est.getDescricao());
 	        stmt.setInt(3, est.getQtdQuartosDisponivel());
+	        stmt.setInt(4, idPessoa);
 	        resul = stmt.execute();
 	       
 	        stmt.close();
