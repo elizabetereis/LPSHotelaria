@@ -34,7 +34,7 @@ public class LoteDAO {
 	public boolean excluir(Lote lote){
 		boolean result;
 		
-		String sql = "delete from lote where id = ?";
+		String sql = "delete from lote where idLote = ?";
 		
 		try{
 			stmt = con.prepareStatement(sql);

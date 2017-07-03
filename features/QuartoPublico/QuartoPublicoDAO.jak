@@ -61,7 +61,7 @@ public class QuartoPublicoDAO {
 	    }
 	}
 	
-	public boolean attQuartosLivres(int id, int quartosLivres){
+	public boolean attCamasLivres(int id, int camasLivres){
 		boolean result;
 		
 		String sql = "update quartoPublico set camasLivres = ? where idquartoPublico = ?;";
@@ -70,7 +70,7 @@ public class QuartoPublicoDAO {
 			
 			stmt = con.prepareStatement(sql);
 	        
-	        stmt.setInt(1, quartosLivres);
+	        stmt.setInt(1, camasLivres);
 	        stmt.setInt(2, id);
 	        resul = stmt.executeUpdate();
 	        

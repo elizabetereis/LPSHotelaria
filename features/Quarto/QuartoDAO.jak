@@ -59,7 +59,7 @@ public class QuartoDAO {
 	public boolean alterar(Produto produto){
 		boolean result;
 		
-		String sql = "update produto set descricao = ?, preco = ?, disponibilidade = ?;";
+		String sql = "update produto set descricao = ?, preco = ?, disponibilidade = ? where idquarto = ?;";
 		
 		try{
 			
@@ -68,6 +68,7 @@ public class QuartoDAO {
 	        stmt.setString(1, produto.getDescricao());
 	        stmt.setFloat(2, produto.getPreco());
 	        stmt.setBoolean(3, produto.isDisponibilidade());
+	        stmt.setInt(4, produto.getId());
 	        resul = stmt.executeUpdate();
 	        
 	        stmt.close();
