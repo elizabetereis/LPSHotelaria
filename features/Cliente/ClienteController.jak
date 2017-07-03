@@ -1,5 +1,5 @@
 
-import java.util.Date;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -13,9 +13,9 @@ public class ClienteController {
 	
 	
 	
-	String data = "22-08-2000";
-	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	Date datanasc = df.parse(data);
+//	String data = "22-08-2000";
+//	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//	Date datanasc = new Date(df);
 	//Date datanasc = df.parse(txtNascimento.getText());
 
 
@@ -25,8 +25,8 @@ public class ClienteController {
 		c.setEmail("dai@gmail");
 		c.setEndereco("Rua das flores");
 		c.setIdentificacao("22");
-		c.setDataNascimento(datanasc);
-		daoP.cadastrarPessoa(c);
+//		c.setDataNascimento(datanasc);
+		daoP.cadastrar(c);
 		
 		
 	   // System.out.println(c.getIdpessoa());
@@ -39,29 +39,29 @@ public class ClienteController {
 	}
 	
 	
-	public void listaPessoas(){
-		
-		List<Pessoa> lista = daoP.getLista();
-		
-		for (Pessoa pessoa : lista) {
-		  System.out.println("Nome: " + pessoa.getNome());
-		  System.out.println("Email: " + pessoa.getEmail());
-		  System.out.println("Data de Nascimento: " +pessoa.getDataNascimento().getTime() + "\n");
-		}
-	}
+//	public void listaPessoas(){
+//		
+//		List<Pessoa> lista = daoP.getLista();
+//		
+//		for (Pessoa pessoa : lista) {
+//		  System.out.println("Nome: " + pessoa.getNome());
+//		  System.out.println("Email: " + pessoa.getEmail());
+//		  System.out.println("Data de Nascimento: " +pessoa.getDataNascimento().getTime() + "\n");
+//		}
+//	}
 	
 	
 	
-public static void main(String[] args) {
-		     
-
-		ClienteController cc = new ClienteController();
-		
-		cc.salvarCliente();
-		cc.listaPessoas();
-		
-		
-	}
+//public static void main(String[] args) {
+//		     
+//
+//		ClienteController cc = new ClienteController();
+//		
+//		cc.salvarCliente();
+//		cc.listaPessoas();
+//		
+//		
+//	}
 	
 	
 

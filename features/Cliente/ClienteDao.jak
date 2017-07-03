@@ -81,28 +81,4 @@ public class ClienteDao  {
 		     }
   }
 	  
-	  public List<Cliente> getLista() {
- 	     try {
- 	         List<Cliente> clientes = new ArrayList<Cliente>>();
- 	         PreparedStatement stmt = con.prepareStatement("select * from cliente");
- 	         ResultSet rs = stmt.executeQuery();
- 	 
- 	         while (rs.next()) {
- 	             // criando o objeto Contato
- 	             Cliente cliente = new Cliente();
- 	             cliente.setIdcliente(rs.getInt("idcliente"));
- 	             cliente.setIdpessoa(rs.getInt("idpessoa"));
- 	             cliente.setIdestabelecimento(rs.getInt("idestabelecimento"));
- 	            
- 	             clientes.add(cliente);
- 	         }
- 	         rs.close();
- 	         stmt.close();
- 	         return clientes;
- 	     } catch (SQLException e) {
- 	         throw new RuntimeException(e);
- 	     }
- 	 }
-	
-	
 }

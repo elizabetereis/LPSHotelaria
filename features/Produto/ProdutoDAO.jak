@@ -1,6 +1,5 @@
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 public class ProdutoDAO {
 	private Connection con;
 
-	public PagamentoDinheiroDAO()  {
+	public ProdutoDAO()  {
 		this.con = new Conexao().getConnection();
 	}
 	
@@ -25,7 +24,7 @@ public class ProdutoDAO {
 	        
 	
 	        stmt.setString(1, produto.getDescricao());
-	        stmt.setFloat(2, produto.getPreco());
+	        stmt.setDouble(2, produto.getPreco());
 	        stmt.setBoolean(3, true);
 	        resul = stmt.execute();
 	        
@@ -39,103 +38,4 @@ public class ProdutoDAO {
 	    }
 	}
 	
-	public boolean excluir(Produto produto){
-		boolean result;
-		
-		String sql = "delete from users where id = ?";
-		
-		try{
-			PreparedStatement stmt;
-			stmt = con.prepareStatement(sql);
-	        
-	        stmt.setString(1, produto.getId());
-	        resul = stmt.execute();
-	        
-	        stmt.close();
-	        con.close();
-	        return resul;
-        
-	    } catch (SQLException e) {
-	        throw new RuntimeException(e);
-	    }
-	}
-	
-	public boolean alterar(Produto produto){
-		boolean result;
-		
-		String sql = "update produto set descricao = ?, preco = ?, disponibilidade = ? where idproduto = ?;";
-		
-		try{
-			PreparedStatement stmt;
-			stmt = con.prepareStatement(sql);
-	        
-	        stmt.setString(1, produto.getDescricao());
-	        stmt.setFloat(2, produto.getPreco());
-	        stmt.setBoolean(3, produto.isDisponibilidade());
-	        stmt.setInt(4, produto.getId());
-	        resul = stmt.executeUpdate();
-	        
-	        stmt.close();
-	        con.close();
-	        return resul;
-        
-	    } catch (SQLException e) {
-	        throw new RuntimeException(e);
-	    }
-	}
-	
-	public List<Produto> listarProdutos(){
-		String sql = "select * from produto";
-		List<Produto> produtos = new ArrayList<>();
-		
-		try{
-			PreparedStatement stmt;
-			stmt = con.prepareStatement(sql);
-	        ResultSet rs = stmt.executeQuery();
-	        
-	        while(rs.next()){
-	        	Produto p = new Produto();
-	        	p.setId(rs.getInt("idproduto"));
-	        	p.setDescricao(rs.getString("descricao"));
-	        	p.setPreco(rs.getFloat("preco"));
-	        	p.setDisponibilidade(rs.getBoolean("disponibilidade"));
-	        	produtos.add(p);
-	        }
-	        
-	        stmt.close();
-	        con.close();
-	        return produtos;
-        
-	    } catch (SQLException e) {
-	        throw new RuntimeException(e);
-	    }
-		
-	}
-	
-	public Produto buscar(int id){
-		String sql = "select * from produto where idproduto = ?";
-		
-		try{
-			PreparedStatement stmt;
-			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, id);
-	        ResultSet rs = stmt.executeQuery();
-	        
-	        if(rs.next()){
-	        	Produto p = new Produto();
-	        	p.setId(rs.getInt("idproduto"));
-	        	p.setDescricao(rs.getString("descricao"));
-	        	p.setPreco(rs.getFloat("preco"));
-	        	p.setDisponibilidade(rs.getBoolean("disponibilidade"));
-	        }
-	        
-	        stmt.close();
-	        con.close();
-	        return p;
-        
-	    } catch (SQLException e) {
-	        throw new RuntimeException(e);
-	    }
-		
-	} 
 }

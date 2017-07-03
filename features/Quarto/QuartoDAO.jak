@@ -4,11 +4,10 @@
 public class QuartoDAO {
 	private Connection con;
 
-	public PagamentoDinheiroDAO()  {
+	public QuartoDAO()  {
 		this.con = new Conexao().getConnection();
 	}
-	public boolean cadastrar(Quarto quarto){
-       // boolean resul;
+	public int cadastrar(Quarto quarto){
         
 	    String sql = "insert into quarto (numero, arcondicionado, idestabelecimento) values (?, ?, ?)";
 	     

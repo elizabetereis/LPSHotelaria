@@ -18,10 +18,8 @@ public class PessoaDao {
 		}
 		
 
-	  public boolean cadastrarPessoa(Pessoa pessoa){
-	        boolean resul;
-
-
+	  public int cadastrar(Pessoa pessoa){
+	
 		    String sql = "insert into pessoa (nome,identificacao,endereco,email, dataNascimento) values (?,?,?,?,?)";
 		     
 		    try {
@@ -34,12 +32,16 @@ public class PessoaDao {
 		        stmt.setString(4,pessoa.getEmail());
 		        stmt.setDate(5, new java.sql.Date(pessoa.getDataNascimento().getTime()));
 		        
-		        resul = stmt.execute();
+		        stmt.execute();
 		        
-		       
+		        ResultSet resultSet = stmt.executeQuery("SELECT LAST_INSERT_ID()");
+		        resultSet.beforeFirst();
+	            resultSet.next();
+	            int id = resultSet.getInt("LAST_INSERT_ID()"); 
+		        
 		        stmt.close();
 		        con.close();
-		        return resul;
+		        return id;
 		        
 		    } catch (SQLException e) {
 		        throw new RuntimeException(e);
@@ -89,35 +91,6 @@ public class PessoaDao {
 		         throw new RuntimeException(e);
 		     }
       }
-      
-
-      public List<Pessoa> getLista() {
-    	     try {
-    	         List<Pessoa> pessoas = new ArrayList<Pessoa>();
-    	         PreparedStatement stmt = con.prepareStatement("select * from pessoa");
-    	         ResultSet rs = stmt.executeQuery();
-    	 
-    	         while (rs.next()) {
-    	             // criando o objeto Contato
-    	             Pessoa pessoa = new Pessoa();
-    	             pessoa.setIdpessoa(rs.getInt("idpessoa"));
-    	             pessoa.setNome(rs.getString("nome"));
-    	             pessoa.setIdentificacao(rs.getInt("identificacao"));
-    	             pessoa.setEndereco(rs.getString("endereco"));
-    	             pessoa.setEmail(rs.getString("email"));
-    	             data.setTime(rs.getDate("dataNascimento"));
-    	             pessoa.setDataNascimento(data);
-    	 
-    	             // adicionando o objeto � lista
-    	             pessoas.add(pessoa);
-    	         }
-    	         rs.close();
-    	         stmt.close();
-    	         return pessoas;
-    	     } catch (SQLException e) {
-    	         throw new RuntimeException(e);
-    	     }
-    	 }
       
       
      /* public static void main(String[] args) {

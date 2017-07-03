@@ -4,11 +4,11 @@
 public class LoteDAO {
 	private Connection con;
 
-	public PagamentoDinheiroDAO()  {
+	public LoteDAO()  {
 		this.con = new Conexao().getConnection();
 	}
+	
 	public boolean cadastrar(Lote lote){
-       // boolean resul;
         
 	    String sql = "insert into lote (barraca, tamanho) values (?, ?)";
 	     
@@ -19,7 +19,7 @@ public class LoteDAO {
 	        
 	
 	        stmt.setBoolean(1, lote.isBarraca());
-	        stmt.setFloat(2, lote.getTamanho); // Id do estabelecimento
+	        stmt.setFloat(2, lote.getEspaco()); // Id do estabelecimento
 	        resul = stmt.execute();
 	       
 	        stmt.close();
@@ -68,59 +68,6 @@ public class LoteDAO {
 	        stmt.close();
 	        con.close();
 	        return resul;
-        
-	    } catch (SQLException e) {
-	        throw new RuntimeException(e);
-	    }
-	}
-	
-	public List<Lote> listarLotes(){
-		String sql = "select * from lote";
-		List<Lote> lotes = new ArrayList<>();
-		
-		try{
-			PreparedStatement stmt;
-			stmt = con.prepareStatement(sql);
-	        ResultSet rs = stmt.executeQuery();
-	        
-	        while(rs.next()){
-	        	Lote l = new Lote();
-	        	l.setId(rs.getInt("idLote"));
-	        	p.setBarraca(rs.getBoolean("barraca"));
-	        	p.setTamanho(rs.getFloat("tamanho"));
-	        	lotes.add(l);
-	        }
-	        
-	        stmt.close();
-	        con.close();
-	        return lotes;
-        
-	    } catch (SQLException e) {
-	        throw new RuntimeException(e);
-	    }
-	}
-	
-	public Lote buscar(int id){
-		String sql = "select * from lote where idLote = ?";
-		List<Lote> lotes = new ArrayList<>();
-		
-		try{
-			PreparedStatement stmt;
-			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, id);
-	        ResultSet rs = stmt.executeQuery();
-	        
-	        if(rs.next()){
-	        	Lote l = new Lote();
-	        	l.setId(rs.getInt("idLote"));
-	        	p.setBarraca(rs.getBoolean("barraca"));
-	        	p.setTamanho(rs.getFloat("tamanho"));
-	        	lotes.add(l);
-	        }
-	        
-	        stmt.close();
-	        con.close();
-	        return l;
         
 	    } catch (SQLException e) {
 	        throw new RuntimeException(e);

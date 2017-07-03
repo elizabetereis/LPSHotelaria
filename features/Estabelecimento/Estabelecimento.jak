@@ -3,6 +3,28 @@
  */
 public class Estabelecimento{
 	
+	private Pessoa dadosPessoa;
+	private String descricao;
+	private Cliente[] clientes; //titular da conta
+	private Conta[] historicoContas;
+	private Quarto[] quartos;
+	private int qtdQuartos;
+	private int qtdQuartosDisponivel;
+	
+	public int getQtdQuartos()
+	{
+		return qtdQuartos;
+	}
+	
+	public int getQtdQuartosDisponivel()
+	{
+		return qtdQuartosDisponivel;
+	}
+	
+	public String getDescricao(){
+		return descricao;
+	}
+	
 //	private VetorConta historicoContas;
 //	
 //	public VetorConta getHistoricoContas(){
@@ -10,10 +32,25 @@ public class Estabelecimento{
 //		return historicoContas;
 //	}
 	
-	public Estabelecimento(){
-		
-//		super(0, "00000", "nome estabelecimento", "razao social");
+	public Estabelecimento(Pessoa dados){
+		this.dadosPessoa = dados;
+		this.clientes = new Cliente[10]; 
+		this.historicoContas = new Conta[10];
+		this.quartos = new Quarto[10];
 //		historicoContas = new VetorConta();
+	}
+	
+	public Estabelecimento(){
+		this.dadosPessoa = new Pessoa();
+//		historicoContas = new VetorConta();
+	}
+	
+	public Cliente[] getCliente(){
+		return clientes;
+	}
+	
+	public Pessoa getDadosPessoa(){
+		return dadosPessoa;
 	}
 
 }
