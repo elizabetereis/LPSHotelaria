@@ -11,6 +11,28 @@ public class Conta {
 		private Checkout mCheckout;
 		private int idCliente; //titular da conta
 		private Pagamento mPagamento;
+		private int idQuarto;
+		private int idLote;
+		
+		public int getIdLote()
+		{
+			return idLote;
+		}
+		
+		public void setIdLote(int lote)
+		{
+			idLote = lote;
+		}
+		
+		public int getIdQuarto()
+		{
+			return idQuarto;
+		}
+		
+		public void setIdQuarto(int quarto)
+		{
+			idQuarto = quarto;
+		}
 		
 		public Conta(){
 			mNumero = "0000";

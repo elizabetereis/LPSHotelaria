@@ -5,17 +5,12 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class PagamentoCartao implements FormaPagamento  {
-	
-	private String operadora;
+
 	private String nomeTitular;
 	private String numeroCartao;
 	private int codSeguranca;
 	private Date dataValidade;
 	protected String tipoCartao;
-	
-	public String getOperadora(){
-		return operadora;
-	}
 	
 	public String getNomeTitular(){
 		return nomeTitular;

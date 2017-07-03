@@ -7,9 +7,20 @@ public class Produto {
 	private int mId;
 	private String mDescricao;
 	private double mPreco;
+	private boolean mDisponibilidade;
 	
 	public Produto(){
 		
+	}
+	
+	public boolean getDisponibilidade()
+	{
+		return mDisponibilidade;
+	}
+	
+	public void setDisponibilidade(boolean disp)
+	{
+		mDisponibilidade = disp;
 	}
 	
 	public int getId(){
