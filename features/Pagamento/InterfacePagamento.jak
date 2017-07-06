@@ -1,3 +1,10 @@
+
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * TODO description
  */
@@ -73,11 +80,11 @@ public class InterfacePagamento extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         label1.setText("Pagamento");
 
-        label2.setText("Identificação:");
+        label2.setText("Identificaï¿½ï¿½o:");
 
         vlr_total_t.setText("Valor Total da Conta:");
 
-        label4.setText("Descrição:");
+        label4.setText("Descriï¿½ï¿½o:");
 
         label5.setText("Data:");
 
@@ -124,7 +131,7 @@ public class InterfacePagamento extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(cartao);
-        cartao.setText("Cartão");
+        cartao.setText("Cartï¿½o");
         cartao.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cartaoItemStateChanged(evt);
@@ -167,7 +174,7 @@ public class InterfacePagamento extends javax.swing.JFrame {
         Total_descontos_t.setText("Valor Total Com Desconto:");
 
         buttonGroup2.add(debito);
-        debito.setText("Débito");
+        debito.setText("Dï¿½bito");
         debito.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 debitoItemStateChanged(evt);
@@ -180,7 +187,7 @@ public class InterfacePagamento extends javax.swing.JFrame {
         });
 
         buttonGroup2.add(credito);
-        credito.setText("Crédito");
+        credito.setText("Crï¿½dito");
         credito.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 creditoItemStateChanged(evt);
@@ -197,13 +204,13 @@ public class InterfacePagamento extends javax.swing.JFrame {
 
         titular_t.setText("Nome do Titular:");
 
-        numCartao_t.setText("Número do Cartão:");
+        numCartao_t.setText("Nï¿½mero do Cartï¿½o:");
 
         operadora_t.setText("Operadora:");
 
         validade_t.setText("Data de Validade:");
 
-        CodSeg_t.setText("Código de Segurança:");
+        CodSeg_t.setText("Cï¿½digo de Seguranï¿½a:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -514,7 +521,73 @@ public class InterfacePagamento extends javax.swing.JFrame {
     }                                        
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
+        System.out.println("Pagando");
+        String identificacao = textField6.getText();
+        String descricao = textField2.getText();
+        String dataStr = textField3.getText();
+        
+        double valorPago = Double.parseDouble(this.vlr_pago.getText());
+        double valorConta = Double.parseDouble(this.vlr_total.getText());
+        double desconto = Double.parseDouble(this.desconto.getText());
+        double valorTotal = Double.parseDouble(this.Total_descontos.getText());
+        
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	    java.sql.Date data;
+        
+	    FormaPagamento fp;
+	    
+        try {
+            data = new java.sql.Date(format.parse(dataStr).getTime());
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastrarClienteView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(cartao.isSelected())
+        {
+        	String titular = this.titular.getText();
+        	String numeroCartao = this.numCartao.getText();
+        	int codigoseguranca = Integer.parseInt(this.CodSeg.getText());
+        	String dataStrValidade = this.validade.getText();
+        	java.sql.Date dataValidade;
+        	
+            try {
+            	dataValidade = new java.sql.Date(format.parse(dataStrValidade).getTime());
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastrarClienteView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+        	if(credito.isSelected())
+        	{
+        		int parcelas = Integer.parseInt(this.qtd_parcelas.getText());
+        		double valorParcela = Double.parseDouble(this.vlr_pacelas.getText());
+        		
+        		fp = new PagamentoCartao(titular, numeroCartao, codigoseguranca, dataValidade, 
+        				ETipoCartao.CREDITO, parcelas, valorParcela);
+        	}
+        	else
+        	{
+        		fp = new PagamentoCartao(titular, numeroCartao, codigoseguranca, dataValidade, 
+        				ETipoCartao.DEBITO);
+        	}
+        	
+        	
+
+    	}
+        else if(dinheiro.isSelected())
+        {
+        	double troco = Double.parseDouble(this.troco.getText());
+        	fp = new PagamentoDinheiro(troco);
+        }
+        else
+        {
+        	fp = new PagamentoBoleto();
+        }
+        	
+        Pagamento p = new Pagamento(data, valorConta, desconto, valorPago, 
+    			descricao, fp);
+        
+        
     }                                              
 
     /**

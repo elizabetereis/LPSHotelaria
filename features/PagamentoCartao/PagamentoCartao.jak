@@ -13,6 +13,20 @@ public class PagamentoCartao implements FormaPagamento  {
 	private Date dataValidade;
 	protected String tipoCartao;
 	
+	public PagamentoCartao()
+	{
+		
+	}
+	
+	public PagamentoCartao(String titular, String numCartao, int codSeg, Date validade, String tipoCartao)
+	{
+		this.nomeTitular = titular;
+		this.numeroCartao = numCartao;
+		this.codSeguranca = codSeg;
+		this.dataValidade = validade;
+		this.tipoCartao = tipoCartao;
+	}
+	
 	public String getOperadora(){
 		return operadora;
 	}

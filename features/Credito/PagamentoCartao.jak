@@ -7,13 +7,20 @@ import java.util.Scanner;
 public refines class PagamentoCartao {
 	
 	private int qtdParcela;
-	private float valorParcela;
+	private double valorParcela;
+	
+	public PagamentoCartao(String titular, String numCartao, int codSeg, Date validade, String tipoCartao, int qtdParcela, double vParcela)
+	{
+		super(titular, numCartao, codSeg, validade, tipoCartao);
+		this.qtdParcela = qtdParcela;
+		this.valorParcela = vParcela;
+	}
 	
 	public int getQtdParcela(){
 		return qtdParcela;
 	}
 	
-	public float getValorParcela(){
+	public double getValorParcela(){
 		return valorParcela;
 	}
 	

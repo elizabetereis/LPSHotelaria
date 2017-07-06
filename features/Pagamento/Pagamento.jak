@@ -6,16 +6,28 @@ import java.util.Date;
 public class Pagamento {
 
 	private int idPagamento; 
-	private float valorTotal; 
-	private float valorPago;
-	private float valorCobrado;
-	private float desconto;
+	private double valorTotal; 
+	private double valorPago;
+	private double valorCobrado;
+	private double desconto;
 	private Date dataPagamento;
 	private String descricao;
 	private FormaPagamento formaPagamento;
 	private ComprovanteFiscal comprovanteFiscal;
 	
 	public Pagamento(){
+	}
+	
+	public Pagamento(Date dataPagamento, double valorTotal, double desconto, double valorPago, 
+			String descricao, FormaPagamento formaPagamento) {
+		
+		this.dataPagamento = dataPagamento;
+		this.valorTotal = valorTotal;
+		this.desconto = desconto;
+		this.valorPago = valorPago;
+		this.descricao = descricao;
+		this.formaPagamento = formaPagamento;
+			
 	}
 		
 	public FormaPagamento getFormaPagamento(){
@@ -34,19 +46,19 @@ public class Pagamento {
 		return idPagamento;
 	}
 
-	public float getValorTotal() {
+	public double getValorTotal() {
 		return valorTotal;
 	}
 	
-	public float getValorPago() {
+	public double getValorPago() {
 		return valorPago;
 	}
 	
-	public float getValorCobrado(){
+	public double getValorCobrado(){
 		return valorCobrado;
 	}
 	
-	public float getDesconto() {
+	public double getDesconto() {
 		return desconto;
 	}
 	
@@ -67,34 +79,7 @@ public class Pagamento {
 		this.valorCobrado = this.valorTotal - (this.valorTotal * this.desconto/100);
 	}
 	
-	public Pagamento(Date dataPagamento, float valorTotal, float desconto, float valorPago,
-			FormaPagamento formaPagamento, String descricao, ComprovanteFiscal comprovanteFiscal) {
-		
-		try{
-		
-			this.dataPagamento = dataPagamento;
-			this.valorTotal = valorTotal;
-			this.desconto = desconto;
-			this.valorPago = valorPago;
-			this.formaPagamento = formaPagamento;
-			this.descricao = descricao;
-			this.comprovanteFiscal = comprovanteFiscal;
-			
-			calcularDesconto();
-			
-			formaPagamento.pagar(valorPago, this.valorCobrado);
-			
-			System.out.println("pagamento efetuado com sucesso.");
-			comprovanteFiscal.gerarComprovante(comprovanteFiscal.getTipoComprovante(), 
-					dataPagamento, valorCobrado, valorPago);
-			print();
-		}
-		catch(Exception e){
-			System.out.println("Nao foi possivel efetuar o pagamento."); 
-			System.out.println("Error: "+e.getMessage());
-		}
-		
-	}
+
 	
 	//Metodo para imprimir os dados do pagamento
 	public void print(){

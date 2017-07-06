@@ -3,9 +3,14 @@
  */
 public class PagamentoDinheiro implements FormaPagamento {
 
-	private float troco;
+	private double troco;
 		
-	public float getTroco() {
+	public PagamentoDinheiro(double troco)
+	{
+		this.troco = troco;
+	}
+	
+	public double getTroco() {
 		return troco;
 	}
 	
@@ -13,7 +18,7 @@ public class PagamentoDinheiro implements FormaPagamento {
 		return "Dinheiro";
 	}
 
-	public void pagar(float valorPago, float valorCobrado){ 
+	public void pagar(double valorPago, double valorCobrado){ 
 		
 		if(valorPago<valorCobrado)
 			throw new java.lang.RuntimeException("Valor Pago menor que o cobrado"); 
