@@ -562,13 +562,13 @@ public class InterfacePagamento extends javax.swing.JFrame {
         		int parcelas = Integer.parseInt(this.qtd_parcelas.getText());
         		double valorParcela = Double.parseDouble(this.vlr_pacelas.getText());
         		
-        		fp = new PagamentoCartao(titular, numeroCartao, codigoseguranca, dataValidade, 
-        				ETipoCartao.CREDITO, parcelas, valorParcela);
+        		/*fp = new PagamentoCartao(titular, numeroCartao, codigoseguranca, dataValidade, 
+        				ETipoCartao.CREDITO, parcelas, valorParcela);*/
         	}
         	else
         	{
-        		fp = new PagamentoCartao(titular, numeroCartao, codigoseguranca, dataValidade, 
-        				ETipoCartao.DEBITO);
+        		/*fp = new PagamentoCartao(titular, numeroCartao, codigoseguranca, dataValidade, 
+        				ETipoCartao.DEBITO);*/
         	}
         	
         	
@@ -577,15 +577,15 @@ public class InterfacePagamento extends javax.swing.JFrame {
         else if(dinheiro.isSelected())
         {
         	double troco = Double.parseDouble(this.troco.getText());
-        	fp = new PagamentoDinheiro(troco);
+        	/*fp = new PagamentoDinheiro(troco);*/
         }
         else
         {
-        	fp = new PagamentoBoleto();
+        	/*fp = new PagamentoBoleto();*/
         }
         	
-        Pagamento p = new Pagamento(data, valorConta, desconto, valorPago, 
-    			descricao, fp);
+        /*Pagamento p = new Pagamento(data, valorConta, desconto, valorPago, 
+    			descricao, fp);*/
         
         
     }                                              
