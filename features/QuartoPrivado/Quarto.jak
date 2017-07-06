@@ -6,10 +6,11 @@ public refines class Quarto {
 	private int numeroCamasDouble;
 	private int numeroCamasSingle;
 	
-	public Quarto(int numeroCamasDouble, int numeroCamasSingle) {
+	public Quarto(int numeroDoQuarto, int numeroCamasDouble, int numeroCamasSingle) {
 		
 		this.numeroCamasDouble = numeroCamasDouble;
 		this.numeroCamasSingle = numeroCamasSingle;
+		this.numeroDoQuarto = numeroDoQuarto;
 	}
 	
 	public int getNumeroCamasDouble() {
@@ -25,4 +26,8 @@ public refines class Quarto {
 		this.numeroCamasSingle = numeroCamasSingle;
 	}
 	
+	public void cadastrar(){
+		Super().cadastrar();
+		System.out.println("quarto privado");
+	}
 }

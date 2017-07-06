@@ -7,6 +7,10 @@ public class Quarto {
 	protected int numeroDeAcomodacoes;
 	protected boolean arCondicionado;
 
+	public Quarto()
+	{
+		
+	}
 	
 	public Quarto(int numeroDoQuarto, int numeroDeAcomodacoes, boolean arCondicionado,
 			int numeroCamasDouble, int numeroCamasSingle) {
@@ -35,7 +39,7 @@ public class Quarto {
 	}
 	
 	public void cadastrar(){
-		this.numeroDoQuarto = 0;
+		
 	}
 
 }

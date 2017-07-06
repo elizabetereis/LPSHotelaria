@@ -150,7 +150,22 @@ public class telaQuarto extends javax.swing.JFrame {
     }                                             
 
     private void cadastrarQuartoActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
+        System.out.println("cadastrando");
+        int numero = Integer.parseInt(this.numQuarto.getText());
+    	int single = Integer.parseInt(this.qtdCamaSingle.getText());
+    	int dupla = Integer.parseInt(this.qtdCamaDouble.getText());
+    	
+        if(this.quartoPrivado.isSelected())
+        {
+        	Quarto quarto = new Quarto(numero, single, dupla);
+        	quarto.cadastrar();
+        }
+        else if(this.quartoPublico.isSelected())
+        {
+        	int livres = Integer.parseInt(this.qtdCamasLivres.getText());
+        	Quarto quarto = new Quarto(numero, livres, true, dupla, single);
+        	quarto.cadastrar();
+        }
     }                                               
 
     private void qtdCamaDoubleActionPerformed(java.awt.event.ActionEvent evt) {                                              

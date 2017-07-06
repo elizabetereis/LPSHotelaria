@@ -34,7 +34,13 @@ public class Lote {
 	}
 	
 	public void cadastrar(){
-		this.numeroLote = 1;
+		//this.numeroLote = 1;
+		System.out.println(this.toString());
+	}
+	
+	public String toString() {
+		return "Lote: { 'numero: " + Integer.toString(numeroLote) + "' espaco: ' " + 
+	Double.toString(espaco) + "' com_barraca: ' " + Boolean.toString(barraca) + "'}";
 	}
 
 }
